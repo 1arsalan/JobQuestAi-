@@ -1,0 +1,163 @@
+/* =========================
+JOBS PAGE
+========================= */
+
+.jobs-stats{
+margin-bottom:25px;
+}
+
+.jobs-search{
+margin-bottom:25px;
+}
+
+.jobs-search input{
+width:100%;
+padding:14px 18px;
+border:1px solid #dbe3f0;
+border-radius:14px;
+outline:none;
+font-size:15px;
+background:white;
+box-shadow:0 4px 10px rgba(0,0,0,.03);
+}
+
+.jobs-search input:focus{
+border-color:#2563eb;
+}
+
+/* =========================
+ADD JOB FORM
+========================= */
+
+#jobForm{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:15px;
+}
+
+#jobForm input{
+padding:14px;
+border:1px solid #dbe3f0;
+border-radius:12px;
+outline:none;
+}
+
+.add-job-btn{
+background:#2563eb;
+color:white;
+border:none;
+padding:14px;
+border-radius:12px;
+cursor:pointer;
+font-weight:600;
+}
+
+.add-job-btn:hover
+
+/* =========================
+TABLE
+========================= */
+
+.table-wrapper{
+overflow-x:auto;
+-webkit-overflow-scrolling:touch;
+}
+
+.jobs-table{
+width:100%;
+min-width:700px;
+border-collapse:collapse;
+background:white;
+}
+
+.jobs-table thead{
+background:#f8fafc;
+}
+
+.jobs-table th{
+padding:16px;
+text-align:left;
+font-size:14px;
+font-weight:600;
+color:#475569;
+border-bottom:1px solid #e2e8f0;
+}
+
+.jobs-table td{
+padding:16px;
+border-bottom:1px solid #e2e8f0;
+font-size:14px;
+}
+
+.jobs-table tr:hover{
+background:#f8fafc;
+}
+
+/* =========================
+BUTTONS
+========================= */
+
+.delete-job-btn{
+background:#ef4444;
+color:white;
+border:none;
+padding:8px 14px;
+border-radius:10px;
+cursor:pointer;
+font-size:13px;
+font-weight:600;
+}
+
+.delete-job-btn:hover{
+background:#dc2626;
+}
+
+/* =========================
+RESPONSIVE
+========================= */
+
+@media(max-width:900px){
+
+#jobForm{
+grid-template-columns:1fr;
+}
+
+.jobs-table th,
+.jobs-table td{
+padding:12px;
+font-size:13px;
+}
+
+}
+
+@media(max-width:600px){
+
+.jobs-search input{
+padding:12px 14px;
+font-size:14px;
+}
+
+.jobs-table{
+min-width:700px;
+}
+
+.table-wrapper{
+overflow-x:auto;
+}
+
+}
+
+.job-description{
+width:100%;
+padding:14px;
+border:1px solid #dbe3f0;
+border-radius:12px;
+outline:none;
+resize:none;
+font-family:inherit;
+font-size:14px;
+}
+
+.job-description::placeholder{
+color:#94a3b8;
+}

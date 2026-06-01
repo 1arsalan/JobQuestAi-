@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>
+JobQuestAI - Jobs Management
+</title>
+
+<link
+rel="stylesheet"
+href="admin.css">
+
+<link
+rel="stylesheet"
+href="jobs.css">
+
+<link
+rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="admin-layout">
+
+```
+<!-- SIDEBAR -->
+
+<aside class="sidebar">
+
+    <button id="closeSidebar" class="close-sidebar">
+
+        <i class="fa-solid fa-xmark"></i>
+
+    </button>
+
+    <div class="logo-section">
+
+        <div class="logo-icon">
+
+            <i class="fa-solid fa-shield-halved"></i>
+
+        </div>
+
+        <div>
+
+            <h2>JobQuestAI</h2>
+
+            <p>Admin Command Center</p>
+
+        </div>
+
+    </div>
+
+    <nav class="sidebar-menu">
+
+        <a href="admin.html">
+
+            <i class="fa-solid fa-chart-line"></i>
+
+            Dashboard
+
+        </a>
+
+        <a href="users.html">
+
+            <i class="fa-solid fa-users"></i>
+
+            Users
+
+        </a>
+
+        <a
+        href="jobs.html"
+        class="menu-active">
+
+            <i class="fa-solid fa-briefcase"></i>
+
+            Jobs
+
+        </a>
+
+        <a href="tests.html">
+
+            <i class="fa-solid fa-file-circle-check"></i>
+
+            Tests
+
+        </a>
+
+        <a href="analytics.html">
+
+            <i class="fa-solid fa-chart-pie"></i>
+
+            Analytics
+
+        </a>
+
+        <a href="settings.html">
+
+            <i class="fa-solid fa-gear"></i>
+
+            Settings
+
+        </a>
+
+    </nav>
+
+    <div class="admin-user">
+
+        <div class="admin-avatar">
+            A
+        </div>
+
+        <div>
+
+            <h4>Arsalan</h4>
+
+            <span>Super Admin</span>
+
+        </div>
+
+    </div>
+
+</aside>
+
+<!-- MAIN -->
+
+<main class="main-content">
+
+    <!-- TOPBAR -->
+
+    <header class="topbar">
+
+        <button id="menuBtn" class="menu-btn">
+
+            <i class="fa-solid fa-bars"></i>
+
+        </button>
+
+        <div>
+
+            <h1>
+                Jobs Management
+            </h1>
+
+            <p>
+                Manage all posted jobs
+            </p>
+
+        </div>
+
+        <div class="topbar-actions">
+
+            <a
+            href="admin.html"
+            class="home-btn">
+
+                <i class="fa-solid fa-house"></i>
+
+                Dashboard
+
+            </a>
+
+            <button
+            id="logoutBtn"
+            class="logout-btn">
+
+                Logout
+
+            </button>
+
+        </div>
+
+    </header>
+
+    <!-- JOB STATS -->
+
+    <section class="jobs-stats">
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+
+                <i class="fa-solid fa-briefcase"></i>
+
+            </div>
+
+            <h3>Total Jobs</h3>
+
+            <span id="jobsCount">
+
+                0
+
+            </span>
+
+        </div>
+
+    </section>
+
+    <!-- SEARCH -->
+
+    <section class="jobs-search">
+
+        <input
+        type="text"
+        id="searchJob"
+        placeholder="Search Jobs...">
+
+    </section>
+
+    <!-- ADD JOB -->
+
+    <section class="panel">
+
+        <h2>Add New Job</h2>
+
+        <form id="jobForm">
+
+            <input
+            type="text"
+            id="jobTitle"
+            placeholder="Job Title"
+            required>
+
+            <input
+            type="text"
+            id="jobCompany"
+            placeholder="Company Name"
+            required>
+
+            <input
+            type="text"
+            id="jobLocation"
+            placeholder="Location"
+            required>
+            
+            <input
+            type="text"
+            id="jobSalary"
+            placeholder="Salary"
+            required>
+
+            <input
+            type="text"
+            id="jobCategory"
+            placeholder="Category"
+            required>
+
+            <input
+            type="text"
+            id="jobBadge"
+            placeholder="Badge"
+            required>
+
+            <input
+            type="url"
+            id="jobApplyLink"
+            placeholder="Apply Link"
+            required>
+
+            <textarea
+            id="jobDescription"
+            placeholder="Job Description"
+            rows="3"
+            required
+            autocomplete="off">
+            </textarea>
+
+            <button
+            type="submit"
+            class="add-job-btn">
+
+                Publish Job
+
+            </button>
+
+        </form>
+
+    </section>
+
+    <!-- JOBS TABLE -->
+
+    <section class="panel">
+
+        <h2>All Jobs</h2>
+
+        <div class="table-wrapper">
+
+            <table class="jobs-table">
+
+                <thead>
+
+                    <tr>
+
+                        <th>Title</th>
+
+                        <th>Company</th>
+
+                        <th>Location</th>
+
+                        <th>Action</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody id="jobsTableBody">
+
+                    <tr>
+
+                        <td colspan="4">
+
+                            Loading Jobs...
+
+                        </td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+</main>
+```
+
+</div>
+
+<script
+type="module"
+src="jobs.js"></script>
+
+</body>
+
+</html>

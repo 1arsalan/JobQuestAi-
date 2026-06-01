@@ -1,2 +1,6 @@
-# JobQuestAi-
-AI-powered career and exam preparation web platform for Pakistani students and job seekers — built with HTML, CSS, Bootstrap, JS, Node.js, MySQL, and Gemini AI. 
+Project Name: JobQuestAI
+Description: AI-based test system for competitive exams
+Features:
+- AI Test Generation
+- Dashboard
+- Job Listings

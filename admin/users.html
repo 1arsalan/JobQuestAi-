@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>
+        JobQuestAI - Users Management
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="admin.css">
+
+    <link
+        rel="stylesheet"
+        href="users.css">
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+</head>
+
+<body>
+
+    <div class="admin-layout">
+
+        <!-- SIDEBAR -->
+
+        <aside class="sidebar">
+
+            <button id="closeSidebar" class="close-sidebar">
+
+                <i class="fa-solid fa-xmark"></i>
+
+            </button>
+            <div class="logo-section">
+
+                <div class="logo-icon">
+
+                    <i class="fa-solid fa-shield-halved"></i>
+
+                </div>
+
+                <div>
+
+                    <h2>JobQuestAI</h2>
+
+                    <p>Admin Command Center</p>
+
+                </div>
+
+            </div>
+
+            <nav class="sidebar-menu">
+
+                <a href="admin.html">
+
+                    <i class="fa-solid fa-chart-line"></i>
+
+                    <span>Dashboard</span>
+
+                </a>
+
+                <a
+                    href="users.html"
+                    class="menu-active">
+
+                    <i class="fa-solid fa-users"></i>
+
+                    <span>Users</span>
+
+                </a>
+
+                <a href="jobs.html">
+
+                    <i class="fa-solid fa-briefcase"></i>
+
+                    <span>Jobs</span>
+
+                </a>
+
+                <a href="tests.html">
+
+                    <i class="fa-solid fa-file-circle-check"></i>
+
+                    <span>Tests</span>
+
+                </a>
+
+                <a href="analytics.html">
+
+                    <i class="fa-solid fa-chart-pie"></i>
+
+                    <span>Analytics</span>
+
+                </a>
+
+                <a href="settings.html">
+
+                    <i class="fa-solid fa-gear"></i>
+
+                    <span>Settings</span>
+
+                </a>
+
+            </nav>
+
+            <div class="admin-user">
+
+                <div class="admin-avatar">
+
+                    A
+
+                </div>
+
+                <div>
+
+                    <h4>Arsalan</h4>
+
+                    <span>Super Admin</span>
+
+                </div>
+
+            </div>
+
+        </aside>
+
+        <!-- MAIN -->
+
+        <main class="main-content">
+
+            <!-- TOPBAR -->
+
+            <header class="topbar">
+
+                <button id="menuBtn" class="menu-btn">
+
+                    <i class="fa-solid fa-bars"></i>
+
+                </button>
+
+                <div>
+
+                    <h1>
+                        Users Management
+                    </h1>
+
+                    <p>
+                        Manage all registered users
+                    </p>
+
+                </div>
+
+                <div class="topbar-actions">
+
+                    <a
+                        href="admin.html"
+                        class="home-btn">
+
+                        <i class="fa-solid fa-house"></i>
+
+                        Dashboard
+
+                    </a>
+
+                    <button
+                        id="logoutBtn"
+                        class="logout-btn">
+
+                        Logout
+
+                    </button>
+
+                </div>
+
+            </header>
+
+            <!-- USERS STATS -->
+
+            <section class="users-stats">
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+
+                        <i class="fa-solid fa-users"></i>
+
+                    </div>
+
+                    <h3>Total Users</h3>
+
+                    <span id="usersCount">
+
+                        0
+
+                    </span>
+
+                </div>
+
+            </section>
+
+            <!-- SEARCH -->
+
+            <section class="users-search">
+
+                <input
+                    type="text"
+                    id="searchUser"
+                    placeholder="Search by name or email...">
+
+            </section>
+
+            <!-- USERS TABLE -->
+
+            <section class="panel">
+
+                <h2>
+                    Registered Users
+                </h2>
+
+                <div class="table-wrapper">
+
+                    <table class="users-table">
+
+                        <thead>
+
+                            <tr>
+
+                                <th>Name</th>
+
+                                <th>Email</th>
+
+                                <th>Actions</th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody id="usersTableBody">
+
+                            <tr>
+
+                                <td colspan="3">
+
+                                    Loading Users...
+
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+    <script
+        type="module"
+        src="users.js"></script>
+
+</body>
+
+</html>

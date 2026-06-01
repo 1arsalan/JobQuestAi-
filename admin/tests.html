@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>
+JobQuestAI - Tests Management
+</title>
+
+<link
+rel="stylesheet"
+href="admin.css">
+
+<link
+rel="stylesheet"
+href="tests.css">
+
+<link
+rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="admin-layout">
+
+```
+<!-- SIDEBAR -->
+
+<aside class="sidebar">
+
+    <button id="closeSidebar" class="close-sidebar">
+
+        <i class="fa-solid fa-xmark"></i>
+
+    </button>
+
+    <div class="logo-section">
+
+        <div class="logo-icon">
+
+            <i class="fa-solid fa-shield-halved"></i>
+
+        </div>
+
+        <div>
+
+            <h2>JobQuestAI</h2>
+
+            <p>Admin Command Center</p>
+
+        </div>
+
+    </div>
+
+    <nav class="sidebar-menu">
+
+        <a href="admin.html">
+
+            <i class="fa-solid fa-chart-line"></i>
+
+            Dashboard
+
+        </a>
+
+        <a href="users.html">
+
+            <i class="fa-solid fa-users"></i>
+
+            Users
+
+        </a>
+
+        <a href="jobs.html">
+
+            <i class="fa-solid fa-briefcase"></i>
+
+            Jobs
+
+        </a>
+
+        <a
+        href="tests.html"
+        class="menu-active">
+
+            <i class="fa-solid fa-file-circle-check"></i>
+
+            Tests
+
+        </a>
+
+        <a href="analytics.html">
+
+            <i class="fa-solid fa-chart-pie"></i>
+
+            Analytics
+
+        </a>
+
+        <a href="settings.html">
+
+            <i class="fa-solid fa-gear"></i>
+
+            Settings
+
+        </a>
+
+    </nav>
+
+    <div class="admin-user">
+
+        <div class="admin-avatar">
+            A
+        </div>
+
+        <div>
+
+            <h4>Arsalan</h4>
+
+            <span>Super Admin</span>
+
+        </div>
+
+    </div>
+
+</aside>
+
+<!-- MAIN CONTENT -->
+
+<main class="main-content">
+
+    <!-- TOPBAR -->
+
+    <header class="topbar">
+
+        <button id="menuBtn" class="menu-btn">
+
+            <i class="fa-solid fa-bars"></i>
+
+        </button>
+
+        <div>
+
+            <h1>
+                Tests Management
+            </h1>
+
+            <p>
+                Manage aptitude and assessment tests
+            </p>
+
+        </div>
+
+        <div class="topbar-actions">
+
+            <a
+            href="admin.html"
+            class="home-btn">
+
+                <i class="fa-solid fa-house"></i>
+
+                Dashboard
+
+            </a>
+
+            <button
+            id="logoutBtn"
+            class="logout-btn">
+
+                Logout
+
+            </button>
+
+        </div>
+
+    </header>
+
+    <!-- STATS -->
+
+    <section class="tests-stats">
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+
+                <i class="fa-solid fa-file-circle-check"></i>
+
+            </div>
+
+            <h3>Total Tests</h3>
+
+            <span id="testsCount">
+
+                0
+
+            </span>
+
+        </div>
+
+    </section>
+
+    <!-- SEARCH -->
+
+    <section class="tests-search">
+
+        <input
+        type="text"
+        id="searchTest"
+        placeholder="Search Tests...">
+
+    </section>
+
+    <!-- ADD TEST -->
+
+    <section class="panel">
+
+        <h2>Add New Test</h2>
+
+        <form id="testForm">
+
+            <input
+            type="text"
+            id="testTitle"
+            placeholder="Test Title"
+            required>
+
+            <input
+            type="text"
+            id="testCategory"
+            placeholder="Category"
+            required>
+
+            <input
+            type="number"
+            id="totalQuestions"
+            placeholder="Total Questions"
+            required>
+
+            <input
+            type="number"
+            id="timeLimit"
+            placeholder="Time Limit (Minutes)"
+            required>
+
+            <select id="difficulty">
+
+                <option value="Easy">
+
+                    Easy
+
+                </option>
+
+                <option value="Medium">
+
+                    Medium
+
+                </option>
+
+                <option value="Hard">
+
+                    Hard
+
+                </option>
+
+            </select>
+
+            <button
+            type="submit"
+            class="add-test-btn">
+
+                Publish Test
+
+            </button>
+
+        </form>
+
+    </section>
+
+    <!-- TESTS TABLE -->
+
+    <section class="panel">
+
+        <h2>All Tests</h2>
+
+        <div class="table-wrapper">
+
+            <table class="tests-table">
+
+                <thead>
+
+                    <tr>
+
+                        <th>Title</th>
+
+                        <th>Category</th>
+
+                        <th>Questions</th>
+
+                        <th>Difficulty</th>
+
+                        <th>Action</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody id="testsTableBody">
+
+                    <tr>
+
+                        <td colspan="5">
+
+                            Loading Tests...
+
+                        </td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+</main>
+```
+
+</div>
+
+<script
+type="module"
+src="tests.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,154 @@
+/* =========================
+TESTS PAGE
+========================= */
+
+.tests-stats{
+margin-bottom:25px;
+}
+
+.tests-search{
+margin-bottom:25px;
+}
+
+.tests-search input{
+width:100%;
+padding:14px 18px;
+border:1px solid #dbe3f0;
+border-radius:14px;
+outline:none;
+font-size:15px;
+background:white;
+box-shadow:0 4px 10px rgba(0,0,0,.03);
+}
+
+.tests-search input:focus{
+border-color:#2563eb;
+}
+
+/* =========================
+ADD TEST FORM
+========================= */
+
+#testForm{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:20px;
+}
+
+#testForm input,
+#testForm select{
+padding:14px;
+border:1px solid #dbe3f0;
+border-radius:12px;
+outline:none;
+background:white;
+}
+
+.add-test-btn{
+background:#2563eb;
+color:white;
+border:none;
+padding:14px 20px;
+border-radius:12px;
+cursor:pointer;
+font-weight:600;
+width:100%;
+height:52px;
+}
+
+.add-test-btn:hover{
+background:#1d4ed8;
+}
+
+/* =========================
+TABLE
+========================= */
+
+.table-wrapper{
+overflow-x:auto;
+-webkit-overflow-scrolling:touch;
+}
+
+.tests-table{
+width:100%;
+min-width:800px;
+border-collapse:collapse;
+background:white;
+}
+
+.tests-table thead{
+background:#f8fafc;
+}
+
+.tests-table th{
+padding:16px;
+text-align:left;
+font-size:14px;
+font-weight:600;
+color:#475569;
+border-bottom:1px solid #e2e8f0;
+}
+
+.tests-table td{
+padding:16px;
+border-bottom:1px solid #e2e8f0;
+font-size:14px;
+}
+
+.tests-table tr:hover{
+background:#f8fafc;
+}
+
+/* =========================
+BUTTONS
+========================= */
+
+.delete-test-btn{
+background:#ef4444;
+color:white;
+border:none;
+padding:8px 14px;
+border-radius:10px;
+cursor:pointer;
+font-size:13px;
+font-weight:600;
+}
+
+.delete-test-btn:hover{
+background:#dc2626;
+}
+
+/* =========================
+RESPONSIVE
+========================= */
+
+@media(max-width:900px){
+
+#testForm{
+grid-template-columns:1fr;
+}
+
+.tests-table th,
+.tests-table td{
+padding:12px;
+font-size:13px;
+}
+
+}
+
+@media(max-width:600px){
+
+.tests-search input{
+padding:12px 14px;
+font-size:14px;
+}
+
+.tests-table{
+min-width:800px;
+}
+
+.table-wrapper{
+overflow-x:auto;
+}
+
+}

@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JobQuestAI</title>
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar  navbar-custom">   
+    <div class="container d-flex justify-content-between align-items-center py-2">
+        <!-- Left side -->
+         <div class="d-flex align-items-center gap-2">
+            <i class="bi bi-mortarboard-fill logo-icon"></i>
+
+            <div>
+                <h1 class="logo-title ">JobQuestAI</h1>
+                <p class="logo-subtitle">AI-Powered Career & Exam Preparation</p>
+            </div>
+
+         </div>
+        <!-- Right side -->
+        
+
+         <div id="navAuthArea">
+            <div class="theme-toggle-wrapper">
+
+              <span id="themeText">
+
+                🌙 Dark
+
+              </span>
+
+              <label class="theme-switch">
+
+             <input
+            type="checkbox"
+            id="themeToggle">
+
+            <span class="theme-slider">
+
+            </span>
+
+            </label>
+
+          </div>
+            <a
+              href="admin/admin.html"
+              class="login-btn"
+              id="adminPanelBtn"
+              style="display:none;">
+
+                <i class="bi bi-shield-lock-fill"></i>
+
+                Admin Panel
+
+              </a>
+            <button class="login-btn" onclick="openAuth()">
+              <i class="bi bi-box-arrow-in-right"></i>
+               Login / Register
+            </button>
+         </div>
+    </div>
+
+</nav>
+
+<!-- HERO -->
+<div class="hero-section text-center">
+    <h1 class="hero-title">
+        Welcome to <span class="text-primary">JobQuestAI</span>
+    </h1>
+    <p class="hero-subtitle">
+        Your AI-Powered Career and Exam Preparation Platform - One centralized solution for jobs, exams, eligibility checking, and intelligent test preparation.
+    </p>
+</div>
+
+<!-- MAIN 3 BOXES -->
+<section class="quick-actions-section">
+
+  <div class="quick-actions-box">
+
+    <div class="qa-header">
+      <h3>Quick Actions</h3>
+      <p>Get started with these essential features</p>
+    </div>
+
+    <div class="qa-cards">
+
+      <div class="qa-card" onclick="goToPage('pages/eligibility.html')">
+        <i class="bi bi-graph-up-arrow"></i>
+        <p>Check Eligibility</p>
+      </div>
+
+      <div class="qa-card" onclick="goToPage('pages/test.html')">
+        <i class="bi bi-clipboard-check"></i>
+        <p>Take Practice Test</p>
+      </div>
+
+      <div class="qa-card" onclick="goToPage('pages/dashboard.html')">
+        <i class="bi bi-grid-3x3-gap-fill"></i>
+        <p>View Dashboard</p>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- 4 CARDS -->
+ <section class="feature-grid">
+
+  <!-- Card 1 -->
+  <div class="f-card blue" onclick="goToPage('pages/jobs.html')">
+    <i class="bi bi-briefcase"></i>
+    <h3>Open Vacancies</h3>
+    <p>Explore latest government and private job openings across Pakistan with direct apply links</p>
+    <span class="badge">Live Jobs</span>
+  </div>
+
+  <!-- Card 2 -->
+  <div class="f-card green" onclick="goToPage('pages/exams.html')">
+    <i class="bi bi-check2-square"></i>
+    <h3>Competitive Exams</h3>
+    <p>Prepare for CSS, PMS, PPSC, FPSC and other exams with detailed syllabus, test pattern, and resources</p>
+    <span class="badge">Exam Details</span>
+  </div>
+
+  <!-- Card 3 -->
+  <div class="f-card purple" onclick="goToPage('pages/notes.html')">
+    <i class="bi bi-mortarboard"></i>
+    <h3>Notes & Past Papers</h3>
+    <p>Access past papers, subject-wise notes, PDFs, and study material for exams and jobs</p>
+    <span class="badge">Free Resources</span>
+  </div>
+
+  <!-- Card 4 -->
+  <div class="f-card orange" onclick="goToPage('pages/test.html')">
+    <i class="bi bi-book"></i>
+    <h3>AI Practice Tests</h3>
+    <p>Generate custom MCQ tests from any subject or book with instant results and ranking</p>
+    <span class="badge">Smart AI Test</span>
+  </div>
+
+</section>
+
+
+<!-- Footer for contact details -->
+ <section class="about-section">
+
+  <div class="about-container">
+
+    <div class="about-text">
+      <h2>About JobQuestAI</h2>
+      <p>
+        JobQuestAI is an AI-powered platform designed to help students and job seekers find the best opportunities.
+        From job listings to exam preparation and eligibility checking, everything is available in one place.
+      </p>
+
+      <p>
+        Our goal is to simplify your career journey with smart tools, personalized guidance, and modern technology.
+      </p>
+      <h2>Contact Us</h2>
+      <p>Email: arsalanalisargana@gmail.com</p>
+      <p>Phone: 03452915644</p>
+    </div>
+
+  </div>
+
+</section>
+<!-- LOGIN MODAL -->
+<!-- LOGIN MODAL -->
+<div id="authModal" class="popup-overlay">
+
+  <div class="auth-modal">
+
+    <div class="auth-header">
+      <h3 id="authTitle">
+        Welcome to JobQuestAI
+      </h3>
+      <span onclick="closeAuth()">×</span>
+    </div>
+
+    <div class="auth-switch">
+
+      <div id="switchIndicator"></div>
+
+
+      <button
+      id="loginTab"
+      class="active-auth-tab"
+      onclick="switchToLogin()">
+
+        Login
+
+      </button>
+
+      <button
+      id="registerTab"
+      onclick="switchToSignup()">
+
+        Register
+
+      </button>
+
+    </div>
+
+    <div class="auth-form">
+
+  <div id="nameField" style="display:none;">
+
+    <label>Full Name</label>
+
+    <input
+    type="text"
+    id="name"
+    placeholder="Your Name">
+
+  </div>
+
+  <label>Email</label>
+
+  <input
+  type="email"
+  id="email"
+  placeholder="your@email.com">
+
+  <label>Password</label>
+
+  <input
+  type="password"
+  id="password"
+  placeholder="••••••••">
+
+  <div class="forgot-password">
+
+    <span onclick="forgotPassword()">
+
+      Forgot Password?
+
+    </span>
+
+  </div>
+  <button
+  type="button"
+  class="auth-btn"
+  id="authBtn">
+    Login 
+
+  </button>
+
+</div>
+
+  </div>
+
+</div>
+<script type="module"
+src="firebase.js"></script>
+<script src="script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
