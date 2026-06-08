@@ -1,21 +1,567 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eligibility Criteria</title>
-    <link rel="stylesheet" href="../style.css">
-    
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>
+        AI Career Assessment | JobQuestAI
+    </title>
+
+    <!-- Bootstrap Icons -->
+
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+    <!-- Main CSS -->
+
+    <link
+        rel="stylesheet"
+        href="../style.css">
+
+    <!-- Eligibility CSS -->
+
+    <link
+        rel="stylesheet"
+        href="eligibility.css">
+
 </head>
+
 <body>
-<div class="container py-5">
-  <h2>Check Eligibility</h2>
 
-  <input type="number" placeholder="Enter Age">
-  <input type="text" placeholder="Enter Qualification">
+    <!-- =========================
+         NAVBAR
+    ========================== -->
 
-  <button>Check</button>
-</div>
-<script src="../script.js"></script>
+    <div class="test-navbar">
+
+        <div class="nav-left">
+
+            <button
+                class="back-btn"
+                onclick="window.location.href='../index.html'">
+
+                <i class="bi bi-arrow-left"></i>
+
+            </button>
+
+            <div class="logo-area">
+
+                <i class="bi bi-mortarboard-fill"></i>
+
+                <div>
+
+                    <h2>
+                        JobQuestAI
+                    </h2>
+
+                    <p>
+                        AI Career Assessment Center
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <button
+            class="dashboard-btn-nav"
+            onclick="window.location.href='dashboard.html'">
+
+            <i class="bi bi-grid-fill"></i>
+
+            Dashboard
+
+        </button>
+
+    </div>
+
+    <!-- =========================
+         HERO
+    ========================== -->
+
+    <section class="assessment-hero">
+
+        <div class="hero-badge">
+
+            🚀 AI Powered Career Intelligence
+
+        </div>
+
+        <h1>
+
+            AI Career Assessment Center
+
+        </h1>
+
+        <p>
+
+            Analyze your eligibility,
+            evaluate your CV,
+            discover suitable jobs,
+            and receive professional
+            AI-powered career guidance.
+
+        </p>
+
+    </section>
+
+    <!-- =========================
+         SERVICE CARDS
+    ========================== -->
+
+    <section class="services-section">
+
+        <div class="service-card"
+            onclick="showEligibilitySection()">
+
+            <div class="service-icon">
+
+                🤖
+
+            </div>
+
+            <h2>
+
+                AI Eligibility Checker
+
+            </h2>
+
+            <p>
+
+                Check your eligibility
+                for government jobs,
+                private jobs,
+                exams and recruitment programs.
+
+            </p>
+
+            <button>
+
+                Start Eligibility Check
+
+            </button>
+
+        </div>
+
+        <div class="service-card"
+            onclick="showCvSection()">
+
+            <div class="service-icon">
+
+                📄
+
+            </div>
+
+            <h2>
+
+                AI CV Analyzer
+
+            </h2>
+
+            <p>
+
+                Upload your resume
+                and receive ATS score,
+                job matching analysis,
+                skill recommendations
+                and career guidance.
+
+            </p>
+
+            <button>
+
+                Analyze CV
+
+            </button>
+
+        </div>
+
+    </section>
+
+    <!-- =========================
+         ELIGIBILITY SECTION
+    ========================== -->
+
+    <section
+        id="eligibilitySection"
+        class="assessment-section"
+        style="display:none;">
+
+        <div class="section-header">
+
+            <h2>
+
+                AI Eligibility Checker
+
+            </h2>
+
+            <p>
+
+                Fill in your profile details
+
+            </p>
+
+        </div>
+
+        <form id="eligibilityForm">
+
+            <div class="form-grid">
+
+                <div class="form-group">
+
+                    <label>
+                        Full Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="fullName"
+                        required>
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>
+                        Age
+                    </label>
+
+                    <input
+                        type="number"
+                        id="age"
+                        required>
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>
+                        Gender
+                    </label>
+
+                    <select id="gender">
+
+                        <option>
+                            Male
+                        </option>
+
+                        <option>
+                            Female
+                        </option>
+
+                    </select>
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>
+                        Province
+                    </label>
+
+                    <select id="province">
+
+                        <option>
+                            Punjab
+                        </option>
+
+                        <option>
+                            Sindh
+                        </option>
+
+                        <option>
+                            KPK
+                        </option>
+
+                        <option>
+                            Balochistan
+                        </option>
+
+                        <option>
+                            AJK
+                        </option>
+
+                    </select>
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>
+                        Height
+                    </label>
+
+                    <input
+                        type="text"
+                        id="height">
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>
+                        Qualification
+                    </label>
+
+                    <select id="qualification">
+
+                        <option>
+                            Matric
+                        </option>
+
+                        <option>
+                            Intermediate
+                        </option>
+
+                        <option>
+                            Bachelor
+                        </option>
+
+                        <option>
+                            Master
+                        </option>
+
+                    </select>
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>
+                        Degree
+                    </label>
+
+                    <input
+                        type="text"
+                        id="degree">
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>
+                        Percentage / CGPA
+                    </label>
+
+                    <input
+                        type="text"
+                        id="percentage">
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>
+                        Experience (Years)
+                    </label>
+
+                    <input
+                        type="number"
+                        id="experience">
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>
+                        Computer Skills
+                    </label>
+
+                    <select id="computerSkills">
+
+                        <option>
+                            Yes
+                        </option>
+
+                        <option>
+                            No
+                        </option>
+
+                    </select>
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>
+                        Driving License
+                    </label>
+
+                    <select id="drivingLicense">
+
+                        <option>
+                            Yes
+                        </option>
+
+                        <option>
+                            No
+                        </option>
+
+                    </select>
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>
+                        Target Job
+                    </label>
+
+                    <select id="targetJob">
+
+                    <option value="">
+                        Select Target Job
+                    </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+            <button
+                type="submit"
+                class="action-btn">
+
+                Analyze Eligibility
+
+            </button>
+
+        </form>
+
+    </section>
+
+    <!-- =========================
+         CV ANALYZER SECTION
+    ========================== -->
+
+    <section
+        id="cvSection"
+        class="assessment-section"
+        style="display:none;">
+
+        <div class="section-header">
+
+            <h2>
+
+                AI CV Analyzer
+
+            </h2>
+
+            <p>
+
+                Upload your resume for analysis
+
+            </p>
+
+        </div>
+
+        <div class="cv-upload-box">
+
+            <i class="bi bi-cloud-upload"></i>
+
+            <h3>
+
+                Upload Resume
+
+            </h3>
+
+            <p>
+
+                PDF or DOCX supported
+
+            </p>
+
+            <input
+                type="file"
+                id="cvFile">
+
+        </div>
+
+        <div class="cv-options">
+
+            <label>
+
+                Target Role
+
+            </label>
+
+            <input
+                type="text"
+                id="targetRole"
+                placeholder="Frontend Developer">
+
+            <button
+                id="analyzeCvBtn"
+                class="action-btn">
+
+                Analyze Resume
+
+            </button>
+
+        </div>
+
+    </section>
+
+    <!-- =========================
+         LOADING
+    ========================== -->
+
+    <section
+        id="loadingSection"
+        style="display:none;">
+
+        <div class="loader-box">
+
+            <div class="loader"></div>
+
+            <h3>
+
+                AI is analyzing...
+
+            </h3>
+
+        </div>
+
+    </section>
+
+    <!-- =========================
+         RESULTS
+    ========================== -->
+
+    <section
+        id="resultSection"
+        style="display:none;">
+
+        <div
+            id="resultContainer">
+
+        </div>
+
+    </section>
+
+    <!-- =========================
+         JS
+    ========================== -->
+
+    <script
+        type="module"
+        src="../firebase.js"></script>
+
+   <!-- <script
+        src="../script.js"></script> -->
+
+   <script
+        src="eligibility.js"></script> 
+
 </body>
+
 </html>

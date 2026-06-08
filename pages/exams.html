@@ -1,16 +1,16 @@
 <!DOCTYPE html>
+
 <html lang="en">
 
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Competitive Exams - JobQuestAI</title>
+<title>Competitive Exams | JobQuestAI</title>
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
-<link rel="stylesheet"
-href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 
 <link rel="stylesheet" href="../style.css">
 <link rel="stylesheet" href="exams.css">
@@ -56,41 +56,282 @@ Dashboard
 
 </nav>
 
-<!-- HERO -->
-
 <section class="exam-hero">
 
-<h1>Competitive Exams Hub</h1>
+  <div class="hero-left">
 
-<p>
-Prepare for CSS, PMS, PPSC, FPSC, NTS, MDCAT,
-ECAT and many other exams with syllabus,
-test pattern and resources.
-</p>
+    <span class="hero-badge">
+      🚀 AI-Powered Exam Preparation
+    </span>
+
+    <h1>
+      Competitive Exams Hub
+    </h1>
+
+    <p>
+      Prepare for CSS, PMS, PPSC, FPSC, NTS, MDCAT, ECAT and many other exams with AI-powered learning tools, syllabus, past papers and smart practice tests.
+    </p>
+
+    <div class="hero-buttons">
+
+      <a href="test.html"
+      class="hero-primary-btn">
+
+        Start AI Test
+
+      </a>
+
+      <a href="notes.html"
+      class="hero-secondary-btn">
+
+        Explore Notes
+
+      </a>
+
+    </div>
+
+  </div>
+
+  <div class="hero-right">
+
+    <div class="hero-card">
+
+      <h3>🎯 Success Rate</h3>
+
+      <h2>92%</h2>
+
+      <p>
+        Students improved using AI practice tests
+      </p>
+
+    </div>
+
+  </div>
 
 </section>
 
-<!-- CATEGORY BUTTONS -->
+<section class="featured-exams">
 
-<section class="exam-categories">
+    <h2>
+    Featured Exams
+    </h2>
 
-<button onclick="filterExam('all')">All Exams</button>
+    <div class="featured-grid">
 
-<button onclick="filterExam('css')">CSS</button>
+        <div class="featured-card">
 
-<button onclick="filterExam('ppsc')">PPSC</button>
+            <h3>CSS</h3>
 
-<button onclick="filterExam('fpsc')">FPSC</button>
+            <p>
+            Central Superior Services
+            </p>
 
-<button onclick="filterExam('nts')">NTS</button>
+            <span>
+            Age: 21 - 30
+            </span>
 
-<button onclick="filterExam('medical')">Medical</button>
+        </div>
+
+    <div class="featured-card">
+
+        <h3>PPSC</h3>
+
+        <p>
+        Punjab Public Service Commission
+        </p>
+
+        <span>
+        Government Jobs
+        </span>
+
+    </div>
+
+    <div class="featured-card">
+
+        <h3>FPSC</h3>
+
+        <p>
+        Federal Public Service Commission
+        </p>
+
+        <span>
+        Apply Online
+        </span>
+
+    </div>
+
+    </div>
+
+</section>
+
+<section class="exam-stats">
+
+  <div class="stat-card">
+    <h2>25+</h2>
+    <p>Competitive Exams</p>
+  </div>
+
+  <div class="stat-card">
+    <h2>1000+</h2>
+    <p>AI MCQs</p>
+  </div>
+
+  <div class="stat-card">
+    <h2>500+</h2>
+    <p>Past Papers</p>
+  </div>
+
+  <div class="stat-card">
+    <h2>24/7</h2>
+    <p>AI Support</p>
+  </div>
+
+</section>
+
+<!-- FILTERS -->
+
+<section class="exam-controls">
+
+<input
+type="text"
+id="examSearch"
+placeholder="Search Exam..."
+>
+
+<div class="exam-filters">
+
+    <button onclick="filterExam('all')">
+    All
+    </button>
+
+    <button onclick="filterExam('competitive')">
+    Competitive
+    </button>
+
+    <button onclick="filterExam('police')">
+    Police
+    </button>
+
+    <button onclick="filterExam('forces')">
+    Forces
+    </button>
+
+    <button onclick="filterExam('medical')">
+    Medical
+    </button>
+
+</div>
+
+</section>
+
+<!-- QUICK ACTIONS -->
+
+<section class="quick-actions">
+
+    <a href="notes.html" class="quick-card">
+
+        <i class="bi bi-file-earmark-text"></i>
+
+        <h4>Syllabus</h4>
+
+        <p>
+        Updated exam syllabus and paper patterns.
+        </p>
+
+    </a>
+
+    <a href="notes.html" class="quick-card">
+
+        <i class="bi bi-journal-bookmark"></i>
+
+        <h4>Past Papers</h4>
+
+        <p>
+        Access previous papers and solved material.
+        </p>
+
+    </a>
+
+    <a href="notes.html" class="quick-card">
+
+        <i class="bi bi-robot"></i>
+
+        <h4>AI Practice Test</h4>
+
+        <p>
+        Generate smart MCQs instantly.
+        </p>
+
+    </a>
+
+    <a href="notes.html" class="quick-card">
+
+        <i class="bi bi-check-circle"></i>
+
+        <h4>Eligibility Checker</h4>
+
+        <p>
+        Check eligibility for jobs and exams.
+        </p>
+
+    </a>
+
+</section>
+
+<section class="exam-roadmap">
+
+    <h2>Preparation Journey</h2>
+
+    <div class="roadmap-grid">
+
+        <div class="roadmap-step">
+            <span>1</span>
+            <h4>Choose Exam</h4>
+        </div>
+
+        <div class="roadmap-step">
+            <span>2</span>
+            <h4>Study Syllabus</h4>
+        </div>
+
+        <div class="roadmap-step">
+            <span>3</span>
+            <h4>Practice MCQs</h4>
+        </div>
+
+        <div class="roadmap-step">
+            <span>4</span>
+            <h4>Attempt AI Tests</h4>
+        </div>
+
+        <div class="roadmap-step">
+            <span>5</span>
+            <h4>Track Progress</h4>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- SECTION TITLE -->
+
+<section class="exam-section-title">
+
+    <h2>
+    🔥 Popular Competitive Exams
+    </h2>
+
+    <p>
+    Choose your target exam and start preparation.
+    </p>
 
 </section>
 
 <!-- EXAMS GRID -->
 
-<section id="examContainer" class="exam-grid">
+<section
+id="examContainer"
+class="exam-grid">
 
 </section>
 
@@ -98,21 +339,55 @@ test pattern and resources.
 
 <div id="examModal" class="exam-modal">
 
-<div class="exam-modal-content">
+    <div class="exam-modal-content">
 
-<span onclick="closeExamModal()" class="close-btn">
+        <span
+        class="close-btn"
+        onclick="closeExamModal()">
 
-&times;
+        ×
 
-</span>
+        </span>
 
-<div id="examDetail">
+    <div id="examDetail">
+
+    </div>
+
+    </div>
 
 </div>
 
-</div>
+<footer class="exam-footer">
 
-</div>
+    <div class="footer-content">
+
+        <h3>JobQuestAI</h3>
+
+        <p>
+        AI-Powered Career & Exam Preparation Platform
+        </p>
+
+        <div class="footer-links">
+
+            <a href="../index.html">Home</a>
+
+            <a href="jobs.html">Jobs</a>
+
+            <a href="test.html">AI Tests</a>
+
+            <a href="dashboard.html">Dashboard</a>
+
+        </div>
+
+        <p class="copyright">
+
+        © 2026 JobQuestAI. All Rights Reserved.
+
+        </p>
+
+    </div>
+
+</footer>
 
 <script src="exams.js"></script>
 
