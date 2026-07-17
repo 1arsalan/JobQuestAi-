@@ -1000,7 +1000,7 @@ async function createGeminiLiveToken(
         "TOKEN CONTAINS CV:",
         String(instructions || "")
             .includes("BEGIN CV CONTENT")
-    );
+    ); 
     
 
     const client =
