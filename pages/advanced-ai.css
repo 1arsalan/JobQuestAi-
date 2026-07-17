@@ -1,0 +1,1652 @@
+/* ====================================
+   ADVANCED AI CAREER TOOLS
+==================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+
+    font-family:Segoe UI,sans-serif;
+
+    background:#f8fafc;
+
+    color:#0f172a;
+
+}
+
+
+/* ====================================
+   HERO
+==================================== */
+
+.advanced-hero{
+
+    max-width:1200px;
+
+    margin:60px auto;
+
+    padding:20px;
+
+    text-align:center;
+
+}
+
+.badge{
+
+    display:inline-block;
+
+    padding:12px 24px;
+
+    border-radius:50px;
+
+    background:#dbeafe;
+
+    color:#2563eb;
+
+    font-weight:700;
+
+    margin-bottom:25px;
+
+}
+
+.advanced-hero h1{
+
+    font-size:55px;
+
+    font-weight:800;
+
+    margin-bottom:18px;
+
+}
+
+.advanced-hero p{
+
+    width:80%;
+
+    margin:auto;
+
+    font-size:18px;
+
+    line-height:1.8;
+
+    color:#64748b;
+
+}
+
+
+/* ====================================
+   TOOL GRID
+==================================== */
+
+.tools-grid{
+
+    max-width:1250px;
+
+    margin:50px auto;
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:30px;
+
+    padding:20px;
+
+}
+
+.tool-card{
+
+    background:#fff;
+
+    border-radius:24px;
+
+    padding:35px;
+
+    box-shadow:0 20px 50px rgba(15,23,42,.08);
+
+    transition:.35s;
+
+    border:1px solid #e5e7eb;
+
+}
+
+.tool-card:hover{
+
+    transform:translateY(-8px);
+
+}
+
+.tool-icon{
+
+    font-size:55px;
+
+    margin-bottom:20px;
+
+}
+
+.tool-card h2{
+
+    font-size:28px;
+
+    margin-bottom:15px;
+
+}
+
+.tool-card p{
+
+    color:#64748b;
+
+    line-height:1.8;
+
+    margin-bottom:25px;
+
+}
+
+.tool-card button{
+
+    width:100%;
+
+    height:55px;
+
+    border:none;
+
+    border-radius:14px;
+
+    background:#2563eb;
+
+    color:white;
+
+    font-size:16px;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+}
+
+.tool-card button:hover{
+
+    background:#1d4ed8;
+
+}
+
+.locked-tool{
+
+    opacity:.65;
+
+}
+
+
+/* ====================================
+   ANALYZER SECTION
+==================================== */
+
+.ai-tool-section{
+
+    max-width:1150px;
+
+    margin:60px auto;
+
+    background:white;
+
+    padding:40px;
+
+    border-radius:24px;
+
+    box-shadow:0 20px 50px rgba(15,23,42,.08);
+
+}
+
+.section-header{
+
+    text-align:center;
+
+    margin-bottom:35px;
+
+}
+
+.section-header h2{
+
+    font-size:38px;
+
+    margin-bottom:10px;
+
+}
+
+.section-header p{
+
+    color:#64748b;
+
+}
+
+.upload-box{
+
+    border:3px dashed #cbd5e1;
+
+    border-radius:20px;
+
+    padding:50px;
+
+    text-align:center;
+
+}
+
+.upload-box i{
+
+    font-size:70px;
+
+    color:#2563eb;
+
+}
+
+.upload-box h3{
+
+    margin-top:20px;
+
+}
+
+.upload-box p{
+
+    color:#64748b;
+
+    margin:15px 0;
+
+}
+
+.upload-box input{
+
+    margin-top:20px;
+
+}
+
+
+/* ====================================
+   BUTTON
+==================================== */
+
+.main-action-btn{
+
+    width:100%;
+
+    margin-top:30px;
+
+    height:60px;
+
+    border:none;
+
+    border-radius:16px;
+
+    background:#2563eb;
+
+    color:white;
+
+    font-size:18px;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+}
+
+.main-action-btn:hover{
+
+    background:#1d4ed8;
+
+}
+
+
+/* ====================================
+   LOADER
+==================================== */
+
+.loading-section{
+
+    margin-top:50px;
+
+}
+
+.loader-box{
+
+    text-align:center;
+
+}
+
+.loader{
+
+    width:75px;
+
+    height:75px;
+
+    border-radius:50%;
+
+    border:7px solid #e5e7eb;
+
+    border-top:7px solid #2563eb;
+
+    margin:auto;
+
+    animation:spin 1s linear infinite;
+
+}
+
+.loader-box h3{
+
+    margin-top:20px;
+
+}
+
+@keyframes spin{
+
+    to{
+
+        transform:rotate(360deg);
+
+    }
+
+}
+
+
+/* ====================================
+   RESULT
+==================================== */
+
+#resultContainer{
+
+    max-width:1200px;
+
+    margin:50px auto;
+
+}
+
+
+/* ====================================
+   RESPONSIVE
+==================================== */
+
+@media(max-width:900px){
+
+    .tools-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .advanced-hero h1{
+
+        font-size:38px;
+
+    }
+
+    .advanced-hero p{
+
+        width:95%;
+
+    }
+
+}
+
+/* ================================
+   ADVANCED PAGE NAVBAR FIX
+================================ */
+
+.test-navbar {
+    height: 84px;
+    padding: 0 48px;
+    background: #ffffff;
+    border-bottom: 1px solid #e5e7eb;
+    box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.back-btn {
+    width: 46px;
+    height: 46px;
+    border: none;
+    border-radius: 14px;
+    background: #eff6ff;
+    color: #2563eb;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.back-btn:hover {
+    background: #dbeafe;
+}
+
+.logo-area {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-area i {
+    font-size: 40px;
+    color: #2563eb;
+}
+
+.logo-area h2 {
+    font-size: 20px;
+    font-weight: 700;
+    margin: 0;
+    color: #2563eb;
+    line-height: 1;
+}
+
+.logo-area p {
+    margin: 4px 0 0;
+    color: #64748b;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.dashboard-btn-nav {
+    height: 48px;
+    padding: 0 22px;
+    border: none;
+    border-radius: 14px;
+    background: #111827;
+    color: white;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .test-navbar {
+        height: auto;
+        padding: 14px 18px;
+    }
+
+    .logo-area h2 {
+        font-size: 20px;
+    }
+
+    .logo-area p {
+        font-size: 11px;
+    }
+
+    .dashboard-btn-nav {
+        padding: 0 14px;
+        height: 42px;
+        font-size: 13px;
+    }
+}
+
+/* ================================
+   ADVERTISEMENT ANALYZER RESULT
+================================ */
+
+.ad-report-card {
+    max-width: 1150px;
+    margin: 45px auto;
+    padding: 35px;
+    border-radius: 28px;
+    background: #ffffff;
+    box-shadow: 0 25px 60px rgba(15, 23, 42, 0.14);
+}
+
+.ad-report-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.ad-report-header h2 {
+    font-size: 34px;
+    font-weight: 900;
+    color: #0f172a;
+}
+
+.ad-report-header p {
+    color: #64748b;
+    margin-top: 8px;
+}
+
+.ad-score-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    margin-bottom: 28px;
+}
+
+.ad-score-card {
+    padding: 30px;
+    border-radius: 24px;
+    text-align: center;
+    background: linear-gradient(135deg, #2563eb, #1e40af);
+    color: #ffffff;
+}
+
+.ad-score-card h1 {
+    font-size: 42px;
+    font-weight: 900;
+    margin: 0;
+}
+
+.ad-score-card p {
+    margin-top: 8px;
+    color: #dbeafe;
+    font-weight: 700;
+}
+
+.ad-grid-two {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+}
+
+.ad-section-card {
+    margin-top: 24px;
+    padding: 24px;
+    border-radius: 22px;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+}
+
+.ad-section-card h3 {
+    font-size: 21px;
+    font-weight: 800;
+    color: #1e3a8a;
+    margin-bottom: 12px;
+}
+
+.ad-section-card p {
+    line-height: 1.8;
+    color: #334155;
+}
+
+.ad-section-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.ad-section-card li {
+    margin-bottom: 10px;
+    padding: 12px 14px;
+    border-radius: 14px;
+    background: white;
+    border: 1px solid #e2e8f0;
+    color: #334155;
+}
+
+.ad-section-card li::before {
+    content: "✓";
+    color: #2563eb;
+    font-weight: 900;
+    margin-right: 10px;
+}
+
+.advice-card {
+    background: #eff6ff;
+    border-color: #bfdbfe;
+}
+
+@media (max-width: 768px) {
+    .ad-score-grid,
+    .ad-grid-two {
+        grid-template-columns: 1fr;
+    }
+
+    .ad-report-card {
+        width: 94%;
+        padding: 22px;
+    }
+
+    .ad-report-header h2 {
+        font-size: 26px;
+    }
+}
+
+
+.jobs-table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.jobs-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    background: white;
+    border-radius: 14px;
+    overflow: hidden;
+}
+
+.jobs-table th {
+    background: #2563eb;
+    color: white;
+    padding: 14px;
+    text-align: left;
+    font-size: 14px;
+}
+
+.jobs-table td {
+    padding: 14px;
+    border-bottom: 1px solid #e5e7eb;
+    color: #334155;
+    font-size: 14px;
+    vertical-align: top;
+}
+
+.jobs-table tr:hover {
+    background: #f8fafc;
+}
+
+
+/*responsivenss */
+/* ===========================================
+   RESPONSIVE FIXES - JOBQUESTAI
+=========================================== */
+
+/* Laptop */
+@media (max-width:1200px){
+
+    .advanced-hero,
+    .tools-grid,
+    .ai-tool-section,
+    .ad-report-card{
+        width:95%;
+        margin-left:auto;
+        margin-right:auto;
+    }
+
+}
+
+
+/* Tablet */
+@media (max-width:992px){
+
+    .advanced-hero h1{
+        font-size:42px;
+    }
+
+    .advanced-hero p{
+        width:100%;
+        font-size:16px;
+    }
+
+    .tools-grid{
+        grid-template-columns:1fr;
+        gap:24px;
+    }
+
+    .tool-card{
+        padding:28px;
+    }
+
+    .section-header h2{
+        font-size:30px;
+    }
+
+    .upload-box{
+        padding:35px 20px;
+    }
+
+    .upload-box i{
+        font-size:55px;
+    }
+
+    .ad-score-grid{
+        grid-template-columns:1fr;
+    }
+
+    .ad-grid-two{
+        grid-template-columns:1fr;
+    }
+
+}
+
+
+/* Mobile */
+@media (max-width:768px){
+
+    body{
+        overflow-x:hidden;
+    }
+
+    .test-navbar{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+        gap:15px;
+
+        padding:18px;
+
+        height:auto;
+
+    }
+
+    .nav-left{
+        width:100%;
+    }
+
+    .logo-area h2{
+        font-size:18px;
+    }
+
+    .logo-area p{
+        font-size:11px;
+    }
+
+    .dashboard-btn-nav{
+        width:100%;
+        height:48px;
+    }
+
+    .advanced-hero{
+
+        margin:35px auto;
+
+        padding:18px;
+
+    }
+
+    .badge{
+
+        font-size:13px;
+
+        padding:10px 18px;
+
+    }
+
+    .advanced-hero h1{
+
+        font-size:32px;
+
+        line-height:1.3;
+
+    }
+
+    .advanced-hero p{
+
+        font-size:15px;
+
+        line-height:1.7;
+
+        width:100%;
+
+    }
+
+    .tool-card{
+
+        padding:22px;
+
+        border-radius:20px;
+
+    }
+
+    .tool-card h2{
+
+        font-size:24px;
+
+    }
+
+    .tool-card p{
+
+        font-size:15px;
+
+    }
+
+    .tool-card button{
+
+        height:52px;
+
+    }
+
+    .ai-tool-section{
+
+        width:95%;
+
+        padding:22px;
+
+    }
+
+    .section-header h2{
+
+        font-size:28px;
+
+    }
+
+    .upload-box{
+
+        padding:25px 15px;
+
+    }
+
+    .upload-box i{
+
+        font-size:48px;
+
+    }
+
+    .upload-box h3{
+
+        font-size:22px;
+
+    }
+
+    .upload-box p{
+
+        font-size:14px;
+
+    }
+
+    .upload-box input{
+
+        width:100%;
+
+    }
+
+    .main-action-btn{
+
+        height:54px;
+
+        font-size:16px;
+
+    }
+
+    .ad-report-card{
+
+        width:95%;
+
+        padding:18px;
+
+        border-radius:20px;
+
+    }
+
+    .ad-report-header h2{
+
+        font-size:24px;
+
+    }
+
+    .ad-report-header p{
+
+        font-size:14px;
+
+    }
+
+    .ad-score-card{
+
+        padding:20px;
+
+    }
+
+    .ad-score-card h1{
+
+        font-size:32px;
+
+    }
+
+    .ad-section-card{
+
+        padding:18px;
+
+    }
+
+    .ad-section-card h3{
+
+        font-size:18px;
+
+    }
+
+    .ad-section-card p{
+
+        font-size:14px;
+
+    }
+
+    .jobs-table{
+
+        min-width:700px;
+    }
+
+}
+
+
+/* Small Mobile */
+@media (max-width:480px){
+
+    .advanced-hero h1{
+
+        font-size:26px;
+
+    }
+
+    .advanced-hero p{
+
+        font-size:14px;
+
+    }
+
+    .tool-card{
+
+        padding:18px;
+
+    }
+
+    .tool-icon{
+
+        font-size:42px;
+
+    }
+
+    .section-header h2{
+
+        font-size:24px;
+
+    }
+
+    .upload-box{
+
+        padding:20px 12px;
+
+    }
+
+    .ad-report-card{
+
+        padding:15px;
+
+    }
+
+    .ad-score-card h1{
+
+        font-size:28px;
+
+    }
+
+}
+
+
+/* ===========================================
+   STUDY PLAN GENERATOR
+=========================================== */
+
+.study-form-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:22px;
+}
+
+.form-group{
+    display:flex;
+    flex-direction:column;
+}
+
+.form-group label{
+    font-weight:700;
+    margin-bottom:8px;
+    color:#0f172a;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea{
+    border:1px solid #d1d5db;
+    border-radius:14px;
+    padding:14px 16px;
+    font-size:15px;
+    outline:none;
+    background:white;
+}
+
+.form-group input,
+.form-group select{
+    height:54px;
+}
+
+.form-group textarea{
+    min-height:120px;
+    resize:vertical;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus{
+    border-color:#2563eb;
+}
+
+.full-width{
+    grid-column:1 / -1;
+}
+
+.study-report-card{
+    max-width:1150px;
+    margin:45px auto;
+    padding:35px;
+    border-radius:28px;
+    background:#ffffff;
+    box-shadow:0 25px 60px rgba(15,23,42,.14);
+}
+
+.study-report-header{
+    text-align:center;
+    margin-bottom:30px;
+}
+
+.study-report-header h2{
+    font-size:34px;
+    font-weight:900;
+    color:#0f172a;
+}
+
+.study-report-header p{
+    color:#64748b;
+    margin-top:8px;
+}
+
+.study-score-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:24px;
+    margin-bottom:28px;
+}
+
+.study-score-card{
+    padding:30px;
+    border-radius:24px;
+    text-align:center;
+    background:linear-gradient(135deg,#2563eb,#1e40af);
+    color:#ffffff;
+}
+
+.study-score-card h1{
+    font-size:38px;
+    font-weight:900;
+    margin:0;
+}
+
+.study-score-card p{
+    margin-top:8px;
+    color:#dbeafe;
+    font-weight:700;
+}
+
+.study-section-card{
+    margin-top:24px;
+    padding:24px;
+    border-radius:22px;
+    background:#f8fafc;
+    border:1px solid #e2e8f0;
+}
+
+.study-section-card h3{
+    font-size:21px;
+    font-weight:800;
+    color:#1e3a8a;
+    margin-bottom:12px;
+}
+
+.study-section-card p{
+    line-height:1.8;
+    color:#334155;
+}
+
+.study-section-card ul{
+    list-style:none;
+    padding:0;
+    margin:0;
+}
+
+.study-section-card li{
+    margin-bottom:10px;
+    padding:12px 14px;
+    border-radius:14px;
+    background:white;
+    border:1px solid #e2e8f0;
+    color:#334155;
+}
+
+.study-section-card li::before{
+    content:"✓";
+    color:#2563eb;
+    font-weight:900;
+    margin-right:10px;
+}
+
+.week-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:18px;
+}
+
+.week-card{
+    background:white;
+    border:1px solid #e2e8f0;
+    border-radius:18px;
+    padding:18px;
+}
+
+.week-card h4{
+    color:#2563eb;
+    font-size:18px;
+    margin-bottom:8px;
+}
+
+.week-card p{
+    font-weight:600;
+    margin-bottom:12px;
+}
+
+/* Study Responsive */
+@media(max-width:768px){
+
+    .study-form-grid,
+    .study-score-grid,
+    .week-grid{
+        grid-template-columns:1fr;
+    }
+
+    .study-report-card{
+        width:95%;
+        padding:20px;
+    }
+
+    .study-report-header h2{
+        font-size:26px;
+    }
+
+    .study-score-card h1{
+        font-size:30px;
+    }
+
+}
+
+
+/* ===========================================
+   INTERVIEW PREPARATION
+=========================================== */
+
+.interview-report-card{
+    max-width:1150px;
+    margin:45px auto;
+    padding:35px;
+    border-radius:28px;
+    background:#ffffff;
+    box-shadow:0 25px 60px rgba(15,23,42,.14);
+}
+
+.interview-report-header{
+    text-align:center;
+    margin-bottom:30px;
+}
+
+.interview-report-header h2{
+    font-size:34px;
+    font-weight:900;
+    color:#0f172a;
+}
+
+.interview-report-header p{
+    color:#64748b;
+    margin-top:8px;
+}
+
+.interview-score-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:24px;
+    margin-bottom:28px;
+}
+
+.interview-score-card{
+    padding:30px;
+    border-radius:24px;
+    text-align:center;
+    background:linear-gradient(135deg,#2563eb,#1e40af);
+    color:white;
+}
+
+.interview-score-card h1{
+    font-size:38px;
+    font-weight:900;
+    margin:0;
+}
+
+.interview-score-card p{
+    margin-top:8px;
+    color:#dbeafe;
+    font-weight:700;
+}
+
+.interview-section-card{
+    margin-top:24px;
+    padding:24px;
+    border-radius:22px;
+    background:#f8fafc;
+    border:1px solid #e2e8f0;
+}
+
+.interview-section-card h3{
+    font-size:21px;
+    font-weight:800;
+    color:#1e3a8a;
+    margin-bottom:12px;
+}
+
+.interview-section-card p{
+    line-height:1.8;
+    color:#334155;
+}
+
+.interview-section-card ul{
+    list-style:none;
+    padding:0;
+    margin:0;
+}
+
+.interview-section-card li{
+    margin-bottom:10px;
+    padding:12px 14px;
+    border-radius:14px;
+    background:white;
+    border:1px solid #e2e8f0;
+    color:#334155;
+}
+
+.interview-section-card li::before{
+    content:"✓";
+    color:#2563eb;
+    font-weight:900;
+    margin-right:10px;
+}
+
+.question-list{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:16px;
+}
+
+.question-card{
+    padding:18px;
+    border-radius:18px;
+    background:white;
+    border:1px solid #e2e8f0;
+}
+
+.question-card h4{
+    color:#1e3a8a;
+    font-size:17px;
+    margin-bottom:10px;
+}
+
+.question-card p{
+    margin-bottom:8px;
+}
+
+/* Interview Responsive */
+@media(max-width:768px){
+
+    .interview-score-grid{
+        grid-template-columns:1fr;
+    }
+
+    .interview-report-card{
+        width:95%;
+        padding:20px;
+    }
+
+    .interview-report-header h2{
+        font-size:26px;
+    }
+
+    .interview-score-card h1{
+        font-size:30px;
+    }
+
+    .interview-section-card{
+        padding:18px;
+    }
+
+}
+
+/* =====================================================
+                AI CAREER ROADMAP
+===================================================== */
+
+.career-report-card{
+
+    max-width:1200px;
+
+    margin:45px auto;
+
+    padding:35px;
+
+    background:#ffffff;
+
+    border-radius:28px;
+
+    box-shadow:0 25px 60px rgba(15,23,42,.12);
+
+}
+
+.career-header{
+
+    text-align:center;
+
+    margin-bottom:35px;
+
+}
+
+.career-header h2{
+
+    font-size:34px;
+
+    font-weight:800;
+
+    color:#0f172a;
+
+}
+
+.career-header p{
+
+    margin-top:10px;
+
+    color:#64748b;
+
+    line-height:1.8;
+
+}
+
+.career-score-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:22px;
+
+    margin-bottom:30px;
+
+}
+
+.career-score-card{
+
+    background:linear-gradient(135deg,#2563eb,#1d4ed8);
+
+    color:white;
+
+    border-radius:22px;
+
+    padding:30px;
+
+    text-align:center;
+
+}
+
+.career-score-card h1{
+
+    font-size:38px;
+
+    margin-bottom:10px;
+
+}
+
+.career-score-card p{
+
+    font-size:15px;
+
+    opacity:.95;
+
+}
+
+.career-section{
+
+    background:#f8fafc;
+
+    border:1px solid #e2e8f0;
+
+    border-radius:20px;
+
+    padding:24px;
+
+    margin-top:25px;
+
+}
+
+.career-section h3{
+
+    font-size:22px;
+
+    color:#1e3a8a;
+
+    margin-bottom:18px;
+
+}
+
+.career-section p{
+
+    line-height:1.9;
+
+    color:#475569;
+
+}
+
+.career-section ul{
+
+    list-style:none;
+
+    padding:0;
+
+    margin:0;
+
+}
+
+.career-section li{
+
+    padding:12px 15px;
+
+    margin-bottom:12px;
+
+    border-radius:14px;
+
+    background:white;
+
+    border:1px solid #e5e7eb;
+
+}
+
+.career-section li::before{
+
+    content:"✔ ";
+
+    color:#2563eb;
+
+    font-weight:bold;
+
+}
+
+.skill-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:20px;
+
+}
+
+.skill-card{
+
+    background:white;
+
+    border:1px solid #e5e7eb;
+
+    border-radius:18px;
+
+    padding:18px;
+
+}
+
+.skill-card h4{
+
+    color:#1d4ed8;
+
+    margin-bottom:15px;
+
+}
+
+.month-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:20px;
+
+}
+
+.month-card{
+
+    background:white;
+
+    border-radius:18px;
+
+    border:1px solid #e5e7eb;
+
+    padding:20px;
+
+}
+
+.month-card h4{
+
+    color:#2563eb;
+
+    margin-bottom:15px;
+
+}
+
+.salary-card{
+
+    background:linear-gradient(135deg,#10b981,#059669);
+
+    color:white;
+
+    border-radius:20px;
+
+    padding:30px;
+
+    text-align:center;
+
+    margin-top:20px;
+
+}
+
+.salary-card h2{
+
+    font-size:34px;
+
+    margin-bottom:10px;
+
+}
+
+.salary-card p{
+
+    opacity:.95;
+
+}
+
+.timeline-card{
+
+    background:white;
+
+    border-left:5px solid #2563eb;
+
+    padding:18px;
+
+    margin-bottom:18px;
+
+    border-radius:12px;
+
+}
+
+.timeline-card h4{
+
+    color:#2563eb;
+
+    margin-bottom:10px;
+
+}
+
+.action-card{
+
+    background:#eff6ff;
+
+    border:1px solid #bfdbfe;
+
+    padding:18px;
+
+    border-radius:16px;
+
+    margin-bottom:18px;
+
+}
+
+.action-card strong{
+
+    color:#1d4ed8;
+
+}
+
+@media(max-width:992px){
+
+    .career-score-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .skill-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .month-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+}
+
+@media(max-width:768px){
+
+    .career-report-card{
+
+        width:95%;
+
+        padding:20px;
+
+    }
+
+    .career-header h2{
+
+        font-size:28px;
+
+    }
+
+    .career-score-card h1{
+
+        font-size:30px;
+
+    }
+
+}

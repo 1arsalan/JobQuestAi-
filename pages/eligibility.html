@@ -497,11 +497,13 @@
             <input
                 type="text"
                 id="targetRole"
-                placeholder="Frontend Developer">
+                placeholder="">
 
             <button
+                type="button"
                 id="analyzeCvBtn"
-                class="action-btn">
+                class="action-btn"
+                onclick="return false;">
 
                 Analyze Resume
 
@@ -548,9 +550,19 @@
 
     </section>
 
+    <section id="cvHistorySection" class="assessment-section">
+        <div class="section-header">
+            <h2>My Previous CV Reports</h2>
+            <p>Your saved CV analysis history</p>
+        </div>
+
+        <div id="cvHistoryContainer"></div>
+    </section>
+
     <!-- =========================
          JS
     ========================== -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 
     <script
         type="module"
@@ -559,8 +571,8 @@
    <!-- <script
         src="../script.js"></script> -->
 
-   <script
-        src="eligibility.js"></script> 
+   <script src="eligibility.js?v=123"></script> 
+   
 
 </body>
 

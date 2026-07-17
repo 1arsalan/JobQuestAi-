@@ -35,7 +35,8 @@ import {
     limit,
     setDoc,
     doc,
-    deleteDoc
+    deleteDoc,
+    updateDoc
 
 }
 
@@ -100,6 +101,7 @@ window.limit = limit;
 window.setDoc = setDoc;
 window.doc = doc;
 window.deleteDoc = deleteDoc;
+window.updateDoc = updateDoc;
 window.where = where;
 window.serverTimestamp =
 serverTimestamp;
@@ -121,6 +123,7 @@ export {
   orderBy,
   limit,
   setDoc,
-  doc
+  doc,
+  updateDoc
 
 };

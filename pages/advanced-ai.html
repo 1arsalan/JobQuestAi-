@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>
+        Advanced AI Career Tools | JobQuestAI
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+    <link
+        rel="stylesheet"
+        href="../style.css">
+
+    <link
+        rel="stylesheet"
+        href="advanced-ai.css">
+
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <div class="test-navbar">
+
+        <div class="nav-left">
+
+            <button
+                class="back-btn"
+                onclick="window.location.href='../index.html'">
+
+                <i class="bi bi-arrow-left"></i>
+
+            </button>
+
+            <div class="logo-area">
+
+                <i class="bi bi-mortarboard-fill"></i>
+
+                <div>
+                    <h2>JobQuestAI</h2>
+                    <p>Advanced AI Career Tools</p>
+                </div>
+
+            </div>
+
+        </div>
+
+        <button
+            class="dashboard-btn-nav"
+            onclick="window.location.href='dashboard.html'">
+
+            <i class="bi bi-grid-fill"></i>
+            Dashboard
+
+        </button>
+
+    </div>
+
+    <!-- HERO -->
+    <section class="advanced-hero">
+
+        <span class="badge">
+            Advanced AI Career Tools
+        </span>
+
+        <h1>
+            Build Your Career Smarter With AI
+        </h1>
+
+        <p>
+            Analyze job advertisements, generate study plans,
+            prepare for interviews, and create personalized
+            career roadmaps using AI.
+        </p>
+
+    </section>
+
+    <!-- TOOL CARDS -->
+    <section class="tools-grid">
+
+        <div class="tool-card active-tool">
+
+            <div class="tool-icon">📄</div>
+
+            <h2>
+                AI Advertisement Analyzer
+            </h2>
+
+            <p>
+                Upload a government or private job advertisement PDF
+                and let AI extract eligibility, last date, documents,
+                test pattern and application process.
+            </p>
+
+            <button onclick="showAdAnalyzer()">
+                Start Analyzer
+            </button>
+
+        </div>
+
+        <div class="tool-card active-tool">
+
+          <div class="tool-icon">📚</div>
+
+          <h2>
+              AI Study Plan Generator
+          </h2>
+
+          <p>
+              Generate personalized preparation plans for CSS,
+              PMS, PPSC, FPSC, police and other competitive exams.
+          </p>
+
+          <button onclick="showStudyPlanSection()">
+              Generate Study Plan
+          </button>
+
+      </div>
+
+        <div class="tool-card active-tool">
+
+              <div class="tool-icon">🎤</div>
+
+              <h2>
+                  AI Interview Preparation
+              </h2>
+
+              <p>
+                  Generate interview questions, best answers, HR tips,
+                  common mistakes and confidence guidance for any job.
+              </p>
+
+              <button onclick="showInterviewSection()">
+                  Start Interview Prep
+              </button>
+
+        </div>
+
+        <div class="tool-card active-tool">
+
+            <div class="tool-icon">🗺️</div>
+
+            <h2>
+                AI Career Roadmap
+            </h2>
+
+            <p>
+                Get a step-by-step roadmap according to your degree,
+                skills, target country, target job and career goals.
+            </p>
+
+            <button onclick="showCareerRoadmapSection()">
+                Build Career Roadmap
+            </button>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- AD ANALYZER SECTION -->
+    <section
+        id="adAnalyzerSection"
+        class="ai-tool-section"
+        style="display:none;">
+
+        <div class="section-header">
+
+            <h2>
+                AI Advertisement Analyzer
+            </h2>
+
+            <p>
+                Upload job advertisement PDF and get complete AI analysis.
+            </p>
+
+        </div>
+
+        <div class="upload-box">
+
+            <i class="bi bi-file-earmark-pdf"></i>
+
+            <h3>
+                Upload Advertisement File
+            </h3>
+
+            <p>
+                Supported format: PDF, DOCX, JPG, PNG
+            </p>
+
+            <input
+                type="file"
+                id="adFile"
+                accept=".pdf,.doc,.docx,.jpg,.jpeg,.png">
+
+        </div>
+
+        <button
+            type="button"
+            class="main-action-btn"
+            id="analyzeAdBtn">
+
+            Analyze Advertisement
+
+        </button>
+
+    </section>
+
+    <!-- =========================
+     STUDY PLAN SECTION
+    ========================== -->
+
+    <section
+          id="studyPlanSection"
+          class="ai-tool-section"
+          style="display:none;">
+
+          <div class="section-header">
+
+              <h2>
+                  AI Study Plan Generator
+              </h2>
+
+              <p>
+                  Create a personalized study plan according to your exam,
+                  preparation time, level and daily study hours.
+              </p>
+
+          </div>
+
+          <div class="study-form-grid">
+
+              <div class="form-group">
+
+                  <label>
+                      Target Exam / Job
+                  </label>
+
+                  <input
+                      type="text"
+                      id="studyTarget"
+                      placeholder="Example: CSS, PMS, PPSC, FIA, Punjab Police SI">
+
+              </div>
+
+              <div class="form-group">
+
+                  <label>
+                      Preparation Duration
+                  </label>
+
+                  <select id="studyDuration">
+
+                      <option value="15 Days">
+                          15 Days
+                      </option>
+
+                      <option value="30 Days">
+                          30 Days
+                      </option>
+
+                      <option value="45 Days">
+                          45 Days
+                      </option>
+
+                      <option value="60 Days">
+                          60 Days
+                      </option>
+
+                      <option value="90 Days">
+                          90 Days
+                      </option>
+
+                  </select>
+
+              </div>
+
+              <div class="form-group">
+
+                  <label>
+                      Daily Study Hours
+                  </label>
+
+                  <select id="dailyHours">
+
+                      <option value="2 Hours">
+                          2 Hours
+                      </option>
+
+                      <option value="3 Hours">
+                          3 Hours
+                      </option>
+
+                      <option value="4 Hours">
+                          4 Hours
+                      </option>
+
+                      <option value="5 Hours">
+                          5 Hours
+                      </option>
+
+                      <option value="6+ Hours">
+                          6+ Hours
+                      </option>
+
+                  </select>
+
+              </div>
+
+              <div class="form-group">
+
+                  <label>
+                      Current Preparation Level
+                  </label>
+
+                  <select id="prepLevel">
+
+                      <option value="Beginner">
+                          Beginner
+                      </option>
+
+                      <option value="Intermediate">
+                          Intermediate
+                      </option>
+
+                      <option value="Advanced">
+                          Advanced
+                      </option>
+
+                  </select>
+
+              </div>
+
+              <div class="form-group full-width">
+
+                  <label>
+                      Weak Subjects / Topics
+                  </label>
+
+                  <textarea
+                      id="weakTopics"
+                      placeholder="Example: English Essay, Current Affairs, Mathematics, General Knowledge"></textarea>
+
+              </div>
+
+          </div>
+
+          <button
+              type="button"
+              class="main-action-btn"
+              id="generateStudyPlanBtn">
+
+              Generate Study Plan
+
+          </button>
+
+    </section>
+
+    <!-- =========================
+     INTERVIEW PREPARATION SECTION
+========================== -->
+
+    <section
+        id="interviewSection"
+        class="ai-tool-section"
+        style="display:none;">
+
+        <div class="section-header">
+
+            <h2>
+                AI Interview Preparation
+            </h2>
+
+            <p>
+                Prepare for job interviews with AI-generated questions,
+                sample answers, confidence tips and professional guidance.
+            </p>
+
+        </div>
+
+        <div class="study-form-grid">
+
+            <div class="form-group">
+
+                <label>
+                    Target Job / Role
+                </label>
+
+                <input
+                    type="text"
+                    id="interviewRole"
+                    placeholder="Example: Frontend Developer, Police SI, Data Analyst">
+
+            </div>
+
+            <div class="form-group">
+
+                <label>
+                    Interview Type
+                </label>
+
+                <select id="interviewType">
+
+                    <option value="HR Interview">
+                        HR Interview
+                    </option>
+
+                    <option value="Technical Interview">
+                        Technical Interview
+                    </option>
+
+                    <option value="Government Job Interview">
+                        Government Job Interview
+                    </option>
+
+                    <option value="Behavioral Interview">
+                        Behavioral Interview
+                    </option>
+
+                    <option value="Mixed Interview">
+                        Mixed Interview
+                    </option>
+
+                </select>
+
+            </div>
+
+            <div class="form-group">
+
+                <label>
+                    Experience Level
+                </label>
+
+                <select id="interviewExperience">
+
+                    <option value="Fresh Candidate">
+                        Fresh Candidate
+                    </option>
+
+                    <option value="Internship Level">
+                        Internship Level
+                    </option>
+
+                    <option value="1-2 Years Experience">
+                        1-2 Years Experience
+                    </option>
+
+                    <option value="3+ Years Experience">
+                        3+ Years Experience
+                    </option>
+
+                </select>
+
+            </div>
+
+            <div class="form-group">
+
+                <label>
+                    Answer Language
+                </label>
+
+                <select id="interviewLanguage">
+
+                    <option value="English">
+                        English
+                    </option>
+
+                    <option value="Urdu">
+                        Urdu
+                    </option>
+
+                    <option value="English + Urdu Mix">
+                        English + Urdu Mix
+                    </option>
+
+                </select>
+
+            </div>
+
+            <div class="form-group full-width">
+
+                <label>
+                    Your Skills / Background
+                </label>
+
+                <textarea
+                    id="candidateBackground"
+                    placeholder="Example: BS Software Engineering, HTML, CSS, JavaScript, React basics, internship experience"></textarea>
+
+            </div>
+
+        </div>
+
+        <button
+            type="button"
+            class="main-action-btn"
+            id="generateInterviewBtn">
+
+            Generate Interview Preparation
+
+        </button>
+
+    </section>
+
+    <!-- =========================
+     CAREER ROADMAP SECTION
+========================== -->
+
+<section
+    id="careerRoadmapSection"
+    class="ai-tool-section"
+    style="display:none;">
+
+    <div class="section-header">
+
+        <h2>
+            AI Career Roadmap
+        </h2>
+
+        <p>
+            Build a personalized career roadmap based on your education,
+            skills, dream job, target country and timeline.
+        </p>
+
+    </div>
+
+    <div class="study-form-grid">
+
+        <div class="form-group">
+
+            <label>
+                Current Education
+            </label>
+
+            <input
+                type="text"
+                id="careerEducation"
+                placeholder="Example: BS Software Engineering">
+
+        </div>
+
+        <div class="form-group">
+
+            <label>
+                Degree / Field
+            </label>
+
+            <input
+                type="text"
+                id="careerField"
+                placeholder="Example: Software Engineering, Psychology, Business">
+
+        </div>
+
+        <div class="form-group">
+
+            <label>
+                CGPA / Percentage
+            </label>
+
+            <input
+                type="text"
+                id="careerCgpa"
+                placeholder="Example: 3.19 CGPA or 72%">
+
+        </div>
+
+        <div class="form-group">
+
+            <label>
+                Experience Level
+            </label>
+
+            <select id="careerExperience">
+
+                <option value="Fresh Graduate">
+                    Fresh Graduate
+                </option>
+
+                <option value="Internship Level">
+                    Internship Level
+                </option>
+
+                <option value="1-2 Years Experience">
+                    1-2 Years Experience
+                </option>
+
+                <option value="3+ Years Experience">
+                    3+ Years Experience
+                </option>
+
+            </select>
+
+        </div>
+
+        <div class="form-group full-width">
+
+            <label>
+                Current Skills
+            </label>
+
+            <textarea
+                id="careerSkills"
+                placeholder="Example: HTML, CSS, Bootstrap, JavaScript, Firebase, GitHub"></textarea>
+
+        </div>
+
+        <div class="form-group">
+
+            <label>
+                Dream Job / Career Goal
+            </label>
+
+            <input
+                type="text"
+                id="careerGoal"
+                placeholder="Example: Frontend Developer, Data Analyst, Clinical Psychologist">
+
+        </div>
+
+        <div class="form-group">
+
+            <label>
+                Target Country
+            </label>
+
+            <input
+                type="text"
+                id="careerCountry"
+                placeholder="Example: Pakistan, Germany, Canada, UAE">
+
+        </div>
+
+        <div class="form-group">
+
+            <label>
+                Timeline
+            </label>
+
+            <select id="careerTimeline">
+
+                <option value="3 Months">
+                    3 Months
+                </option>
+
+                <option value="6 Months">
+                    6 Months
+                </option>
+
+                <option value="12 Months">
+                    12 Months
+                </option>
+
+                <option value="24 Months">
+                    24 Months
+                </option>
+
+            </select>
+
+        </div>
+
+        <div class="form-group">
+
+            <label>
+                Work Preference
+            </label>
+
+            <select id="careerPreference">
+
+                <option value="Onsite Job">
+                    Onsite Job
+                </option>
+
+                <option value="Remote Job">
+                    Remote Job
+                </option>
+
+                <option value="Hybrid Job">
+                    Hybrid Job
+                </option>
+
+                <option value="Freelancing">
+                    Freelancing
+                </option>
+
+                <option value="Government Job">
+                    Government Job
+                </option>
+
+            </select>
+
+        </div>
+
+    </div>
+
+    <button
+        type="button"
+        class="main-action-btn"
+        id="generateCareerRoadmapBtn">
+
+        Generate Career Roadmap
+
+    </button>
+
+</section>
+
+    <!-- LOADING -->
+    <section
+        id="loadingSection"
+        class="loading-section"
+        style="display:none;">
+
+        <div class="loader-box">
+
+            <div class="loader"></div>
+
+            <h3>
+                AI is analyzing advertisement...
+            </h3>
+
+        </div>
+
+    </section>
+
+    <!-- RESULT -->
+    <section
+        id="resultSection"
+        style="display:none;">
+
+        <div id="resultContainer"></div>
+
+    </section>
+
+    <script src="advanced-ai.js"></script>
+
+</body>
+
+</html>

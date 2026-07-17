@@ -1,0 +1,1909 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Practice realistic job interviews with the JobQuestAI Live AI Recruiter."
+    >
+
+    <title>
+        AI Live Recruiter | JobQuestAI
+    </title>
+
+    <!-- Bootstrap 5 -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+    >
+
+    <!-- Bootstrap Icons -->
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    >
+
+    <!-- Custom CSS -->
+    <link
+        rel="stylesheet"
+        href="mock-interview.css"
+    >
+
+</head>
+
+<body>
+
+    <!-- =====================================================
+         ACCESSIBILITY: SKIP LINK
+    ====================================================== -->
+
+    <a
+        href="#mainContent"
+        class="skip-link"
+    >
+        Skip to main content
+    </a>
+
+
+    <!-- =====================================================
+         STICKY JOBQUESTAI NAVBAR
+    ====================================================== -->
+
+    <header class="main-header">
+
+        <nav
+            class="navbar navbar-expand-lg jobquest-navbar"
+            aria-label="Main navigation"
+        >
+
+            <div class="container-fluid navbar-container">
+
+                <!-- Left Side -->
+
+                <div class="navbar-left">
+
+                    <a
+                        href="../index.html"
+                        class="navbar-back-btn"
+                        aria-label="Go back to JobQuestAI home"
+                    >
+
+                        <i class="bi bi-arrow-left"></i>
+
+                        <span>
+                            Back
+                        </span>
+
+                    </a>
+
+
+                    <!-- Brand -->
+
+                    <a
+                        href="../index.html"
+                        class="jobquest-brand"
+                        aria-label="JobQuestAI home"
+                    >
+
+                        <!-- <span class="brand-icon"> -->
+                        <span class="d-flex align-items-center gap-2">
+
+                            <i class="bi bi-mortarboard-fill logo-icon"></i>
+
+
+                        </span>
+
+                        <span class="brand-content">
+
+                            <span class="brand-name">
+                                JobQuestAI
+                            </span>
+
+                            <span class="brand-subtitle">
+                                AI-Powered Career & Exam Preparation
+                            </span>
+
+                        </span>
+
+                    </a>
+
+                </div>
+
+
+                <!-- Mobile Toggle -->
+
+                <button
+                    class="navbar-toggler custom-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#jobquestNavbar"
+                    aria-controls="jobquestNavbar"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation"
+                >
+
+                    <i class="bi bi-list"></i>
+
+                </button>
+
+
+                <!-- Right Navigation -->
+
+                <div
+                    class="collapse navbar-collapse"
+                    id="jobquestNavbar"
+                >
+
+                    <div class="navbar-nav-wrapper">
+
+                        <ul class="navbar-nav nav-links">
+
+                            <li class="nav-item">
+
+                                <a
+                                    href="../index.html"
+                                    class="nav-link"
+                                >
+                                    Home
+                                </a>
+
+                            </li>
+
+                            <li class="nav-item">
+
+                                <a
+                                    href="advanced-ai.html"
+                                    class="nav-link"
+                                >
+                                    AI Tools
+                                </a>
+
+                            </li>
+
+                            <li class="nav-item">
+
+                                <a
+                                    href="mock-interview.html"
+                                    class="nav-link active"
+                                    aria-current="page"
+                                >
+                                    Live Interview
+                                </a>
+
+                            </li>
+
+                        </ul>
+
+
+                        <a
+                            href="dashboard.html"
+                            class="dashboard-btn"
+                        >
+
+                            <i class="bi bi-grid-1x2-fill"></i>
+
+                            <span>
+                                Dashboard
+                            </span>
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </nav>
+
+    </header>
+
+
+    <!-- =====================================================
+         MAIN CONTENT
+    ====================================================== -->
+
+    <main
+        id="mainContent"
+        class="main-content"
+    >
+
+
+        <!-- =================================================
+             HERO SECTION
+        ================================================== -->
+
+        <section class="interview-hero">
+
+            <div class="container">
+
+                <div class="row align-items-center g-5">
+
+                    <!-- Hero Content -->
+
+                    <div class="col-lg-7">
+
+                        <div class="hero-content">
+
+                            <div class="hero-badge">
+
+                                <span class="live-badge-dot"></span>
+
+                                AI-Powered Live Interview
+
+                            </div>
+
+                            <h1 class="hero-title">
+
+                                Practice with your
+
+                                <span>
+                                    AI Live Recruiter
+                                </span>
+
+                            </h1>
+
+                            <p class="hero-description">
+
+                                Experience a realistic voice-first job
+                                interview. Speak naturally with an AI
+                                recruiter, receive role-specific questions
+                                and get an evidence-based professional
+                                interview report.
+
+                            </p>
+
+
+                            <div class="hero-feature-list">
+
+                                <div class="hero-feature">
+
+                                    <span class="feature-check">
+
+                                        <i class="bi bi-check-lg"></i>
+
+                                    </span>
+
+                                    <span>
+                                        Natural voice conversation
+                                    </span>
+
+                                </div>
+
+                                <div class="hero-feature">
+
+                                    <span class="feature-check">
+
+                                        <i class="bi bi-check-lg"></i>
+
+                                    </span>
+
+                                    <span>
+                                        Optional CV-based questions
+                                    </span>
+
+                                </div>
+
+                                <div class="hero-feature">
+
+                                    <span class="feature-check">
+
+                                        <i class="bi bi-check-lg"></i>
+
+                                    </span>
+
+                                    <span>
+                                        Professional interview analysis
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Hero Visual -->
+
+                    <div class="col-lg-5">
+
+                        <div
+                            class="hero-recruiter-card"
+                            aria-hidden="true"
+                        >
+
+                            <div class="hero-card-top">
+
+                                <span class="connection-indicator">
+
+                                    <span class="connection-dot"></span>
+
+                                    AI Recruiter Online
+
+                                </span>
+
+                                <span class="hero-card-time">
+                                    00:00
+                                </span>
+
+                            </div>
+
+                            <div class="hero-avatar-wrap">
+
+                                <div class="hero-avatar-ring">
+
+                                    <div class="hero-avatar">
+
+                                        <i class="bi bi-person-workspace"></i>
+
+                                    </div>
+
+                                </div>
+
+                                <h3>
+                                    JobQuestAI Recruiter
+                                </h3>
+
+                                <p>
+                                    Ready to conduct your interview
+                                </p>
+
+                            </div>
+
+                            <div class="hero-audio-bars">
+
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             SETUP SCREEN
+        ================================================== -->
+
+        <section
+            id="setupScreen"
+            class="interview-screen setup-screen"
+        >
+
+            <div class="container">
+
+                <div class="section-heading">
+
+                    <span class="section-eyebrow">
+                        Interview Setup
+                    </span>
+
+                    <h2>
+                        Personalize Your Interview
+                    </h2>
+
+                    <p>
+                        Provide your professional details so the AI recruiter
+                        can conduct a relevant and realistic interview.
+                    </p>
+
+                </div>
+
+
+                <div class="setup-layout">
+
+                    <!-- Main Setup Form -->
+
+                    <div class="setup-form-card">
+
+                        <div class="card-heading">
+
+                            <div class="card-heading-icon">
+
+                                <i class="bi bi-person-lines-fill"></i>
+
+                            </div>
+
+                            <div>
+
+                                <h3>
+                                    Candidate Information
+                                </h3>
+
+                                <p>
+                                    Fields marked with an asterisk are required.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <form
+                            id="interviewSetupForm"
+                            enctype="multipart/form-data"
+                            novalidate
+                        >
+
+                            <div class="row g-4">
+
+                                <!-- Candidate Name -->
+
+                                <div class="col-md-6">
+
+                                    <div class="form-field">
+
+                                        <label for="candidateName">
+
+                                            Full Name
+
+                                            <span class="required-mark">
+                                                *
+                                            </span>
+
+                                        </label>
+
+                                        <div class="input-icon-wrap">
+
+                                            <i class="bi bi-person"></i>
+
+                                            <input
+                                                type="text"
+                                                id="candidateName"
+                                                name="candidateName"
+                                                class="form-control"
+                                                placeholder="Example: Arsalan Ali"
+                                                maxlength="100"
+                                                autocomplete="name"
+                                                required
+                                            >
+
+                                        </div>
+
+                                        <small class="field-help">
+                                            The recruiter will address you by
+                                            this name.
+                                        </small>
+
+                                    </div>
+
+                                </div>
+
+
+                                <!-- Target Job -->
+
+                                <div class="col-md-6">
+
+                                    <div class="form-field">
+
+                                        <label for="targetJob">
+
+                                            Target Job / Role
+
+                                            <span class="required-mark">
+                                                *
+                                            </span>
+
+                                        </label>
+
+                                        <div class="input-icon-wrap">
+
+                                            <i class="bi bi-briefcase"></i>
+
+                                            <input
+                                                type="text"
+                                                id="targetJob"
+                                                name="targetJob"
+                                                class="form-control"
+                                                placeholder="Example: Frontend Developer"
+                                                maxlength="160"
+                                                autocomplete="organization-title"
+                                                required
+                                            >
+
+                                        </div>
+
+                                        <small class="field-help">
+                                            Enter any private, government or
+                                            technical role.
+                                        </small>
+
+                                    </div>
+
+                                </div>
+
+
+                                <!-- Interview Type -->
+
+                                <div class="col-md-6">
+
+                                    <div class="form-field">
+
+                                        <label for="interviewType">
+                                            Interview Type
+                                        </label>
+
+                                        <div class="input-icon-wrap select-wrap">
+
+                                            <i class="bi bi-diagram-3"></i>
+
+                                            <select
+                                                id="interviewType"
+                                                name="interviewType"
+                                                class="form-select"
+                                            >
+
+                                                <option value="Mixed Interview">
+                                                    Mixed Interview
+                                                </option>
+
+                                                <option value="HR Interview">
+                                                    HR Interview
+                                                </option>
+
+                                                <option value="Technical Interview">
+                                                    Technical Interview
+                                                </option>
+
+                                                <option value="Behavioral Interview">
+                                                    Behavioral Interview
+                                                </option>
+
+                                                <option value="Government Job Interview">
+                                                    Government Job Interview
+                                                </option>
+
+                                            </select>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+
+                                <!-- Experience Level -->
+
+                                <div class="col-md-6">
+
+                                    <div class="form-field">
+
+                                        <label for="experienceLevel">
+                                            Experience Level
+                                        </label>
+
+                                        <div class="input-icon-wrap select-wrap">
+
+                                            <i class="bi bi-bar-chart-steps"></i>
+
+                                            <select
+                                                id="experienceLevel"
+                                                name="experienceLevel"
+                                                class="form-select"
+                                            >
+
+                                                <option value="Student">
+                                                    Student
+                                                </option>
+
+                                                <option
+                                                    value="Fresh Graduate"
+                                                    selected
+                                                >
+                                                    Fresh Graduate
+                                                </option>
+
+                                                <option value="Internship Level">
+                                                    Internship Level
+                                                </option>
+
+                                                <option value="Junior Level">
+                                                    Junior Level
+                                                </option>
+
+                                                <option value="Mid Level">
+                                                    Mid Level
+                                                </option>
+
+                                                <option value="Senior Level">
+                                                    Senior Level
+                                                </option>
+
+                                                <option value="1-2 Years Experience">
+                                                    1–2 Years Experience
+                                                </option>
+
+                                                <option value="3+ Years Experience">
+                                                    3+ Years Experience
+                                                </option>
+
+                                            </select>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+
+                                <!-- Language -->
+
+                                <div class="col-md-6">
+
+                                    <div class="form-field">
+
+                                        <label for="interviewLanguage">
+                                            Interview Language
+                                        </label>
+
+                                        <div class="input-icon-wrap select-wrap">
+
+                                            <i class="bi bi-translate"></i>
+
+                                            <select
+                                                id="interviewLanguage"
+                                                name="interviewLanguage"
+                                                class="form-select"
+                                            >
+
+                                                <option
+                                                    value="English"
+                                                    selected
+                                                >
+                                                    English
+                                                </option>
+
+                                                <option value="Urdu">
+                                                    Urdu
+                                                </option>
+
+                                                <option value="English + Urdu Mix">
+                                                    English + Urdu Mix
+                                                </option>
+
+                                            </select>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+
+                                <!-- Number of Questions -->
+
+                                <div class="col-md-6">
+
+                                    <div class="form-field">
+
+                                        <label for="questionCount">
+                                            Main Interview Questions
+                                        </label>
+
+                                        <div class="input-icon-wrap select-wrap">
+
+                                            <i class="bi bi-chat-square-question"></i>
+
+                                            <select
+                                                id="questionCount"
+                                                name="questionCount"
+                                                class="form-select"
+                                            >
+
+                                                <option value="3">
+                                                    3 Questions — Quick Practice
+                                                </option>
+
+                                                <option
+                                                    value="5"
+                                                    selected
+                                                >
+                                                    5 Questions — Standard
+                                                </option>
+
+                                                <option value="7">
+                                                    7 Questions — Detailed
+                                                </option>
+
+                                                <option value="10">
+                                                    10 Questions — Complete
+                                                </option>
+
+                                            </select>
+
+                                        </div>
+
+                                        <small class="field-help">
+                                            Follow-up questions may be asked
+                                            naturally.
+                                        </small>
+
+                                    </div>
+
+                                </div>
+
+
+                                <!-- Candidate Background -->
+
+                                <div class="col-12">
+
+                                    <div class="form-field">
+
+                                        <label for="candidateBackground">
+                                            Skills and Professional Background
+                                        </label>
+
+                                        <textarea
+                                            id="candidateBackground"
+                                            name="candidateBackground"
+                                            class="form-control background-textarea"
+                                            rows="5"
+                                            maxlength="3500"
+                                            placeholder="Example: BS Software Engineering graduate with skills in HTML, CSS, JavaScript, Bootstrap, Firebase and AI integration. I worked on JobQuestAI as my main commercial project."
+                                        ></textarea>
+
+                                        <div class="textarea-footer">
+
+                                            <small class="field-help">
+                                                Mention your education, skills,
+                                                projects and experience.
+                                            </small>
+
+                                            <small
+                                                id="backgroundCharacterCount"
+                                                class="character-count"
+                                            >
+                                                0 / 3500
+                                            </small>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+
+                                <!-- CV Upload -->
+
+                                <div class="col-12">
+
+                                    <div class="form-field">
+
+                                        <label for="candidateCv">
+                                            Upload CV
+                                            <span class="optional-label">
+                                                Optional
+                                            </span>
+                                        </label>
+
+                                        <div
+                                            id="cvUploadZone"
+                                            class="cv-upload-zone"
+                                        >
+
+                                            <input
+                                                type="file"
+                                                id="candidateCv"
+                                                name="cv"
+                                                accept=".pdf,.docx"
+                                                class="cv-file-input"
+                                            >
+
+                                            <label
+                                                for="candidateCv"
+                                                class="cv-upload-label"
+                                            >
+
+                                                <span class="cv-upload-icon">
+
+                                                    <i class="bi bi-cloud-arrow-up"></i>
+
+                                                </span>
+
+                                                <span class="cv-upload-content">
+
+                                                    <strong>
+                                                        Upload your CV
+                                                    </strong>
+
+                                                    <span>
+                                                        Drag and drop or click
+                                                        to browse
+                                                    </span>
+
+                                                    <small>
+                                                        PDF or DOCX, maximum
+                                                        5 MB
+                                                    </small>
+
+                                                </span>
+
+                                            </label>
+
+                                            <div
+                                                id="selectedCvFile"
+                                                class="selected-file"
+                                                hidden
+                                            >
+
+                                                <span class="selected-file-icon">
+
+                                                    <i class="bi bi-file-earmark-person"></i>
+
+                                                </span>
+
+                                                <span class="selected-file-info">
+
+                                                    <strong id="selectedCvName">
+                                                        CV file
+                                                    </strong>
+
+                                                    <small id="selectedCvSize">
+                                                        0 KB
+                                                    </small>
+
+                                                </span>
+
+                                                <button
+                                                    type="button"
+                                                    id="removeCvBtn"
+                                                    class="remove-file-btn"
+                                                    aria-label="Remove uploaded CV"
+                                                >
+
+                                                    <i class="bi bi-x-lg"></i>
+
+                                                </button>
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- Permission Notice -->
+
+                            <div class="microphone-notice">
+
+                                <div class="notice-icon">
+
+                                    <i class="bi bi-mic-fill"></i>
+
+                                </div>
+
+                                <div>
+
+                                    <strong>
+                                        Microphone permission required
+                                    </strong>
+
+                                    <p>
+                                        Your browser will request microphone
+                                        access when you start the interview.
+                                        Use headphones in a quiet environment
+                                        for better results.
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- Form Error -->
+
+                            <div
+                                id="setupError"
+                                class="setup-error"
+                                role="alert"
+                                hidden
+                            >
+
+                                <i class="bi bi-exclamation-circle-fill"></i>
+
+                                <span id="setupErrorText">
+                                    Please complete the required information.
+                                </span>
+
+                            </div>
+
+
+                            <!-- Start Button -->
+
+                            <button
+                                type="submit"
+                                id="startInterviewBtn"
+                                class="start-interview-btn"
+                            >
+
+                                <span class="button-default-content">
+
+                                    <i class="bi bi-telephone-outbound-fill"></i>
+
+                                    Start AI Interview Call
+
+                                </span>
+
+                                <span
+                                    class="button-loading-content"
+                                    hidden
+                                >
+
+                                    <span
+                                        class="spinner-border spinner-border-sm"
+                                        aria-hidden="true"
+                                    ></span>
+
+                                    Preparing AI Recruiter...
+
+                                </span>
+
+                            </button>
+
+                        </form>
+
+                    </div>
+
+
+                    <!-- Setup Sidebar -->
+
+                    <aside class="setup-sidebar">
+
+                        <div class="sidebar-info-card">
+
+                            <div class="sidebar-card-icon">
+
+                                <i class="bi bi-shield-check"></i>
+
+                            </div>
+
+                            <h3>
+                                Private Practice
+                            </h3>
+
+                            <p>
+                                Your interview is designed for personal
+                                preparation and professional improvement.
+                            </p>
+
+                        </div>
+
+
+                        <div class="sidebar-info-card">
+
+                            <div class="sidebar-card-icon">
+
+                                <i class="bi bi-file-earmark-text"></i>
+
+                            </div>
+
+                            <h3>
+                                CV-Aware Questions
+                            </h3>
+
+                            <p>
+                                Upload a CV to receive questions based on your
+                                actual education, skills and projects.
+                            </p>
+
+                        </div>
+
+
+                        <div class="interview-tips-card">
+
+                            <h3>
+
+                                <i class="bi bi-lightbulb-fill"></i>
+
+                                Before You Start
+
+                            </h3>
+
+                            <ul>
+
+                                <li>
+                                    Find a quiet place.
+                                </li>
+
+                                <li>
+                                    Check your microphone.
+                                </li>
+
+                                <li>
+                                    Use headphones where possible.
+                                </li>
+
+                                <li>
+                                    Speak clearly and naturally.
+                                </li>
+
+                                <li>
+                                    Give examples in your answers.
+                                </li>
+
+                            </ul>
+
+                        </div>
+
+                    </aside>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             CONNECTION / INCOMING CALL SCREEN
+        ================================================== -->
+
+        <section
+            id="connectionScreen"
+            class="interview-screen connection-screen"
+            hidden
+        >
+
+            <div class="container">
+
+                <div class="connection-card">
+
+                    <div class="connection-animation">
+
+                        <span class="connection-wave wave-one"></span>
+                        <span class="connection-wave wave-two"></span>
+                        <span class="connection-wave wave-three"></span>
+
+                        <div class="connection-avatar">
+
+                            <i class="bi bi-person-workspace"></i>
+
+                        </div>
+
+                    </div>
+
+                    <span class="connection-label">
+                        JobQuestAI Live Recruiter
+                    </span>
+
+                    <h2 id="connectionTitle">
+                        Preparing your interview...
+                    </h2>
+
+                    <p id="connectionMessage">
+                        Creating a secure AI interview session.
+                    </p>
+
+                    <div class="connection-progress">
+
+                        <div
+                            id="connectionProgressBar"
+                            class="connection-progress-bar"
+                        ></div>
+
+                    </div>
+
+                    <div
+                        id="connectionSteps"
+                        class="connection-steps"
+                    >
+
+                        <div
+                            class="connection-step active"
+                            data-step="session"
+                        >
+
+                            <i class="bi bi-shield-lock"></i>
+
+                            <span>
+                                Secure session
+                            </span>
+
+                        </div>
+
+                        <div
+                            class="connection-step"
+                            data-step="microphone"
+                        >
+
+                            <i class="bi bi-mic"></i>
+
+                            <span>
+                                Microphone
+                            </span>
+
+                        </div>
+
+                        <div
+                            class="connection-step"
+                            data-step="recruiter"
+                        >
+
+                            <i class="bi bi-stars"></i>
+
+                            <span>
+                                AI recruiter
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <button
+                        type="button"
+                        id="cancelConnectionBtn"
+                        class="secondary-action-btn"
+                    >
+
+                        Cancel
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             LIVE INTERVIEW CALL SCREEN
+        ================================================== -->
+
+        <section
+            id="liveInterviewScreen"
+            class="interview-screen live-interview-screen"
+            hidden
+        >
+
+            <div class="container-fluid live-container">
+
+                <div class="live-call-layout">
+
+                    <!-- Main Interview Area -->
+
+                    <div class="live-call-main">
+
+                        <!-- Call Header -->
+
+                        <div class="live-call-header">
+
+                            <div class="live-call-identity">
+
+                                <span class="live-status-dot"></span>
+
+                                <div>
+
+                                    <strong>
+                                        JobQuestAI AI Recruiter
+                                    </strong>
+
+                                    <span id="liveCallMeta">
+                                        Live Professional Interview
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+                            <div class="live-call-header-right">
+
+                                <span
+                                    id="liveConnectionStatus"
+                                    class="live-connection-status"
+                                >
+
+                                    <i class="bi bi-wifi"></i>
+
+                                    Connected
+
+                                </span>
+
+                                <span
+                                    id="interviewTimer"
+                                    class="interview-timer"
+                                >
+                                    00:00
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- Recruiter Stage -->
+
+                        <div class="recruiter-stage">
+
+                            <div
+                                id="aiAvatar"
+                                class="ai-recruiter-avatar"
+                            >
+
+                                <div class="avatar-pulse pulse-one"></div>
+                                <div class="avatar-pulse pulse-two"></div>
+                                <div class="avatar-pulse pulse-three"></div>
+
+                                <div class="avatar-core">
+
+                                    <i class="bi bi-person-workspace"></i>
+
+                                </div>
+
+                                <div class="avatar-status-badge">
+
+                                    <i class="bi bi-stars"></i>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="recruiter-info">
+
+                                <h2>
+                                    AI Recruiter
+                                </h2>
+
+                                <p
+                                    id="interviewActivityStatus"
+                                    aria-live="polite"
+                                >
+                                    Preparing to speak...
+                                </p>
+
+                            </div>
+
+
+                            <!-- Audio Visualizer -->
+
+                            <div
+                                id="audioVisualizer"
+                                class="audio-visualizer"
+                                aria-hidden="true"
+                            >
+
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+
+                            </div>
+
+
+                            <!-- Current Speech -->
+
+                            <div
+                                id="currentSpeechCard"
+                                class="current-speech-card"
+                            >
+
+                                <span
+                                    id="currentSpeakerLabel"
+                                    class="current-speaker-label"
+                                >
+                                    AI Recruiter
+                                </span>
+
+                                <p
+                                    id="currentSpeechText"
+                                    aria-live="polite"
+                                >
+                                    Your live interview will appear here.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- Live Call Controls -->
+
+                        <div class="live-call-controls">
+
+                            <button
+                                type="button"
+                                id="muteMicrophoneBtn"
+                                class="call-control-btn"
+                                aria-label="Mute microphone"
+                                title="Mute microphone"
+                            >
+
+                                <i class="bi bi-mic-fill"></i>
+
+                                <span>
+                                    Mute
+                                </span>
+
+                            </button>
+
+                            <button
+                                type="button"
+                                id="toggleTranscriptBtn"
+                                class="call-control-btn d-lg-none"
+                                aria-label="Show interview transcript"
+                                title="Show transcript"
+                            >
+
+                                <i class="bi bi-chat-left-text-fill"></i>
+
+                                <span>
+                                    Transcript
+                                </span>
+
+                            </button>
+
+                            <button
+                                type="button"
+                                id="endInterviewBtn"
+                                class="call-control-btn end-call-btn"
+                                aria-label="End interview"
+                                title="End interview"
+                            >
+
+                                <i class="bi bi-telephone-x-fill"></i>
+
+                                <span>
+                                    End Interview
+                                </span>
+
+                            </button>
+
+                        </div>
+
+
+                        <!-- User Mic State -->
+
+                        <div
+                            id="microphoneState"
+                            class="microphone-state"
+                        >
+
+                            <span class="microphone-state-icon">
+
+                                <i class="bi bi-mic-fill"></i>
+
+                            </span>
+
+                            <span>
+                                Your microphone is active. Speak naturally
+                                when the recruiter finishes.
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Transcript Panel -->
+
+                    <aside
+                        id="transcriptPanel"
+                        class="transcript-panel"
+                    >
+
+                        <div class="transcript-header">
+
+                            <div>
+
+                                <span class="transcript-eyebrow">
+                                    Live Conversation
+                                </span>
+
+                                <h3>
+                                    Interview Transcript
+                                </h3>
+
+                            </div>
+
+                            <button
+                                type="button"
+                                id="closeTranscriptBtn"
+                                class="transcript-close-btn d-lg-none"
+                                aria-label="Close transcript panel"
+                            >
+
+                                <i class="bi bi-x-lg"></i>
+
+                            </button>
+
+                        </div>
+
+
+                        <div
+                            id="transcriptMessages"
+                            class="transcript-messages"
+                            aria-live="polite"
+                        >
+
+                            <div class="transcript-empty-state">
+
+                                <i class="bi bi-chat-square-dots"></i>
+
+                                <p>
+                                    The conversation transcript will appear
+                                    here when the interview begins.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="transcript-footer">
+
+                            <i class="bi bi-shield-lock-fill"></i>
+
+                            <span>
+                                Transcript is used to prepare your interview
+                                report.
+                            </span>
+
+                        </div>
+
+                    </aside>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             REPORT GENERATION SCREEN
+        ================================================== -->
+
+        <section
+            id="reportLoadingScreen"
+            class="interview-screen report-loading-screen"
+            hidden
+        >
+
+            <div class="container">
+
+                <div class="report-loading-card">
+
+                    <div class="report-loading-animation">
+
+                        <div class="report-document">
+
+                            <i class="bi bi-file-earmark-bar-graph"></i>
+
+                        </div>
+
+                        <span class="analysis-spark spark-one"></span>
+                        <span class="analysis-spark spark-two"></span>
+                        <span class="analysis-spark spark-three"></span>
+
+                    </div>
+
+                    <span class="section-eyebrow">
+                        AI Interview Analysis
+                    </span>
+
+                    <h2>
+                        Preparing Your Professional Report
+                    </h2>
+
+                    <p id="reportLoadingMessage">
+                        Reviewing your actual answers and interview evidence.
+                    </p>
+
+                    <div class="analysis-progress">
+
+                        <div
+                            id="analysisProgressBar"
+                            class="analysis-progress-bar"
+                        ></div>
+
+                    </div>
+
+                    <div class="analysis-status-list">
+
+                        <span>
+
+                            <i class="bi bi-check-circle-fill"></i>
+
+                            Transcript captured
+
+                        </span>
+
+                        <span>
+
+                            <i class="bi bi-arrow-repeat"></i>
+
+                            Evaluating interview evidence
+
+                        </span>
+
+                        <span>
+
+                            <i class="bi bi-hourglass-split"></i>
+
+                            Preparing recommendations
+
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             FINAL REPORT SCREEN
+        ================================================== -->
+
+        <section
+            id="reportScreen"
+            class="interview-screen final-report-screen"
+            hidden
+        >
+
+            <div class="container">
+
+                <div class="report-page-header">
+
+                    <div>
+
+                        <span class="section-eyebrow">
+                            Interview Assessment
+                        </span>
+
+                        <h2>
+                            Professional Interview Report
+                        </h2>
+
+                        <p>
+                            Your results are based on the answers recorded
+                            during the live interview.
+                        </p>
+
+                    </div>
+
+
+                    <div class="report-header-actions">
+
+                        <button
+                            type="button"
+                            id="printReportBtn"
+                            class="secondary-action-btn"
+                        >
+
+                            <i class="bi bi-printer"></i>
+
+                            Print Report
+
+                        </button>
+
+                        <button
+                            type="button"
+                            id="downloadReportBtn"
+                            class="primary-action-btn"
+                        >
+
+                            <i class="bi bi-download"></i>
+
+                            Download PDF
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <div
+                    id="reportContainer"
+                    class="report-container"
+                >
+
+                    <!-- Report content will be rendered by JavaScript -->
+
+                </div>
+
+
+                <div class="report-bottom-actions">
+
+                    <button
+                        type="button"
+                        id="startNewInterviewBtn"
+                        class="primary-action-btn"
+                    >
+
+                        <i class="bi bi-arrow-repeat"></i>
+
+                        Start Another Interview
+
+                    </button>
+
+                    <a
+                        href="dashboard.html"
+                        class="secondary-action-btn"
+                    >
+
+                        <i class="bi bi-grid"></i>
+
+                        Go to Dashboard
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             GLOBAL ERROR MODAL
+        ================================================== -->
+
+        <div
+            class="modal fade"
+            id="interviewErrorModal"
+            tabindex="-1"
+            aria-labelledby="interviewErrorModalTitle"
+            aria-hidden="true"
+        >
+
+            <div class="modal-dialog modal-dialog-centered">
+
+                <div class="modal-content interview-modal">
+
+                    <div class="modal-header">
+
+                        <div class="modal-title-wrap">
+
+                            <span class="modal-error-icon">
+
+                                <i class="bi bi-exclamation-triangle-fill"></i>
+
+                            </span>
+
+                            <h2
+                                class="modal-title fs-5"
+                                id="interviewErrorModalTitle"
+                            >
+                                Interview Connection Issue
+                            </h2>
+
+                        </div>
+
+                        <button
+                            type="button"
+                            class="btn-close"
+                            data-bs-dismiss="modal"
+                            aria-label="Close"
+                        ></button>
+
+                    </div>
+
+                    <div class="modal-body">
+
+                        <p id="interviewErrorMessage">
+                            The interview could not be started. Please try
+                            again.
+                        </p>
+
+                    </div>
+
+                    <div class="modal-footer">
+
+                        <button
+                            type="button"
+                            class="secondary-action-btn"
+                            data-bs-dismiss="modal"
+                        >
+                            Close
+                        </button>
+
+                        <button
+                            type="button"
+                            id="retryInterviewBtn"
+                            class="primary-action-btn"
+                        >
+                            Try Again
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             END INTERVIEW CONFIRMATION MODAL
+        ================================================== -->
+
+        <div
+            class="modal fade"
+            id="endInterviewModal"
+            tabindex="-1"
+            aria-labelledby="endInterviewModalTitle"
+            aria-hidden="true"
+        >
+
+            <div class="modal-dialog modal-dialog-centered">
+
+                <div class="modal-content interview-modal">
+
+                    <div class="modal-header">
+
+                        <div class="modal-title-wrap">
+
+                            <span class="modal-warning-icon">
+
+                                <i class="bi bi-telephone-x-fill"></i>
+
+                            </span>
+
+                            <h2
+                                class="modal-title fs-5"
+                                id="endInterviewModalTitle"
+                            >
+                                End Live Interview?
+                            </h2>
+
+                        </div>
+
+                        <button
+                            type="button"
+                            class="btn-close"
+                            data-bs-dismiss="modal"
+                            aria-label="Close"
+                        ></button>
+
+                    </div>
+
+                    <div class="modal-body">
+
+                        <p id="endInterviewModalMessage">
+                            Your interview is still active. Do you want to end
+                            it and prepare a report from the answers recorded
+                            so far?
+                        </p>
+
+                        <div
+                            id="insufficientEvidenceWarning"
+                            class="modal-evidence-warning"
+                            hidden
+                        >
+
+                            <i class="bi bi-info-circle-fill"></i>
+
+                            <span>
+                                There may not be enough detailed answers to
+                                generate a scored report.
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                    <div class="modal-footer">
+
+                        <button
+                            type="button"
+                            class="secondary-action-btn"
+                            data-bs-dismiss="modal"
+                        >
+                            Continue Interview
+                        </button>
+
+                        <button
+                            type="button"
+                            id="confirmEndInterviewBtn"
+                            class="danger-action-btn"
+                        >
+                            End Interview
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer class="jobquest-footer">
+
+        <div class="container">
+
+            <div class="footer-content">
+
+                <div class="footer-brand">
+
+                    <span class="brand-icon small">
+
+                        <i class="bi bi-stars"></i>
+
+                    </span>
+
+                    <div>
+
+                        <strong>
+                            JobQuestAI
+                        </strong>
+
+                        <span>
+                            Intelligent Career Platform
+                        </span>
+
+                    </div>
+
+                </div>
+
+                <p>
+                    AI-generated interview feedback is for practice and
+                    career-development purposes.
+                </p>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <!-- Bootstrap JavaScript -->
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    ></script>
+
+
+    <!-- Custom Interview Controller -->
+
+    <script src="mock-interview.js"></script>
+
+</body>
+
+</html>
