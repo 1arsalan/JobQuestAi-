@@ -32,7 +32,7 @@
 const INTERVIEW_CONFIG = Object.freeze({
 
     apiBaseUrl:
-        "http://localhost:3000/api/live-interview",
+        "/api/live-interview",
 
     sessionEndpoint:
         "/session",

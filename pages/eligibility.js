@@ -214,7 +214,7 @@ document
         try {
 
             const response = await fetch(
-                "http://localhost:3000/eligibility",
+                "/eligibility",
                 {
                     method: "POST",
 
@@ -514,7 +514,7 @@ if (analyzeCvBtn) {
             document.getElementById("targetRole").value
         );
 
-        const response = await fetch("http://localhost:3000/analyze-cv", {
+        const response = await fetch("/analyze-cv", {
             method: "POST",
             body: formData
         });
@@ -1033,7 +1033,7 @@ async function generateCoverLetter() {
     loadingSection.style.display = "block";
 
     const response = await fetch(
-        "http://localhost:3000/generate-cover-letter",
+        "/generate-cover-letter",
         {
             method: "POST",
             headers: {
@@ -1155,7 +1155,7 @@ async function rewriteResume() {
     loadingSection.style.display = "block";
 
     const response = await fetch(
-        "http://localhost:3000/rewrite-resume",
+        "/rewrite-resume",
         {
             method: "POST",
             headers: {

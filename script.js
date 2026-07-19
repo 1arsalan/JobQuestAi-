@@ -181,7 +181,7 @@ window.startTest = async function() {
 
     // API REQUEST
     const res = await fetch(
-      "http://localhost:3000/generate",
+      "/generate",
       {
         method: "POST",
 

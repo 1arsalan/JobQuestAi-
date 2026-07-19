@@ -142,7 +142,7 @@ async function loadLiveJobs(){
 try{
 
 const response =
-await fetch("http://localhost:3000/jobs");
+await fetch("/jobs");
 
 const result =
 await response.json();

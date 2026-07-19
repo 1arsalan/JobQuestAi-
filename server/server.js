@@ -7,6 +7,8 @@ const liveInterviewRouter =
 
 const express = require("express");
 
+const path = require("path");
+
 const multer = require("multer");
 const { PDFParse } = require("pdf-parse"); 
 const mammoth = require("mammoth");
@@ -33,13 +35,22 @@ const openrouter = new OpenAI({
     baseURL: "https://openrouter.ai/api/v1",
     apiKey: process.env.OPENROUTER_API_KEY,
     defaultHeaders: {
-        "HTTP-Referer": "http://localhost:3000",
+        "HTTP-Referer": process.env.APP_URL,
         "X-Title": "JobQuestAI"
     }
 });
 
 app.use(cors());
 app.use(express.json());
+
+/* ================= SERVE FRONTEND ================= */
+
+const frontendPath =
+    path.join(__dirname, "..");
+
+app.use(
+    express.static(frontendPath)
+);
 
 app.use(
     "/api/live-interview",
@@ -48,9 +59,9 @@ app.use(
 
 /* ================= TEST ROUTE ================= */
 
-app.get("/", (req, res) => {
+/*app.get("/", (req, res) => {
   res.send("Server is working");
-});
+});*/
 
 /* ================= AI GENERATE ROUTE ================= */
 
@@ -2071,7 +2082,74 @@ Professional Rules:
 
 });
 
+/* ================= FRONTEND ROUTES ================= */
 
-app.listen(3000, () => {
-  console.log("Server running on http://localhost:3000");
+app.get("/", (req, res) => {
+
+    res.sendFile(
+        path.join(
+            frontendPath,
+            "index.html"
+        )
+    );
+
 });
+
+app.get("*", (req, res, next) => {
+
+    if (
+        req.path.startsWith("/generate") ||
+        req.path.startsWith("/eligibility") ||
+        req.path.startsWith("/jobs") ||
+        req.path.startsWith("/analyze-cv") ||
+        req.path.startsWith("/api/")
+    ) {
+
+        return next();
+
+    }
+
+    const requestedFile =
+        path.join(
+            frontendPath,
+            req.path
+        );
+
+    res.sendFile(
+        requestedFile,
+        function (error) {
+
+            if (error) {
+
+                res.sendFile(
+                    path.join(
+                        frontendPath,
+                        "index.html"
+                    )
+                );
+
+            }
+
+        }
+    );
+
+});
+
+/*app.listen(3000, () => {
+  console.log("Server running on http://localhost:3000");
+}); */
+
+const PORT =
+    process.env.PORT || 3000;
+
+app.listen(
+    PORT,
+    "0.0.0.0",
+    () => {
+
+        console.log(
+            `Server running on port ${PORT}`
+        );
+
+    }
+);
