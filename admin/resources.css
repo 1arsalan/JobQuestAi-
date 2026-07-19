@@ -1,0 +1,3341 @@
+/* =========================================================
+   JOBQUESTAI ADMIN — STUDY RESOURCES
+
+   RESOURCES.CSS — PART 1
+
+   Includes:
+   - Page foundation
+   - Statistics
+   - Toolbar
+   - Search and filters
+   - Form panel
+   - Form sections
+   - Source type options
+   - Basic fields
+   - Responsive foundation
+========================================================= */
+
+
+/* =========================================================
+   1. PAGE VARIABLES
+========================================================= */
+
+:root {
+    --resource-primary: #2563eb;
+    --resource-primary-dark: #1d4ed8;
+    --resource-primary-soft: #eff6ff;
+
+    --resource-secondary: #7c3aed;
+
+    --resource-success: #16a34a;
+    --resource-success-soft: #f0fdf4;
+
+    --resource-warning: #d97706;
+    --resource-warning-soft: #fffbeb;
+
+    --resource-danger: #dc2626;
+    --resource-danger-soft: #fef2f2;
+
+    --resource-cyan: #0891b2;
+    --resource-cyan-soft: #ecfeff;
+
+    --resource-dark: #0f172a;
+    --resource-dark-soft: #1e293b;
+
+    --resource-text: #475569;
+    --resource-muted: #64748b;
+    --resource-light: #94a3b8;
+
+    --resource-border: #dbe3f0;
+    --resource-border-soft: #e8eef6;
+
+    --resource-background: #f5f7fb;
+    --resource-white: #ffffff;
+
+    --resource-shadow:
+        0 12px 30px rgba(15, 23, 42, 0.06);
+
+    --resource-shadow-lg:
+        0 24px 55px rgba(15, 23, 42, 0.1);
+
+    --resource-radius-sm: 10px;
+    --resource-radius-md: 14px;
+    --resource-radius-lg: 20px;
+    --resource-radius-xl: 26px;
+
+    --resource-transition: 0.25s ease;
+}
+
+
+/* =========================================================
+   2. PAGE SAFETY
+========================================================= */
+
+body {
+    background: var(--resource-background);
+}
+
+button,
+input,
+select,
+textarea {
+    font: inherit;
+}
+
+button {
+    border: 0;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+
+/* =========================================================
+   3. TOPBAR PREVIEW BUTTON
+========================================================= */
+
+.preview-page-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+
+    min-height: 44px;
+    padding: 11px 17px;
+
+    color: var(--resource-primary);
+    background: var(--resource-primary-soft);
+
+    border: 1px solid rgba(37, 99, 235, 0.18);
+    border-radius: var(--resource-radius-md);
+
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 700;
+
+    transition:
+        color var(--resource-transition),
+        background var(--resource-transition),
+        border-color var(--resource-transition),
+        transform var(--resource-transition),
+        box-shadow var(--resource-transition);
+}
+
+.preview-page-btn:hover {
+    color: var(--resource-white);
+    background: var(--resource-primary);
+
+    border-color: var(--resource-primary);
+
+    box-shadow:
+        0 11px 24px rgba(37, 99, 235, 0.2);
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   4. RESOURCE STATISTICS GRID
+========================================================= */
+
+.resource-stats-grid {
+    display: grid;
+    grid-template-columns:
+        repeat(4, minmax(0, 1fr));
+    gap: 20px;
+
+    margin-bottom: 25px;
+}
+
+.resource-stats-grid .stat-card {
+    position: relative;
+
+    min-width: 0;
+    overflow: hidden;
+
+    border: 1px solid rgba(226, 232, 240, 0.9);
+
+    isolation: isolate;
+}
+
+.resource-stats-grid .stat-card::before {
+    content: "";
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 3px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--resource-primary),
+            var(--resource-secondary)
+        );
+
+    opacity: 0;
+
+    transition: opacity var(--resource-transition);
+}
+
+.resource-stats-grid .stat-card:hover::before {
+    opacity: 1;
+}
+
+.resource-stats-grid .stat-card::after {
+    content: "";
+
+    position: absolute;
+    right: -50px;
+    bottom: -60px;
+    z-index: -1;
+
+    width: 145px;
+    height: 145px;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(37, 99, 235, 0.08),
+            transparent 68%
+        );
+
+    border-radius: 50%;
+}
+
+.resource-stats-grid .stat-icon {
+    transition:
+        transform var(--resource-transition),
+        box-shadow var(--resource-transition);
+}
+
+.resource-stats-grid .stat-card:hover .stat-icon {
+    transform:
+        translateY(-2px)
+        scale(1.04);
+
+    box-shadow:
+        0 12px 24px rgba(37, 99, 235, 0.12);
+}
+
+.resource-stats-grid .internal-icon {
+    color: var(--resource-danger);
+    background: var(--resource-danger-soft);
+}
+
+.resource-stats-grid .external-icon {
+    color: var(--resource-cyan);
+    background: var(--resource-cyan-soft);
+}
+
+.resource-stats-grid .published-icon {
+    color: var(--resource-success);
+    background: var(--resource-success-soft);
+}
+
+
+/* =========================================================
+   5. RESOURCE TOOLBAR
+========================================================= */
+
+.resource-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+
+    margin-bottom: 25px;
+    padding: 18px;
+
+    background: var(--resource-white);
+
+    border: 1px solid var(--resource-border-soft);
+    border-radius: var(--resource-radius-lg);
+
+    box-shadow: var(--resource-shadow);
+}
+
+.resource-search-box {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    flex: 1;
+
+    min-width: 240px;
+    max-width: 520px;
+}
+
+.resource-search-box > i {
+    position: absolute;
+    left: 16px;
+    z-index: 2;
+
+    color: var(--resource-light);
+
+    font-size: 15px;
+
+    pointer-events: none;
+
+    transition:
+        color var(--resource-transition),
+        transform var(--resource-transition);
+}
+
+.resource-search-box:focus-within > i {
+    color: var(--resource-primary);
+
+    transform: scale(1.05);
+}
+
+.resource-search-box input {
+    width: 100%;
+    min-height: 48px;
+
+    padding:
+        11px
+        16px
+        11px
+        45px;
+
+    color: var(--resource-dark-soft);
+    background: #f8fafc;
+
+    border: 1px solid var(--resource-border);
+    border-radius: var(--resource-radius-md);
+
+    outline: none;
+
+    font-size: 13px;
+
+    transition:
+        background var(--resource-transition),
+        border-color var(--resource-transition),
+        box-shadow var(--resource-transition);
+}
+
+.resource-search-box input::placeholder {
+    color: var(--resource-light);
+}
+
+.resource-search-box input:focus {
+    background: var(--resource-white);
+
+    border-color: var(--resource-primary);
+
+    box-shadow:
+        0 0 0 4px rgba(37, 99, 235, 0.09);
+}
+
+
+/* =========================================================
+   6. TOOLBAR FILTERS
+========================================================= */
+
+.resource-toolbar-filters {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 11px;
+
+    flex: 0 0 auto;
+}
+
+.resource-toolbar select {
+    min-width: 145px;
+    min-height: 46px;
+
+    padding:
+        10px
+        38px
+        10px
+        13px;
+
+    color: var(--resource-dark-soft);
+    background:
+        var(--resource-white)
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='13' height='13' viewBox='0 0 16 16'%3E%3Cpath fill='%2364748b' d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.658l-4.796 5.482a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E")
+        no-repeat
+        right 13px
+        center;
+
+    border: 1px solid var(--resource-border);
+    border-radius: 12px;
+
+    outline: none;
+
+    font-size: 12.5px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    appearance: none;
+    -webkit-appearance: none;
+
+    transition:
+        border-color var(--resource-transition),
+        box-shadow var(--resource-transition);
+}
+
+.resource-toolbar select:focus {
+    border-color: var(--resource-primary);
+
+    box-shadow:
+        0 0 0 4px rgba(37, 99, 235, 0.09);
+}
+
+
+/* =========================================================
+   7. ADD RESOURCE BUTTON
+========================================================= */
+
+.add-resource-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+
+    min-height: 46px;
+    padding: 11px 18px;
+
+    color: var(--resource-white);
+    background:
+        linear-gradient(
+            135deg,
+            var(--resource-primary),
+            var(--resource-primary-dark) 58%,
+            var(--resource-secondary)
+        );
+
+    border-radius: 12px;
+
+    box-shadow:
+        0 11px 24px rgba(37, 99, 235, 0.2);
+
+    font-size: 13px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        transform var(--resource-transition),
+        box-shadow var(--resource-transition),
+        filter var(--resource-transition);
+}
+
+.add-resource-btn:hover {
+    box-shadow:
+        0 16px 32px rgba(37, 99, 235, 0.28);
+
+    filter: brightness(1.04);
+
+    transform: translateY(-2px);
+}
+
+.add-resource-btn:active {
+    transform: translateY(0);
+}
+
+
+/* =========================================================
+   8. RESOURCE FORM PANEL
+========================================================= */
+
+.resource-form-panel {
+    margin-bottom: 25px;
+
+    border:
+        1px solid
+        rgba(37, 99, 235, 0.13);
+
+    box-shadow: var(--resource-shadow-lg);
+
+    animation:
+        resource-panel-enter
+        280ms ease both;
+}
+
+@keyframes resource-panel-enter {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(-10px)
+            scale(0.99);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+
+}
+
+
+/* =========================================================
+   9. PANEL HEADING
+========================================================= */
+
+.panel-heading {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 22px;
+
+    margin-bottom: 25px;
+}
+
+.panel-heading > div {
+    min-width: 0;
+}
+
+.panel-eyebrow {
+    display: inline-flex;
+    align-items: center;
+
+    margin-bottom: 7px;
+
+    color: var(--resource-primary);
+
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.9px;
+    text-transform: uppercase;
+}
+
+.panel-heading h2 {
+    margin-bottom: 7px;
+
+    color: var(--resource-dark);
+
+    font-size: 25px;
+    font-weight: 800;
+    line-height: 1.2;
+}
+
+.panel-heading p {
+    margin: 0;
+
+    color: var(--resource-muted);
+
+    font-size: 13px;
+    line-height: 1.65;
+}
+
+
+/* =========================================================
+   10. CLOSE FORM BUTTON
+========================================================= */
+
+.close-resource-form-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 42px;
+    height: 42px;
+    flex: 0 0 42px;
+
+    color: var(--resource-muted);
+    background: #f8fafc;
+
+    border: 1px solid var(--resource-border);
+    border-radius: 12px;
+
+    cursor: pointer;
+
+    transition:
+        color var(--resource-transition),
+        background var(--resource-transition),
+        border-color var(--resource-transition),
+        transform var(--resource-transition);
+}
+
+.close-resource-form-btn:hover {
+    color: var(--resource-white);
+    background: var(--resource-danger);
+
+    border-color: var(--resource-danger);
+
+    transform: rotate(4deg);
+}
+
+
+/* =========================================================
+   11. RESOURCE FORM
+========================================================= */
+
+#resourceForm {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+
+.form-section {
+    padding: 22px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #ffffff,
+            #fbfdff
+        );
+
+    border: 1px solid var(--resource-border-soft);
+    border-radius: 18px;
+}
+
+.form-section-heading {
+    display: flex;
+    align-items: flex-start;
+    gap: 13px;
+
+    margin-bottom: 20px;
+    padding-bottom: 17px;
+
+    border-bottom: 1px solid var(--resource-border-soft);
+}
+
+.form-section-heading > i {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 42px;
+    height: 42px;
+    flex: 0 0 42px;
+
+    color: var(--resource-primary);
+    background: var(--resource-primary-soft);
+
+    border-radius: 12px;
+
+    font-size: 16px;
+}
+
+.form-section-heading h3 {
+    margin-bottom: 4px;
+
+    color: var(--resource-dark-soft);
+
+    font-size: 17px;
+    font-weight: 800;
+}
+
+.form-section-heading p {
+    margin: 0;
+
+    color: var(--resource-muted);
+
+    font-size: 12px;
+    line-height: 1.55;
+}
+
+
+/* =========================================================
+   12. RESOURCE FORM GRID
+========================================================= */
+
+.resource-form-grid {
+    display: grid;
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+    gap: 17px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+
+    min-width: 0;
+}
+
+.form-group-full {
+    grid-column: 1 / -1;
+}
+
+.form-group label {
+    margin-bottom: 8px;
+
+    color: var(--resource-dark-soft);
+
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.form-group label span {
+    color: var(--resource-danger);
+}
+
+
+/* =========================================================
+   13. INPUTS, SELECTS AND TEXTAREA
+========================================================= */
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    min-height: 47px;
+
+    padding: 11px 13px;
+
+    color: var(--resource-dark-soft);
+    background: var(--resource-white);
+
+    border: 1px solid var(--resource-border);
+    border-radius: 12px;
+
+    outline: none;
+
+    font-size: 12.5px;
+
+    transition:
+        border-color var(--resource-transition),
+        box-shadow var(--resource-transition),
+        background var(--resource-transition);
+}
+
+.form-group textarea {
+    min-height: 112px;
+
+    line-height: 1.6;
+
+    resize: vertical;
+}
+
+.form-group select {
+    padding-right: 38px;
+
+    background:
+        var(--resource-white)
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='13' height='13' viewBox='0 0 16 16'%3E%3Cpath fill='%2364748b' d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.658l-4.796 5.482a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E")
+        no-repeat
+        right 13px
+        center;
+
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: var(--resource-light);
+}
+
+.form-group input:hover,
+.form-group select:hover,
+.form-group textarea:hover {
+    border-color: #cbd5e1;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    background: var(--resource-white);
+
+    border-color: var(--resource-primary);
+
+    box-shadow:
+        0 0 0 4px rgba(37, 99, 235, 0.09);
+}
+
+.form-group input:disabled,
+.form-group select:disabled,
+.form-group textarea:disabled {
+    background: #f1f5f9;
+
+    cursor: not-allowed;
+
+    opacity: 0.72;
+}
+
+
+/* =========================================================
+   14. FIELD HELP AND ERROR
+========================================================= */
+
+.field-help {
+    margin-top: 7px;
+
+    color: var(--resource-light);
+
+    font-size: 10.5px;
+    line-height: 1.45;
+}
+
+.field-error {
+    min-height: 14px;
+    margin-top: 6px;
+
+    color: var(--resource-danger);
+
+    font-size: 10.5px;
+    font-weight: 600;
+}
+
+.form-group.has-error input,
+.form-group.has-error select,
+.form-group.has-error textarea {
+    border-color: var(--resource-danger);
+
+    box-shadow:
+        0 0 0 4px rgba(220, 38, 38, 0.07);
+}
+
+
+/* =========================================================
+   15. SOURCE TYPE OPTIONS
+========================================================= */
+
+.source-type-options {
+    display: grid;
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.source-type-option {
+    position: relative;
+
+    display: block;
+
+    cursor: pointer;
+}
+
+.source-type-option input {
+    position: absolute;
+
+    opacity: 0;
+    pointer-events: none;
+}
+
+.source-option-content {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+
+    min-height: 105px;
+    padding: 17px;
+
+    background: var(--resource-white);
+
+    border: 1px solid var(--resource-border);
+    border-radius: 16px;
+
+    transition:
+        border-color var(--resource-transition),
+        background var(--resource-transition),
+        box-shadow var(--resource-transition),
+        transform var(--resource-transition);
+}
+
+.source-type-option:hover .source-option-content {
+    border-color:
+        rgba(37, 99, 235, 0.28);
+
+    box-shadow:
+        0 13px 27px rgba(37, 99, 235, 0.08);
+
+    transform: translateY(-2px);
+}
+
+.source-type-option input:checked + .source-option-content {
+    background:
+        linear-gradient(
+            180deg,
+            #ffffff,
+            #f4f8ff
+        );
+
+    border-color: var(--resource-primary);
+
+    box-shadow:
+        0 0 0 4px rgba(37, 99, 235, 0.08),
+        0 14px 28px rgba(37, 99, 235, 0.09);
+}
+
+.source-option-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 52px;
+    height: 52px;
+    flex: 0 0 52px;
+
+    color: var(--resource-primary);
+    background: var(--resource-primary-soft);
+
+    border-radius: 15px;
+
+    font-size: 20px;
+}
+
+.source-option-icon.external {
+    color: var(--resource-cyan);
+    background: var(--resource-cyan-soft);
+}
+
+.source-option-content > span:last-child {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+    min-width: 0;
+}
+
+.source-option-content strong {
+    color: var(--resource-dark-soft);
+
+    font-size: 14px;
+    font-weight: 800;
+}
+
+.source-option-content small {
+    color: var(--resource-muted);
+
+    font-size: 11px;
+    line-height: 1.55;
+}
+
+
+/* =========================================================
+   16. RESPONSIVE — LARGE TABLET
+========================================================= */
+
+@media (max-width: 1200px) {
+
+    .resource-stats-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+    .resource-toolbar {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .resource-search-box {
+        max-width: none;
+    }
+
+    .resource-toolbar-filters {
+        justify-content: flex-start;
+        flex-wrap: wrap;
+    }
+
+}
+
+
+/* =========================================================
+   17. RESPONSIVE — TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .resource-form-grid,
+    .source-type-options {
+        grid-template-columns: 1fr;
+    }
+
+    .resource-toolbar-filters {
+        display: grid;
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+        width: 100%;
+    }
+
+    .resource-toolbar select {
+        width: 100%;
+    }
+
+    .add-resource-btn {
+        width: 100%;
+    }
+
+}
+
+
+/* =========================================================
+   18. RESPONSIVE — MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .resource-stats-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+
+    .resource-toolbar {
+        padding: 14px;
+
+        border-radius: 16px;
+    }
+
+    .resource-toolbar-filters {
+        grid-template-columns: 1fr;
+    }
+
+    .form-section {
+        padding: 17px 14px;
+
+        border-radius: 15px;
+    }
+
+    .form-section-heading {
+        gap: 10px;
+    }
+
+    .form-section-heading > i {
+        width: 38px;
+        height: 38px;
+        flex-basis: 38px;
+    }
+
+    .panel-heading {
+        gap: 14px;
+    }
+
+    .panel-heading h2 {
+        font-size: 21px;
+    }
+
+    .source-option-content {
+        min-height: 96px;
+        padding: 14px;
+    }
+
+    .source-option-icon {
+        width: 46px;
+        height: 46px;
+        flex-basis: 46px;
+
+        font-size: 18px;
+    }
+
+}
+
+
+/* =========================================================
+   END OF RESOURCES.CSS — PART 1
+
+   PART 2 WILL INCLUDE:
+   - File upload box
+   - Toggle switches
+   - Upload progress
+   - Form buttons
+   - Loading states
+   - Validation states
+========================================================= */
+
+/* =========================================================
+   JOBQUESTAI ADMIN — STUDY RESOURCES
+
+   RESOURCES.CSS — PART 2
+
+   Includes:
+   - File upload area
+   - Selected file state
+   - Toggle switches
+   - Upload progress
+   - Form actions
+   - Loading states
+   - Validation refinements
+   - Responsive behavior
+========================================================= */
+
+
+/* =========================================================
+   19. FILE UPLOAD BOX
+========================================================= */
+
+.file-upload-box {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+
+    min-height: 180px;
+    padding: 24px;
+
+    overflow: hidden;
+
+    color: var(--resource-muted);
+    background:
+        linear-gradient(
+            180deg,
+            #ffffff,
+            #f8fbff
+        );
+
+    border:
+        2px dashed
+        #cbd5e1;
+    border-radius: 18px;
+
+    cursor: pointer;
+
+    text-align: center;
+
+    transition:
+        color var(--resource-transition),
+        background var(--resource-transition),
+        border-color var(--resource-transition),
+        box-shadow var(--resource-transition),
+        transform var(--resource-transition);
+}
+
+.file-upload-box::before {
+    content: "";
+
+    position: absolute;
+    top: -80px;
+    right: -70px;
+
+    width: 190px;
+    height: 190px;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(37, 99, 235, 0.08),
+            transparent 68%
+        );
+
+    border-radius: 50%;
+
+    pointer-events: none;
+}
+
+.file-upload-box:hover {
+    color: var(--resource-primary);
+    background:
+        linear-gradient(
+            180deg,
+            #ffffff,
+            #f3f7ff
+        );
+
+    border-color: var(--resource-primary);
+
+    box-shadow:
+        0 16px 34px
+        rgba(37, 99, 235, 0.09);
+
+    transform: translateY(-2px);
+}
+
+.file-upload-box.drag-active {
+    color: var(--resource-primary);
+    background: var(--resource-primary-soft);
+
+    border-color: var(--resource-primary);
+
+    box-shadow:
+        0 0 0 5px
+        rgba(37, 99, 235, 0.09);
+}
+
+
+/* =========================================================
+   20. FILE INPUT
+========================================================= */
+
+.file-upload-box input[type="file"] {
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+
+    width: 100%;
+    height: 100%;
+
+    cursor: pointer;
+
+    opacity: 0;
+}
+
+.file-upload-box > i {
+    position: relative;
+    z-index: 1;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 60px;
+    height: 60px;
+    margin-bottom: 14px;
+
+    color: var(--resource-primary);
+    background: var(--resource-primary-soft);
+
+    border-radius: 17px;
+
+    box-shadow:
+        0 12px 26px
+        rgba(37, 99, 235, 0.12);
+
+    font-size: 24px;
+
+    transition:
+        transform var(--resource-transition),
+        box-shadow var(--resource-transition);
+}
+
+.file-upload-box:hover > i {
+    box-shadow:
+        0 16px 32px
+        rgba(37, 99, 235, 0.18);
+
+    transform:
+        translateY(-3px)
+        scale(1.04);
+}
+
+.file-upload-box strong {
+    position: relative;
+    z-index: 1;
+
+    margin-bottom: 6px;
+
+    color: var(--resource-dark-soft);
+
+    font-size: 15px;
+    font-weight: 800;
+}
+
+.file-upload-box span {
+    position: relative;
+    z-index: 1;
+
+    max-width: 100%;
+
+    overflow: hidden;
+
+    color: var(--resource-light);
+
+    font-size: 11.5px;
+    line-height: 1.5;
+
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   21. SELECTED FILE STATE
+========================================================= */
+
+.file-upload-box.has-file {
+    background:
+        linear-gradient(
+            180deg,
+            #ffffff,
+            #f0fdf4
+        );
+
+    border-color:
+        rgba(22, 163, 74, 0.45);
+}
+
+.file-upload-box.has-file > i {
+    color: var(--resource-success);
+    background: var(--resource-success-soft);
+}
+
+.file-upload-box.has-file strong {
+    color: var(--resource-success);
+}
+
+.file-upload-box.has-file span {
+    color: var(--resource-dark-soft);
+    font-weight: 650;
+}
+
+
+/* =========================================================
+   22. TOGGLE OPTIONS CONTAINER
+========================================================= */
+
+.toggle-options {
+    display: grid;
+    grid-column: 1 / -1;
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+    gap: 15px;
+
+    margin-top: 2px;
+}
+
+
+/* =========================================================
+   23. TOGGLE OPTION
+========================================================= */
+
+.toggle-option {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+
+    min-height: 88px;
+    padding: 15px 16px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #ffffff,
+            #fbfdff
+        );
+
+    border: 1px solid var(--resource-border);
+    border-radius: 15px;
+
+    cursor: pointer;
+
+    transition:
+        background var(--resource-transition),
+        border-color var(--resource-transition),
+        box-shadow var(--resource-transition),
+        transform var(--resource-transition);
+}
+
+.toggle-option:hover {
+    border-color:
+        rgba(37, 99, 235, 0.25);
+
+    box-shadow:
+        0 11px 24px
+        rgba(37, 99, 235, 0.07);
+
+    transform: translateY(-2px);
+}
+
+.toggle-option input {
+    position: absolute;
+
+    opacity: 0;
+    pointer-events: none;
+}
+
+.toggle-option > span:last-child {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+
+    min-width: 0;
+}
+
+.toggle-option strong {
+    color: var(--resource-dark-soft);
+
+    font-size: 13px;
+    font-weight: 800;
+}
+
+.toggle-option small {
+    color: var(--resource-muted);
+
+    font-size: 10.8px;
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   24. TOGGLE SWITCH
+========================================================= */
+
+.toggle-switch {
+    position: relative;
+
+    width: 46px;
+    height: 26px;
+    flex: 0 0 46px;
+
+    background: #cbd5e1;
+
+    border-radius: 999px;
+
+    box-shadow:
+        inset 0 1px 3px
+        rgba(15, 23, 42, 0.16);
+
+    transition:
+        background var(--resource-transition),
+        box-shadow var(--resource-transition);
+}
+
+.toggle-switch::after {
+    content: "";
+
+    position: absolute;
+    top: 4px;
+    left: 4px;
+
+    width: 18px;
+    height: 18px;
+
+    background: var(--resource-white);
+
+    border-radius: 50%;
+
+    box-shadow:
+        0 3px 8px
+        rgba(15, 23, 42, 0.2);
+
+    transition:
+        left var(--resource-transition),
+        transform var(--resource-transition);
+}
+
+.toggle-option
+input:checked +
+.toggle-switch {
+    background:
+        linear-gradient(
+            135deg,
+            var(--resource-primary),
+            var(--resource-secondary)
+        );
+
+    box-shadow:
+        0 7px 17px
+        rgba(37, 99, 235, 0.2);
+}
+
+.toggle-option
+input:checked +
+.toggle-switch::after {
+    left: 24px;
+}
+
+.toggle-option
+input:focus-visible +
+.toggle-switch {
+    outline:
+        3px solid
+        rgba(37, 99, 235, 0.2);
+
+    outline-offset: 3px;
+}
+
+
+/* =========================================================
+   25. UPLOAD PROGRESS
+========================================================= */
+
+.upload-progress {
+    padding: 16px 18px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #ffffff,
+            #f8fbff
+        );
+
+    border:
+        1px solid
+        var(--resource-border);
+    border-radius: 14px;
+
+    box-shadow:
+        0 9px 21px
+        rgba(15, 23, 42, 0.05);
+}
+
+.upload-progress-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+
+    margin-bottom: 10px;
+}
+
+.upload-progress-header span {
+    color: var(--resource-dark-soft);
+
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.upload-progress-header strong {
+    color: var(--resource-primary);
+
+    font-size: 12px;
+    font-weight: 850;
+}
+
+.upload-progress-track {
+    position: relative;
+
+    width: 100%;
+    height: 10px;
+
+    overflow: hidden;
+
+    background: #e2e8f0;
+
+    border-radius: 999px;
+}
+
+.upload-progress-track > span {
+    display: block;
+
+    width: 0;
+    height: 100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--resource-primary),
+            var(--resource-secondary)
+        );
+
+    border-radius: inherit;
+
+    box-shadow:
+        0 0 12px
+        rgba(37, 99, 235, 0.25);
+
+    transition:
+        width 250ms ease;
+}
+
+.upload-progress.is-error {
+    background: var(--resource-danger-soft);
+
+    border-color:
+        rgba(220, 38, 38, 0.2);
+}
+
+.upload-progress.is-error
+.upload-progress-header strong {
+    color: var(--resource-danger);
+}
+
+.upload-progress.is-error
+.upload-progress-track > span {
+    background:
+        linear-gradient(
+            90deg,
+            var(--resource-danger),
+            #ef4444
+        );
+}
+
+
+/* =========================================================
+   26. FORM ACTIONS
+========================================================= */
+
+.resource-form-actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 12px;
+
+    padding-top: 5px;
+}
+
+
+/* =========================================================
+   27. SECONDARY BUTTON
+========================================================= */
+
+.secondary-resource-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    min-width: 112px;
+    min-height: 46px;
+    padding: 10px 17px;
+
+    color: var(--resource-dark-soft);
+    background: var(--resource-white);
+
+    border:
+        1px solid
+        var(--resource-border);
+    border-radius: 12px;
+
+    font-size: 12.5px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        color var(--resource-transition),
+        background var(--resource-transition),
+        border-color var(--resource-transition),
+        box-shadow var(--resource-transition),
+        transform var(--resource-transition);
+}
+
+.secondary-resource-btn:hover {
+    color: var(--resource-primary);
+    background: var(--resource-primary-soft);
+
+    border-color:
+        rgba(37, 99, 235, 0.2);
+
+    box-shadow:
+        0 9px 20px
+        rgba(37, 99, 235, 0.08);
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   28. SAVE RESOURCE BUTTON
+========================================================= */
+
+.save-resource-btn {
+    position: relative;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+
+    min-width: 175px;
+    min-height: 48px;
+    padding: 11px 20px;
+
+    overflow: hidden;
+
+    color: var(--resource-white);
+    background:
+        linear-gradient(
+            135deg,
+            var(--resource-primary),
+            var(--resource-primary-dark) 55%,
+            var(--resource-secondary)
+        );
+
+    border-radius: 12px;
+
+    box-shadow:
+        0 13px 28px
+        rgba(37, 99, 235, 0.23);
+
+    font-size: 13px;
+    font-weight: 800;
+
+    cursor: pointer;
+
+    transition:
+        box-shadow var(--resource-transition),
+        filter var(--resource-transition),
+        transform var(--resource-transition);
+}
+
+.save-resource-btn::before {
+    content: "";
+
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: -70%;
+
+    width: 45%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255, 255, 255, 0.22),
+            transparent
+        );
+
+    transform: skewX(-18deg);
+
+    transition: left 550ms ease;
+}
+
+.save-resource-btn:hover::before {
+    left: 130%;
+}
+
+.save-resource-btn:hover {
+    box-shadow:
+        0 18px 36px
+        rgba(37, 99, 235, 0.3);
+
+    filter: brightness(1.04);
+
+    transform: translateY(-2px);
+}
+
+.save-resource-btn:active {
+    transform: translateY(0);
+}
+
+.save-resource-btn i,
+.save-resource-btn span {
+    position: relative;
+    z-index: 1;
+}
+
+
+/* =========================================================
+   29. BUTTON DISABLED / LOADING
+========================================================= */
+
+.save-resource-btn:disabled,
+.secondary-resource-btn:disabled,
+.add-resource-btn:disabled {
+    cursor: not-allowed;
+
+    opacity: 0.58;
+
+    box-shadow: none;
+
+    filter: none;
+
+    transform: none;
+}
+
+.save-resource-btn.is-loading {
+    color: transparent !important;
+
+    pointer-events: none;
+}
+
+.save-resource-btn.is-loading::after {
+    content: "";
+
+    position: absolute;
+    z-index: 3;
+
+    width: 18px;
+    height: 18px;
+
+    border:
+        2px solid
+        rgba(255, 255, 255, 0.45);
+    border-top-color: var(--resource-white);
+    border-radius: 50%;
+
+    animation:
+        resource-button-spin
+        700ms linear infinite;
+}
+
+@keyframes resource-button-spin {
+
+    to {
+        transform: rotate(360deg);
+    }
+
+}
+
+
+/* =========================================================
+   30. VALID INPUT STATE
+========================================================= */
+
+.form-group.has-success input,
+.form-group.has-success select,
+.form-group.has-success textarea {
+    border-color:
+        rgba(22, 163, 74, 0.42);
+
+    box-shadow:
+        0 0 0 4px
+        rgba(22, 163, 74, 0.06);
+}
+
+
+/* =========================================================
+   31. FORM DISABLED STATE
+========================================================= */
+
+#resourceForm.is-busy {
+    pointer-events: none;
+
+    opacity: 0.82;
+}
+
+
+/* =========================================================
+   32. SOURCE SECTION TRANSITION
+========================================================= */
+
+#internalResourceFields,
+#externalResourceFields {
+    animation:
+        resource-source-section-enter
+        240ms ease both;
+}
+
+@keyframes resource-source-section-enter {
+
+    from {
+        opacity: 0;
+
+        transform: translateY(7px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform: translateY(0);
+    }
+
+}
+
+
+/* =========================================================
+   33. RESPONSIVE — TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .toggle-options {
+        grid-template-columns: 1fr;
+    }
+
+    .resource-form-actions {
+        justify-content: stretch;
+    }
+
+    .secondary-resource-btn,
+    .save-resource-btn {
+        flex: 1;
+    }
+
+}
+
+
+/* =========================================================
+   34. RESPONSIVE — MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .file-upload-box {
+        min-height: 155px;
+        padding: 20px 14px;
+    }
+
+    .file-upload-box > i {
+        width: 52px;
+        height: 52px;
+
+        font-size: 21px;
+    }
+
+    .toggle-option {
+        min-height: 82px;
+        padding: 13px;
+    }
+
+    .resource-form-actions {
+        align-items: stretch;
+        flex-direction: column-reverse;
+    }
+
+    .secondary-resource-btn,
+    .save-resource-btn {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .upload-progress {
+        padding: 14px;
+    }
+
+}
+
+
+/* =========================================================
+   35. TOUCH DEVICE SAFETY
+========================================================= */
+
+@media (hover: none) and (pointer: coarse) {
+
+    .file-upload-box:hover,
+    .toggle-option:hover,
+    .secondary-resource-btn:hover,
+    .save-resource-btn:hover {
+        transform: none;
+    }
+
+    .secondary-resource-btn,
+    .save-resource-btn,
+    .add-resource-btn {
+        min-height: 48px;
+    }
+
+}
+
+
+/* =========================================================
+   36. REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .save-resource-btn.is-loading::after,
+    #internalResourceFields,
+    #externalResourceFields {
+        animation: none !important;
+    }
+
+}
+
+
+/* =========================================================
+   END OF RESOURCES.CSS — PART 2
+
+   PART 3 WILL INCLUDE:
+   - Resources table
+   - Resource title cell
+   - Type/category badges
+   - Status/source badges
+   - Performance cells
+   - Edit/delete/preview buttons
+   - Empty table state
+========================================================= */
+
+/* =========================================================
+   JOBQUESTAI ADMIN — STUDY RESOURCES
+
+   RESOURCES.CSS — PART 3A
+
+   Includes:
+   - Resources table foundation
+   - Table header and body
+   - Resource title cell
+   - Type badge
+   - Category badge
+   - Source badge
+   - Status badge
+   - Featured and New indicators
+========================================================= */
+
+
+/* =========================================================
+   37. RESOURCES TABLE PANEL
+========================================================= */
+
+.resources-table-panel {
+    position: relative;
+
+    overflow: hidden;
+
+    border:
+        1px solid
+        var(--resource-border-soft);
+}
+
+.resources-table-panel::before {
+    content: "";
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 3px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--resource-primary),
+            var(--resource-secondary)
+        );
+
+    opacity: 0.9;
+}
+
+
+/* =========================================================
+   38. TABLE WRAPPER
+========================================================= */
+
+.resources-table-wrapper {
+    width: 100%;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    border:
+        1px solid
+        var(--resource-border-soft);
+    border-radius: 16px;
+
+    -webkit-overflow-scrolling: touch;
+}
+
+.resources-table-wrapper::-webkit-scrollbar {
+    height: 8px;
+}
+
+.resources-table-wrapper::-webkit-scrollbar-track {
+    background: #f1f5f9;
+}
+
+.resources-table-wrapper::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+
+    border-radius: 999px;
+}
+
+.resources-table-wrapper::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}
+
+
+/* =========================================================
+   39. RESOURCES TABLE
+========================================================= */
+
+.resources-table {
+    width: 100%;
+    min-width: 1080px;
+
+    border-collapse: collapse;
+    border-spacing: 0;
+
+    color: var(--resource-dark-soft);
+    background: var(--resource-white);
+}
+
+
+/* =========================================================
+   40. TABLE HEAD
+========================================================= */
+
+.resources-table thead {
+    background:
+        linear-gradient(
+            180deg,
+            #f8fafc,
+            #f1f5f9
+        );
+}
+
+.resources-table th {
+    padding: 15px 16px;
+
+    color: var(--resource-muted);
+
+    border-bottom:
+        1px solid
+        var(--resource-border);
+
+    font-size: 11px;
+    font-weight: 800;
+    line-height: 1.2;
+    letter-spacing: 0.5px;
+    text-align: left;
+    text-transform: uppercase;
+
+    white-space: nowrap;
+}
+
+.resources-table th:first-child {
+    padding-left: 19px;
+}
+
+.resources-table th:last-child {
+    padding-right: 19px;
+    text-align: center;
+}
+
+
+/* =========================================================
+   41. TABLE BODY
+========================================================= */
+
+.resources-table tbody tr {
+    background: var(--resource-white);
+
+    transition:
+        background var(--resource-transition),
+        box-shadow var(--resource-transition);
+}
+
+.resources-table tbody tr:hover {
+    background:
+        linear-gradient(
+            90deg,
+            #ffffff,
+            #f8fbff
+        );
+
+    box-shadow:
+        inset 3px 0 0
+        var(--resource-primary);
+}
+
+.resources-table td {
+    padding: 15px 16px;
+
+    vertical-align: middle;
+
+    border-bottom:
+        1px solid
+        var(--resource-border-soft);
+
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+.resources-table td:first-child {
+    padding-left: 19px;
+}
+
+.resources-table td:last-child {
+    padding-right: 19px;
+}
+
+.resources-table tbody tr:last-child td {
+    border-bottom: 0;
+}
+
+
+/* =========================================================
+   42. RESOURCE TITLE CELL
+========================================================= */
+
+.resource-table-title-cell {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    min-width: 280px;
+    max-width: 390px;
+}
+
+.resource-table-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 46px;
+    height: 46px;
+    flex: 0 0 46px;
+
+    color: var(--resource-primary);
+    background: var(--resource-primary-soft);
+
+    border:
+        1px solid
+        rgba(37, 99, 235, 0.14);
+    border-radius: 13px;
+
+    box-shadow:
+        0 8px 18px
+        rgba(37, 99, 235, 0.08);
+
+    font-size: 17px;
+}
+
+.resource-table-title-content {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+
+    min-width: 0;
+}
+
+.resource-table-title-content strong {
+    display: block;
+
+    overflow: hidden;
+
+    color: var(--resource-dark);
+
+    font-size: 12.5px;
+    font-weight: 800;
+    line-height: 1.4;
+
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.resource-table-title-content small {
+    display: block;
+
+    overflow: hidden;
+
+    color: var(--resource-muted);
+
+    font-size: 10.5px;
+    line-height: 1.4;
+
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.resource-table-title-meta {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px;
+
+    margin-top: 2px;
+}
+
+
+/* =========================================================
+   43. COMMON ADMIN BADGE
+========================================================= */
+
+.resource-admin-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+
+    min-height: 27px;
+    padding: 5px 9px;
+
+    border:
+        1px solid
+        transparent;
+    border-radius: 999px;
+
+    font-size: 9.5px;
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: 0.2px;
+
+    white-space: nowrap;
+}
+
+.resource-admin-badge i {
+    font-size: 9px;
+}
+
+
+/* =========================================================
+   44. RESOURCE TYPE BADGES
+========================================================= */
+
+.resource-type-admin-badge {
+    color: var(--resource-primary);
+    background: var(--resource-primary-soft);
+
+    border-color:
+        rgba(37, 99, 235, 0.16);
+}
+
+.resource-type-admin-badge.notes {
+    color: #2563eb;
+    background: #eff6ff;
+}
+
+.resource-type-admin-badge.book {
+    color: #059669;
+    background: #ecfdf5;
+}
+
+.resource-type-admin-badge.past-paper {
+    color: #7c3aed;
+    background: #f5f3ff;
+}
+
+.resource-type-admin-badge.solved-paper {
+    color: #16a34a;
+    background: #f0fdf4;
+}
+
+.resource-type-admin-badge.mcqs {
+    color: #ea580c;
+    background: #fff7ed;
+}
+
+.resource-type-admin-badge.syllabus {
+    color: #0891b2;
+    background: #ecfeff;
+}
+
+.resource-type-admin-badge.guess-paper {
+    color: #d97706;
+    background: #fffbeb;
+}
+
+
+/* =========================================================
+   45. CATEGORY BADGES
+========================================================= */
+
+.resource-category-badge {
+    color: var(--resource-dark-soft);
+    background: #f8fafc;
+
+    border-color:
+        var(--resource-border);
+}
+
+.resource-category-badge.school {
+    color: #2563eb;
+    background: #eff6ff;
+}
+
+.resource-category-badge.college {
+    color: #7c3aed;
+    background: #f5f3ff;
+}
+
+.resource-category-badge.university {
+    color: #059669;
+    background: #ecfdf5;
+}
+
+.resource-category-badge.entry-test {
+    color: #ea580c;
+    background: #fff7ed;
+}
+
+.resource-category-badge.competitive-exam {
+    color: #0891b2;
+    background: #ecfeff;
+}
+
+.resource-category-badge.government-job {
+    color: #dc2626;
+    background: #fef2f2;
+}
+
+
+/* =========================================================
+   46. SOURCE BADGES
+========================================================= */
+
+.resource-source-badge {
+    color: var(--resource-primary);
+    background: var(--resource-primary-soft);
+
+    border-color:
+        rgba(37, 99, 235, 0.16);
+}
+
+.resource-source-badge.internal {
+    color: var(--resource-danger);
+    background: var(--resource-danger-soft);
+
+    border-color:
+        rgba(220, 38, 38, 0.14);
+}
+
+.resource-source-badge.external {
+    color: var(--resource-cyan);
+    background: var(--resource-cyan-soft);
+
+    border-color:
+        rgba(8, 145, 178, 0.16);
+}
+
+
+/* =========================================================
+   47. STATUS BADGES
+========================================================= */
+
+.resource-status-badge {
+    color: var(--resource-muted);
+    background: #f8fafc;
+
+    border-color:
+        var(--resource-border);
+}
+
+.resource-status-badge.published {
+    color: var(--resource-success);
+    background: var(--resource-success-soft);
+
+    border-color:
+        rgba(22, 163, 74, 0.16);
+}
+
+.resource-status-badge.draft {
+    color: var(--resource-warning);
+    background: var(--resource-warning-soft);
+
+    border-color:
+        rgba(217, 119, 6, 0.18);
+}
+
+
+/* =========================================================
+   48. FEATURED / NEW BADGES
+========================================================= */
+
+.resource-feature-flag,
+.resource-new-flag {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+
+    min-height: 22px;
+    padding: 4px 7px;
+
+    border-radius: 999px;
+
+    font-size: 8.5px;
+    font-weight: 800;
+    line-height: 1;
+}
+
+.resource-feature-flag {
+    color: #b45309;
+    background: #fef3c7;
+}
+
+.resource-new-flag {
+    color: #15803d;
+    background: #dcfce7;
+}
+
+.resource-feature-flag i,
+.resource-new-flag i {
+    font-size: 8px;
+}
+
+
+/* =========================================================
+   49. SUBJECT / PROGRAM TEXT
+========================================================= */
+
+.resource-subject-cell {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+
+    min-width: 130px;
+}
+
+.resource-subject-cell strong {
+    color: var(--resource-dark-soft);
+
+    font-size: 11.5px;
+    font-weight: 750;
+}
+
+.resource-subject-cell small {
+    color: var(--resource-muted);
+
+    font-size: 10px;
+}
+
+
+/* =========================================================
+   50. SOURCE DETAILS
+========================================================= */
+
+.resource-source-details {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+
+    min-width: 140px;
+}
+
+.resource-source-details small {
+    display: block;
+
+    max-width: 170px;
+    overflow: hidden;
+
+    color: var(--resource-muted);
+
+    font-size: 10px;
+
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   51. STATUS DETAILS
+========================================================= */
+
+.resource-status-details {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 6px;
+
+    min-width: 100px;
+}
+
+
+/* =========================================================
+   52. TABLE LOADING CELL
+========================================================= */
+
+.table-loading-cell {
+    padding: 45px 20px !important;
+
+    color: var(--resource-muted);
+
+    text-align: center !important;
+}
+
+.table-loading-cell i {
+    margin-right: 8px;
+
+    color: var(--resource-primary);
+
+    font-size: 16px;
+}
+
+
+/* =========================================================
+   53. TABLE ROW ENTRY
+========================================================= */
+
+.resources-table tbody tr {
+    animation:
+        resource-table-row-enter
+        240ms ease both;
+}
+
+.resources-table tbody tr:nth-child(1) {
+    animation-delay: 20ms;
+}
+
+.resources-table tbody tr:nth-child(2) {
+    animation-delay: 45ms;
+}
+
+.resources-table tbody tr:nth-child(3) {
+    animation-delay: 70ms;
+}
+
+.resources-table tbody tr:nth-child(4) {
+    animation-delay: 95ms;
+}
+
+.resources-table tbody tr:nth-child(5) {
+    animation-delay: 120ms;
+}
+
+@keyframes resource-table-row-enter {
+
+    from {
+        opacity: 0;
+        transform: translateY(6px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+/* =========================================================
+   54. RESPONSIVE — TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .resources-table {
+        min-width: 1020px;
+    }
+
+    .resource-table-title-cell {
+        min-width: 250px;
+    }
+
+}
+
+
+/* =========================================================
+   55. RESPONSIVE — MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .resources-table-panel {
+        padding: 18px 14px;
+    }
+
+    .resources-table-wrapper {
+        border-radius: 13px;
+    }
+
+    .resources-table th,
+    .resources-table td {
+        padding: 13px 12px;
+    }
+
+    .resource-table-icon {
+        width: 42px;
+        height: 42px;
+        flex-basis: 42px;
+
+        font-size: 15px;
+    }
+
+    .resource-table-title-content strong {
+        font-size: 11.5px;
+    }
+
+}
+
+
+/* =========================================================
+   56. REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .resources-table tbody tr {
+        animation: none !important;
+    }
+
+}
+
+
+/* =========================================================
+   END OF RESOURCES.CSS — PART 3A
+
+   PART 3B WILL INCLUDE:
+   - Performance counters
+   - Action buttons
+   - Preview/Edit/Delete buttons
+   - Empty state
+   - Delete modal
+   - Final responsive polish
+========================================================= */
+
+
+/* =========================================================
+   JOBQUESTAI ADMIN — STUDY RESOURCES
+
+   RESOURCES.CSS — PART 3B
+
+   Includes:
+   - Performance counters
+   - Resource action buttons
+   - Preview, edit and delete states
+   - Empty state
+   - Delete confirmation modal
+   - Final table responsiveness
+   - Final page polish
+========================================================= */
+
+
+/* =========================================================
+   57. PERFORMANCE CELL
+========================================================= */
+
+.resource-performance {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 7px;
+
+    min-width: 125px;
+}
+
+.resource-performance-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+
+    color: var(--resource-muted);
+
+    font-size: 10.5px;
+    font-weight: 650;
+    line-height: 1.2;
+
+    white-space: nowrap;
+}
+
+.resource-performance-item i {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 23px;
+    height: 23px;
+    flex: 0 0 23px;
+
+    border-radius: 7px;
+
+    font-size: 9px;
+}
+
+.resource-performance-item.views i {
+    color: var(--resource-primary);
+    background: var(--resource-primary-soft);
+}
+
+.resource-performance-item.downloads i {
+    color: var(--resource-success);
+    background: var(--resource-success-soft);
+}
+
+
+/* =========================================================
+   58. RESOURCE ACTIONS
+========================================================= */
+
+.resource-admin-actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+
+    min-width: 142px;
+}
+
+
+/* =========================================================
+   59. COMMON ACTION BUTTON
+========================================================= */
+
+.resource-admin-action-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 36px;
+    height: 36px;
+    padding: 0;
+
+    color: var(--resource-muted);
+    background: var(--resource-white);
+
+    border:
+        1px solid
+        var(--resource-border);
+    border-radius: 10px;
+
+    box-shadow:
+        0 5px 13px
+        rgba(15, 23, 42, 0.04);
+
+    cursor: pointer;
+
+    font-size: 12px;
+
+    transition:
+        color var(--resource-transition),
+        background var(--resource-transition),
+        border-color var(--resource-transition),
+        box-shadow var(--resource-transition),
+        transform var(--resource-transition);
+}
+
+.resource-admin-action-btn:hover {
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   60. PREVIEW ACTION
+========================================================= */
+
+.resource-preview-action {
+    color: var(--resource-cyan);
+    background: var(--resource-cyan-soft);
+
+    border-color:
+        rgba(8, 145, 178, 0.16);
+}
+
+.resource-preview-action:hover {
+    color: var(--resource-white);
+    background: var(--resource-cyan);
+
+    border-color: var(--resource-cyan);
+
+    box-shadow:
+        0 9px 20px
+        rgba(8, 145, 178, 0.2);
+}
+
+
+/* =========================================================
+   61. EDIT ACTION
+========================================================= */
+
+.resource-edit-action {
+    color: var(--resource-primary);
+    background: var(--resource-primary-soft);
+
+    border-color:
+        rgba(37, 99, 235, 0.16);
+}
+
+.resource-edit-action:hover {
+    color: var(--resource-white);
+    background: var(--resource-primary);
+
+    border-color: var(--resource-primary);
+
+    box-shadow:
+        0 9px 20px
+        rgba(37, 99, 235, 0.22);
+}
+
+
+/* =========================================================
+   62. DELETE ACTION
+========================================================= */
+
+.resource-delete-action {
+    color: var(--resource-danger);
+    background: var(--resource-danger-soft);
+
+    border-color:
+        rgba(220, 38, 38, 0.14);
+}
+
+.resource-delete-action:hover {
+    color: var(--resource-white);
+    background: var(--resource-danger);
+
+    border-color: var(--resource-danger);
+
+    box-shadow:
+        0 9px 20px
+        rgba(220, 38, 38, 0.2);
+}
+
+
+/* =========================================================
+   63. ACTION DISABLED STATE
+========================================================= */
+
+.resource-admin-action-btn:disabled {
+    cursor: not-allowed;
+
+    opacity: 0.45;
+
+    box-shadow: none;
+
+    transform: none;
+}
+
+
+/* =========================================================
+   64. ADMIN EMPTY STATE
+========================================================= */
+
+.admin-empty-state {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+
+    min-height: 310px;
+    margin-top: 18px;
+    padding: 35px 22px;
+
+    color: var(--resource-muted);
+    background:
+        radial-gradient(
+            circle at 50% 10%,
+            rgba(37, 99, 235, 0.06),
+            transparent 30%
+        ),
+        linear-gradient(
+            180deg,
+            #ffffff,
+            #f8fbff
+        );
+
+    border:
+        1px dashed
+        var(--resource-border);
+    border-radius: 18px;
+
+    text-align: center;
+}
+
+.admin-empty-state > i {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 76px;
+    height: 76px;
+    margin-bottom: 18px;
+
+    color: var(--resource-primary);
+    background: var(--resource-primary-soft);
+
+    border:
+        1px solid
+        rgba(37, 99, 235, 0.14);
+    border-radius: 22px;
+
+    box-shadow:
+        0 16px 32px
+        rgba(37, 99, 235, 0.1);
+
+    font-size: 28px;
+}
+
+.admin-empty-state h3 {
+    margin-bottom: 8px;
+
+    color: var(--resource-dark);
+
+    font-size: 21px;
+    font-weight: 800;
+}
+
+.admin-empty-state p {
+    max-width: 430px;
+    margin-bottom: 21px;
+
+    color: var(--resource-muted);
+
+    font-size: 12.5px;
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   65. ADMIN MODAL FOUNDATION
+========================================================= */
+
+.admin-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 1600;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+}
+
+.admin-modal-backdrop {
+    position: absolute;
+    inset: 0;
+
+    background:
+        rgba(2, 6, 23, 0.68);
+
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+}
+
+
+/* =========================================================
+   66. MODAL DIALOG
+========================================================= */
+
+.admin-modal-dialog {
+    position: relative;
+    z-index: 2;
+
+    width: min(
+        100%,
+        430px
+    );
+    padding: 32px 28px;
+
+    color: var(--resource-text);
+    background:
+        linear-gradient(
+            180deg,
+            #ffffff,
+            #fbfdff
+        );
+
+    border:
+        1px solid
+        rgba(226, 232, 240, 0.95);
+    border-radius: 22px;
+
+    box-shadow:
+        0 30px 80px
+        rgba(2, 6, 23, 0.28);
+
+    text-align: center;
+
+    animation:
+        resource-modal-enter
+        240ms ease both;
+}
+
+@keyframes resource-modal-enter {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(14px)
+            scale(0.98);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+
+}
+
+
+/* =========================================================
+   67. DELETE MODAL ICON
+========================================================= */
+
+.delete-modal-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 72px;
+    height: 72px;
+    margin-bottom: 18px;
+
+    color: var(--resource-danger);
+    background: var(--resource-danger-soft);
+
+    border:
+        1px solid
+        rgba(220, 38, 38, 0.15);
+    border-radius: 21px;
+
+    box-shadow:
+        0 15px 30px
+        rgba(220, 38, 38, 0.1);
+
+    font-size: 26px;
+}
+
+.admin-modal-dialog h2 {
+    margin-bottom: 10px;
+
+    color: var(--resource-dark);
+
+    font-size: 23px;
+    font-weight: 850;
+}
+
+.admin-modal-dialog p {
+    margin-bottom: 24px;
+
+    color: var(--resource-muted);
+
+    font-size: 12.5px;
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   68. MODAL ACTIONS
+========================================================= */
+
+.admin-modal-actions {
+    display: grid;
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+    gap: 11px;
+}
+
+
+/* =========================================================
+   69. DANGER BUTTON
+========================================================= */
+
+.danger-resource-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    min-height: 46px;
+    padding: 10px 16px;
+
+    color: var(--resource-white);
+    background:
+        linear-gradient(
+            135deg,
+            var(--resource-danger),
+            #b91c1c
+        );
+
+    border-radius: 12px;
+
+    box-shadow:
+        0 11px 24px
+        rgba(220, 38, 38, 0.2);
+
+    font-size: 12.5px;
+    font-weight: 750;
+
+    cursor: pointer;
+
+    transition:
+        box-shadow var(--resource-transition),
+        filter var(--resource-transition),
+        transform var(--resource-transition);
+}
+
+.danger-resource-btn:hover {
+    box-shadow:
+        0 15px 30px
+        rgba(220, 38, 38, 0.28);
+
+    filter: brightness(1.04);
+
+    transform: translateY(-2px);
+}
+
+.danger-resource-btn:disabled {
+    cursor: not-allowed;
+
+    opacity: 0.55;
+
+    box-shadow: none;
+
+    transform: none;
+}
+
+
+/* =========================================================
+   70. TABLE SUMMARY
+========================================================= */
+
+#resourceTableSummary {
+    color: var(--resource-muted);
+
+    font-size: 11.5px;
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   71. TABLE ERROR ROW
+========================================================= */
+
+.resource-table-error td {
+    padding: 40px 20px !important;
+
+    color: var(--resource-danger);
+    background: var(--resource-danger-soft);
+
+    text-align: center;
+}
+
+.resource-table-error i {
+    margin-right: 8px;
+}
+
+
+/* =========================================================
+   72. TABLE NO RESULTS ROW
+========================================================= */
+
+.resource-table-no-results td {
+    padding: 38px 20px !important;
+
+    color: var(--resource-muted);
+
+    text-align: center;
+}
+
+
+/* =========================================================
+   73. BODY MODAL LOCK
+========================================================= */
+
+body.admin-modal-open {
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   74. TOPBAR RESPONSIVE POLISH
+========================================================= */
+
+@media (max-width: 1200px) {
+
+    .topbar-actions {
+        justify-content: flex-start;
+        flex-wrap: wrap;
+    }
+
+}
+
+
+/* =========================================================
+   75. TABLET RESPONSIVE
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .resource-admin-actions {
+        justify-content: flex-start;
+    }
+
+    .admin-modal-dialog {
+        width: min(
+            100%,
+            410px
+        );
+    }
+
+}
+
+
+/* =========================================================
+   76. MOBILE RESPONSIVE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .resources-table {
+        min-width: 960px;
+    }
+
+    .resource-admin-actions {
+        gap: 6px;
+    }
+
+    .resource-admin-action-btn {
+        width: 34px;
+        height: 34px;
+
+        border-radius: 9px;
+    }
+
+    .admin-empty-state {
+        min-height: 280px;
+        padding: 30px 17px;
+    }
+
+    .admin-empty-state > i {
+        width: 66px;
+        height: 66px;
+
+        font-size: 24px;
+    }
+
+    .admin-empty-state h3 {
+        font-size: 19px;
+    }
+
+    .admin-modal {
+        padding: 12px;
+    }
+
+    .admin-modal-dialog {
+        padding: 27px 19px;
+
+        border-radius: 18px;
+    }
+
+    .admin-modal-actions {
+        grid-template-columns: 1fr;
+    }
+
+    .delete-modal-icon {
+        width: 64px;
+        height: 64px;
+
+        font-size: 23px;
+    }
+
+}
+
+
+/* =========================================================
+   77. TOUCH DEVICE SAFETY
+========================================================= */
+
+@media (hover: none) and (pointer: coarse) {
+
+    .resource-admin-action-btn {
+        min-width: 42px;
+        min-height: 42px;
+    }
+
+    .resource-admin-action-btn:hover,
+    .danger-resource-btn:hover {
+        transform: none;
+    }
+
+}
+
+
+/* =========================================================
+   78. REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .admin-modal-dialog {
+        animation: none !important;
+    }
+
+}
+
+
+/* =========================================================
+   79. FINAL ACCESSIBILITY
+========================================================= */
+
+.resource-admin-action-btn:focus-visible,
+.secondary-resource-btn:focus-visible,
+.save-resource-btn:focus-visible,
+.danger-resource-btn:focus-visible,
+.add-resource-btn:focus-visible,
+.preview-page-btn:focus-visible {
+    outline:
+        3px solid
+        rgba(37, 99, 235, 0.24);
+
+    outline-offset: 3px;
+}
+
+
+/* =========================================================
+   80. FINAL PAGE SPACING
+========================================================= */
+
+.resources-table-panel {
+    margin-bottom: 35px;
+}
+
+
+/* =========================================================
+   END OF RESOURCES.CSS
+
+   NEXT FILE:
+   resources.js
+
+   It will include:
+   - Firestore CRUD
+   - Form handling
+   - Internal/external switching
+   - Search and filters
+   - Edit and delete
+   - Table rendering
+   - Firebase Storage preparation
+========================================================= */

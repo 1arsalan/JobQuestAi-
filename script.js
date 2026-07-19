@@ -979,9 +979,11 @@ catch(error){
 
   // AVERAGE
   let average =
-    Math.round(
-      totalPercent / totalTests
-    );
+    totalTests > 0
+      ? Math.round(
+          totalPercent / totalTests
+        )
+      : 0;
 
   // UPDATE UI
   document.getElementById("totalTests")
@@ -2339,45 +2341,73 @@ async function forgotPassword() {
 
 function switchToLogin() {
 
-  isLogin = true;
+  const switchIndicator =
+    document.getElementById(
+      "switchIndicator"
+    );
 
-  document.getElementById(
-    "switchIndicator"
-  ).style.left = "4px";
+  const nameField =
+    document.getElementById(
+      "nameField"
+    );
 
-  document.getElementById(
-    "nameField"
-  ).style.display = "none";
-
-  document.getElementById(
-    "authTitle"
-  ).textContent = "Login";
+  const authTitle =
+    document.getElementById(
+      "authTitle"
+    );
 
   const authBtn =
-  document.getElementById(
-    "authBtn"
-  );
+    document.getElementById(
+      "authBtn"
+    );
 
-  authBtn.textContent = "Login";
+  const loginTab =
+    document.getElementById(
+      "loginTab"
+    );
 
-  authBtn.onclick = function () {
+  const registerTab =
+    document.getElementById(
+      "registerTab"
+    );
 
-    loginUser();
+  if (
+    !switchIndicator ||
+    !nameField ||
+    !authTitle ||
+    !authBtn ||
+    !loginTab ||
+    !registerTab
+  ) {
 
-  };
+    return;
 
-  document.getElementById(
-    "loginTab"
-  ).classList.add(
+  }
+
+  isLogin = true;
+
+  switchIndicator.style.left =
+    "4px";
+
+  nameField.style.display =
+    "none";
+
+  authTitle.textContent =
+    "Login";
+
+  authBtn.textContent =
+    "Login";
+
+  authBtn.onclick =
+    loginUser;
+
+  loginTab.classList.add(
     "active-auth-tab"
   );
 
-  document.getElementById(
-    "registerTab"
-  ).classList.remove(
+  registerTab.classList.remove(
     "active-auth-tab"
   );
-
 
 }
   

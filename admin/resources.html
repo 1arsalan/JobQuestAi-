@@ -1,0 +1,1584 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        JobQuestAI - Study Resources Management
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="admin.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="resources.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    >
+
+</head>
+
+
+<body>
+
+<div class="admin-layout">
+
+
+    <!-- =====================================================
+         SIDEBAR
+    ====================================================== -->
+
+    <aside class="sidebar">
+
+        <button
+            id="closeSidebar"
+            class="close-sidebar"
+            type="button"
+            aria-label="Close sidebar"
+        >
+
+            <i class="fa-solid fa-xmark"></i>
+
+        </button>
+
+
+        <div class="logo-section">
+
+            <div class="logo-icon">
+
+                <i class="fa-solid fa-shield-halved"></i>
+
+            </div>
+
+            <div>
+
+                <h2>
+                    JobQuestAI
+                </h2>
+
+                <p>
+                    Admin Command Center
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <nav class="sidebar-menu">
+
+            <a href="admin.html">
+
+                <i class="fa-solid fa-chart-line"></i>
+
+                <span>
+                    Dashboard
+                </span>
+
+            </a>
+
+
+            <a href="users.html">
+
+                <i class="fa-solid fa-users"></i>
+
+                <span>
+                    Users
+                </span>
+
+            </a>
+
+
+            <a href="jobs.html">
+
+                <i class="fa-solid fa-briefcase"></i>
+
+                <span>
+                    Jobs
+                </span>
+
+            </a>
+
+
+            <a href="tests.html">
+
+                <i class="fa-solid fa-file-circle-check"></i>
+
+                <span>
+                    Tests
+                </span>
+
+            </a>
+
+
+            <a
+                href="resources.html"
+                class="menu-active"
+            >
+
+                <i class="fa-solid fa-book-open"></i>
+
+                <span>
+                    Study Resources
+                </span>
+
+            </a>
+
+
+            <a href="analytics.html">
+
+                <i class="fa-solid fa-chart-pie"></i>
+
+                <span>
+                    Analytics
+                </span>
+
+            </a>
+
+
+            <a href="settings.html">
+
+                <i class="fa-solid fa-gear"></i>
+
+                <span>
+                    Settings
+                </span>
+
+            </a>
+
+        </nav>
+
+
+        <div class="admin-user">
+
+            <div class="admin-avatar">
+
+                A
+
+            </div>
+
+            <div>
+
+                <h4>
+                    Arsalan
+                </h4>
+
+                <span>
+                    Super Admin
+                </span>
+
+            </div>
+
+        </div>
+
+    </aside>
+
+
+    <!-- =====================================================
+         MAIN CONTENT
+    ====================================================== -->
+
+    <main class="main-content">
+
+
+        <!-- =================================================
+             TOP BAR
+        ================================================== -->
+
+        <header class="topbar">
+
+            <button
+                id="menuBtn"
+                class="menu-btn"
+                type="button"
+                aria-label="Open sidebar"
+            >
+
+                <i class="fa-solid fa-bars"></i>
+
+            </button>
+
+
+            <div>
+
+                <h1>
+                    Study Resources
+                </h1>
+
+                <p>
+                    Upload, publish and manage notes, books,
+                    past papers and official resources.
+                </p>
+
+            </div>
+
+
+            <div class="topbar-actions">
+
+                <a
+                    href="../pages/study-resources.html"
+                    class="preview-page-btn"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+
+                    <i class="fa-solid fa-eye"></i>
+
+                    View Library
+
+                </a>
+
+
+                <a
+                    href="admin.html"
+                    class="home-btn"
+                >
+
+                    <i class="fa-solid fa-house"></i>
+
+                    Dashboard
+
+                </a>
+
+
+                <button
+                    id="logoutBtn"
+                    class="logout-btn"
+                    type="button"
+                >
+
+                    <i class="fa-solid fa-right-from-bracket"></i>
+
+                    Logout
+
+                </button>
+
+            </div>
+
+        </header>
+
+
+        <!-- =================================================
+             RESOURCE STATISTICS
+        ================================================== -->
+
+        <section class="resource-stats-grid">
+
+            <article class="stat-card">
+
+                <div class="stat-icon">
+
+                    <i class="fa-solid fa-book-open"></i>
+
+                </div>
+
+                <h3>
+                    Total Resources
+                </h3>
+
+                <span id="totalResourcesCount">
+                    0
+                </span>
+
+            </article>
+
+
+            <article class="stat-card">
+
+                <div class="stat-icon internal-icon">
+
+                    <i class="fa-solid fa-folder-open"></i>
+
+                </div>
+
+                <h3>
+                    Internal Files
+                </h3>
+
+                <span id="internalResourcesCount">
+                    0
+                </span>
+
+            </article>
+
+
+            <article class="stat-card">
+
+                <div class="stat-icon external-icon">
+
+                    <i class="fa-solid fa-link"></i>
+
+                </div>
+
+                <h3>
+                    External Resources
+                </h3>
+
+                <span id="externalResourcesCount">
+                    0
+                </span>
+
+            </article>
+
+
+            <article class="stat-card">
+
+                <div class="stat-icon published-icon">
+
+                    <i class="fa-solid fa-circle-check"></i>
+
+                </div>
+
+                <h3>
+                    Published
+                </h3>
+
+                <span id="publishedResourcesCount">
+                    0
+                </span>
+
+            </article>
+
+        </section>
+
+
+        <!-- =================================================
+             RESOURCE MANAGEMENT TOOLBAR
+        ================================================== -->
+
+        <section class="resource-toolbar">
+
+            <div class="resource-search-box">
+
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+                <input
+                    type="search"
+                    id="resourceSearchInput"
+                    placeholder="Search resources by title, subject or exam..."
+                    autocomplete="off"
+                >
+
+            </div>
+
+
+            <div class="resource-toolbar-filters">
+
+                <select
+                    id="resourceTypeFilter"
+                    aria-label="Filter by resource type"
+                >
+
+                    <option value="">
+                        All Types
+                    </option>
+
+                    <option value="notes">
+                        Notes
+                    </option>
+
+                    <option value="book">
+                        Books
+                    </option>
+
+                    <option value="past-paper">
+                        Past Papers
+                    </option>
+
+                    <option value="solved-paper">
+                        Solved Papers
+                    </option>
+
+                    <option value="mcqs">
+                        MCQs
+                    </option>
+
+                    <option value="syllabus">
+                        Syllabus
+                    </option>
+
+                    <option value="guess-paper">
+                        Guess Papers
+                    </option>
+
+                </select>
+
+
+                <select
+                    id="resourceStatusFilter"
+                    aria-label="Filter by status"
+                >
+
+                    <option value="">
+                        All Statuses
+                    </option>
+
+                    <option value="published">
+                        Published
+                    </option>
+
+                    <option value="draft">
+                        Draft
+                    </option>
+
+                </select>
+
+
+                <button
+                    id="openResourceFormBtn"
+                    class="add-resource-btn"
+                    type="button"
+                >
+
+                    <i class="fa-solid fa-plus"></i>
+
+                    Add Resource
+
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             RESOURCE FORM PANEL
+        ================================================== -->
+
+        <section
+            id="resourceFormPanel"
+            class="panel resource-form-panel"
+            hidden
+        >
+
+            <div class="panel-heading">
+
+                <div>
+
+                    <span class="panel-eyebrow">
+                        Resource Editor
+                    </span>
+
+                    <h2 id="resourceFormTitle">
+                        Add New Resource
+                    </h2>
+
+                    <p>
+                        Add an Internal File or an official external resource.
+                    </p>
+
+                </div>
+
+
+                <button
+                    id="closeResourceFormBtn"
+                    class="close-resource-form-btn"
+                    type="button"
+                    aria-label="Close resource form"
+                >
+
+                    <i class="fa-solid fa-xmark"></i>
+
+                </button>
+
+            </div>
+
+
+            <form
+                id="resourceForm"
+                novalidate
+            >
+
+                <input
+                    type="hidden"
+                    id="resourceDocumentId"
+                >
+
+
+                <!-- Source type -->
+
+                <div class="form-section">
+
+                    <div class="form-section-heading">
+
+                        <i class="fa-solid fa-database"></i>
+
+                        <div>
+
+                            <h3>
+                                Resource Source
+                            </h3>
+
+                            <p>
+                                Choose whether the file belongs to JobQuestAI
+                                or links to an official website.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="source-type-options">
+
+                        <label class="source-type-option">
+
+                            <input
+                                type="radio"
+                                name="sourceType"
+                                value="internal"
+                                checked
+                            >
+
+                            <span class="source-option-content">
+
+                                <span class="source-option-icon">
+
+                                    <i class="fa-solid fa-file-arrow-up"></i>
+
+                                </span>
+
+                                <span>
+
+                                    <strong>
+                                        Internal Files
+                                    </strong>
+
+                                    <small>
+                                        Upload and manage PDF, Word and image files through JobQuestAI.
+                                    </small>
+
+                                </span>
+
+                            </span>
+
+                        </label>
+
+
+                        <label class="source-type-option">
+
+                            <input
+                                type="radio"
+                                name="sourceType"
+                                value="external"
+                            >
+
+                            <span class="source-option-content">
+
+                                <span class="source-option-icon external">
+
+                                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+
+                                </span>
+
+                                <span>
+
+                                    <strong>
+                                        External Official Link
+                                    </strong>
+
+                                    <small>
+                                        Add an official board, university or government URL.
+                                    </small>
+
+                                </span>
+
+                            </span>
+
+                        </label>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Basic details -->
+
+                <div class="form-section">
+
+                    <div class="form-section-heading">
+
+                        <i class="fa-solid fa-pen-to-square"></i>
+
+                        <div>
+
+                            <h3>
+                                Basic Information
+                            </h3>
+
+                            <p>
+                                Enter the title and description shown to students.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="resource-form-grid">
+
+                        <div class="form-group form-group-full">
+
+                            <label for="resourceTitle">
+                                Resource Title
+                                <span>*</span>
+                            </label>
+
+                            <input
+                                type="text"
+                                id="resourceTitle"
+                                maxlength="220"
+                                placeholder="Example: Class 9 Physics Complete Notes"
+                                required
+                            >
+
+                            <small class="field-error"></small>
+
+                        </div>
+
+
+                        <div class="form-group form-group-full">
+
+                            <label for="resourceDescription">
+                                Description
+                                <span>*</span>
+                            </label>
+
+                            <textarea
+                                id="resourceDescription"
+                                rows="4"
+                                maxlength="900"
+                                placeholder="Write a clear description of this study resource..."
+                                required
+                            ></textarea>
+
+                            <small class="field-error"></small>
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="resourceType">
+                                Resource Type
+                                <span>*</span>
+                            </label>
+
+                            <select
+                                id="resourceType"
+                                required
+                            >
+
+                                <option value="">
+                                    Select type
+                                </option>
+
+                                <option value="notes">
+                                    Notes
+                                </option>
+
+                                <option value="book">
+                                    Book
+                                </option>
+
+                                <option value="past-paper">
+                                    Past Paper
+                                </option>
+
+                                <option value="solved-paper">
+                                    Solved Paper
+                                </option>
+
+                                <option value="mcqs">
+                                    MCQs
+                                </option>
+
+                                <option value="syllabus">
+                                    Syllabus
+                                </option>
+
+                                <option value="guess-paper">
+                                    Guess Paper
+                                </option>
+
+                            </select>
+
+                            <small class="field-error"></small>
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="mainCategory">
+                                Main Category
+                                <span>*</span>
+                            </label>
+
+                            <select
+                                id="mainCategory"
+                                required
+                            >
+
+                                <option value="">
+                                    Select category
+                                </option>
+
+                                <option value="school">
+                                    School
+                                </option>
+
+                                <option value="college">
+                                    College
+                                </option>
+
+                                <option value="university">
+                                    University
+                                </option>
+
+                                <option value="entry-test">
+                                    Entry Tests
+                                </option>
+
+                                <option value="competitive-exam">
+                                    Competitive Exams
+                                </option>
+
+                                <option value="government-job">
+                                    Government Jobs
+                                </option>
+
+                            </select>
+
+                            <small class="field-error"></small>
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="educationLevel">
+                                Education Level
+                            </label>
+
+                            <select id="educationLevel">
+
+                                <option value="">
+                                    Select level
+                                </option>
+
+                                <option value="class-9">
+                                    Class 9
+                                </option>
+
+                                <option value="class-10">
+                                    Class 10
+                                </option>
+
+                                <option value="class-11">
+                                    Class 11
+                                </option>
+
+                                <option value="class-12">
+                                    Class 12
+                                </option>
+
+                                <option value="intermediate">
+                                    Intermediate
+                                </option>
+
+                                <option value="undergraduate">
+                                    Undergraduate
+                                </option>
+
+                                <option value="graduate">
+                                    Graduate
+                                </option>
+
+                                <option value="competitive">
+                                    Competitive Exam
+                                </option>
+
+                                <option value="job-preparation">
+                                    Job Preparation
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="programExam">
+                                Program / Exam
+                            </label>
+
+                            <input
+                                type="text"
+                                id="programExam"
+                                placeholder="Example: BSSE, CSS, PPSC, MDCAT"
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="resourceSemester">
+                                Semester
+                            </label>
+
+                            <select id="resourceSemester">
+
+                                <option value="">
+                                    Not applicable
+                                </option>
+
+                                <option value="1">
+                                    Semester 1
+                                </option>
+
+                                <option value="2">
+                                    Semester 2
+                                </option>
+
+                                <option value="3">
+                                    Semester 3
+                                </option>
+
+                                <option value="4">
+                                    Semester 4
+                                </option>
+
+                                <option value="5">
+                                    Semester 5
+                                </option>
+
+                                <option value="6">
+                                    Semester 6
+                                </option>
+
+                                <option value="7">
+                                    Semester 7
+                                </option>
+
+                                <option value="8">
+                                    Semester 8
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="resourceSubject">
+                                Subject Key
+                                <span>*</span>
+                            </label>
+
+                            <input
+                                type="text"
+                                id="resourceSubject"
+                                placeholder="Example: physics"
+                                required
+                            >
+
+                            <small class="field-help">
+                                Use a simple lowercase name such as physics or general-knowledge.
+                            </small>
+
+                            <small class="field-error"></small>
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="resourceSubjectLabel">
+                                Subject Display Name
+                                <span>*</span>
+                            </label>
+
+                            <input
+                                type="text"
+                                id="resourceSubjectLabel"
+                                placeholder="Example: Physics"
+                                required
+                            >
+
+                            <small class="field-error"></small>
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="resourceYear">
+                                Year
+                            </label>
+
+                            <input
+                                type="number"
+                                id="resourceYear"
+                                min="1990"
+                                max="2100"
+                                placeholder="2026"
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="resourceLanguage">
+                                Language
+                            </label>
+
+                            <select id="resourceLanguage">
+
+                                <option value="english">
+                                    English
+                                </option>
+
+                                <option value="urdu">
+                                    Urdu
+                                </option>
+
+                                <option value="english-urdu">
+                                    English + Urdu
+                                </option>
+
+                            </select>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =================================================
+                    INTERNAL RESOURCE FILE
+                ================================================== -->
+
+                <div
+                    id="internalResourceFields"
+                    class="form-section"
+                >
+
+                    <div class="form-section-heading">
+
+                        <i class="fa-solid fa-file-arrow-up"></i>
+
+                        <div>
+
+                            <h3>
+                                Internal Resource File
+                            </h3>
+
+                            <p>
+                                Upload a PDF, Word document or image,
+                                or add an existing public file URL.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="resource-form-grid">
+
+
+                        <!-- Resource file upload -->
+
+                        <div class="form-group form-group-full">
+
+                            <label for="resourcePdfFile">
+                                Select Resource File
+                            </label>
+
+                            <div class="file-upload-box">
+
+                                <input
+                                    type="file"
+                                    id="resourcePdfFile"
+                                    accept=".pdf,.doc,.docx,.jpg,.jpeg,.png,.webp,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document,image/jpeg,image/png,image/webp"
+                                >
+
+                                <i class="fa-solid fa-cloud-arrow-up"></i>
+
+                                <strong>
+                                    Choose PDF, Word or Image File
+                                </strong>
+
+                                <span id="selectedPdfFileName">
+                                    No file selected
+                                </span>
+
+                            </div>
+
+                            <small class="field-help">
+                                Supported formats:
+                                PDF, DOC, DOCX, JPG, JPEG, PNG and WEBP.
+                                Maximum size: 30 MB.
+                            </small>
+
+                            <div class="field-error"></div>
+
+                        </div>
+
+
+                        <!-- Existing public file URL -->
+
+                        <div class="form-group form-group-full">
+
+                            <label for="resourceFileUrl">
+                                Existing Public File URL
+                            </label>
+
+                            <input
+                                type="url"
+                                id="resourceFileUrl"
+                                placeholder="https://example.com/resource-file.pdf"
+                            >
+
+                            <small class="field-help">
+                                Use this field when the file is already hosted
+                                online. The URL must be publicly accessible.
+                            </small>
+
+                            <div class="field-error"></div>
+
+                        </div>
+
+
+                        <!-- File size -->
+
+                        <div class="form-group">
+
+                            <label for="resourceFileSize">
+                                File Size
+                            </label>
+
+                            <input
+                                type="text"
+                                id="resourceFileSize"
+                                placeholder="Example: 4.5 MB"
+                                readonly
+                            >
+
+                            <small class="field-help">
+                                Automatically detected when a local file is selected.
+                            </small>
+
+                            <div class="field-error"></div>
+
+                        </div>
+
+
+                        <!-- Pages -->
+
+                        <div class="form-group">
+
+                            <label for="resourcePages">
+                                Number of Pages
+                            </label>
+
+                            <input
+                                type="number"
+                                id="resourcePages"
+                                min="0"
+                                max="20000"
+                                placeholder="Example: 120"
+                            >
+
+                            <small class="field-help">
+                                Optional for images and external resources.
+                            </small>
+
+                            <div class="field-error"></div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- External resource -->
+
+                <div
+                    id="externalResourceFields"
+                    class="form-section"
+                    hidden
+                >
+
+                    <div class="form-section-heading">
+
+                        <i class="fa-solid fa-link"></i>
+
+                        <div>
+
+                            <h3>
+                                External Official Resource
+                            </h3>
+
+                            <p>
+                                Only use trusted and official resource links.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="resource-form-grid">
+
+                        <div class="form-group form-group-full">
+
+                            <label for="resourceExternalUrl">
+                                Official Resource URL
+                                <span>*</span>
+                            </label>
+
+                            <input
+                                type="url"
+                                id="resourceExternalUrl"
+                                placeholder="https://official-website.gov.pk/resource"
+                            >
+
+                            <small class="field-error"></small>
+
+                        </div>
+
+
+                        <div class="form-group form-group-full">
+
+                            <label for="resourceSourceName">
+                                Official Source Name
+                                <span>*</span>
+                            </label>
+
+                            <input
+                                type="text"
+                                id="resourceSourceName"
+                                placeholder="Example: Federal Public Service Commission"
+                            >
+
+                            <small class="field-error"></small>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Publishing options -->
+
+                <div class="form-section">
+
+                    <div class="form-section-heading">
+
+                        <i class="fa-solid fa-sliders"></i>
+
+                        <div>
+
+                            <h3>
+                                Publishing Options
+                            </h3>
+
+                            <p>
+                                Control visibility and highlighting on the user page.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="resource-form-grid">
+
+                        <div class="form-group">
+
+                            <label for="resourceStatus">
+                                Status
+                            </label>
+
+                            <select id="resourceStatus">
+
+                                <option value="published">
+                                    Published
+                                </option>
+
+                                <option value="draft">
+                                    Draft
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="resourceThumbnailUrl">
+                                Thumbnail URL
+                            </label>
+
+                            <input
+                                type="url"
+                                id="resourceThumbnailUrl"
+                                placeholder="Optional thumbnail image URL"
+                            >
+
+                        </div>
+
+
+                        <div class="toggle-options">
+
+                            <label class="toggle-option">
+
+                                <input
+                                    type="checkbox"
+                                    id="resourceFeatured"
+                                >
+
+                                <span class="toggle-switch"></span>
+
+                                <span>
+
+                                    <strong>
+                                        Featured
+                                    </strong>
+
+                                    <small>
+                                        Highlight this resource prominently.
+                                    </small>
+
+                                </span>
+
+                            </label>
+
+
+                            <label class="toggle-option">
+
+                                <input
+                                    type="checkbox"
+                                    id="resourceIsNew"
+                                    checked
+                                >
+
+                                <span class="toggle-switch"></span>
+
+                                <span>
+
+                                    <strong>
+                                        Mark as New
+                                    </strong>
+
+                                    <small>
+                                        Display the New badge on the resource card.
+                                    </small>
+
+                                </span>
+
+                            </label>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Upload progress -->
+
+                <div
+                    id="resourceUploadProgress"
+                    class="upload-progress"
+                    hidden
+                >
+
+                    <div class="upload-progress-header">
+
+                        <span>
+                            Uploading resource...
+                        </span>
+
+                        <strong id="resourceUploadPercent">
+                            0%
+                        </strong>
+
+                    </div>
+
+                    <div class="upload-progress-track">
+
+                        <span id="resourceUploadProgressBar"></span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Form actions -->
+
+                <div class="resource-form-actions">
+
+                    <button
+                        id="cancelResourceFormBtn"
+                        class="secondary-resource-btn"
+                        type="button"
+                    >
+
+                        Cancel
+
+                    </button>
+
+
+                    <button
+                        id="saveResourceBtn"
+                        class="save-resource-btn"
+                        type="submit"
+                    >
+
+                        <i class="fa-solid fa-cloud-arrow-up"></i>
+
+                        <span>
+                            Publish Resource
+                        </span>
+
+                    </button>
+
+                </div>
+
+            </form>
+
+        </section>
+
+
+        <!-- =================================================
+             RESOURCES TABLE
+        ================================================== -->
+
+        <section class="panel resources-table-panel">
+
+            <div class="panel-heading">
+
+                <div>
+
+                    <span class="panel-eyebrow">
+                        Resource Library
+                    </span>
+
+                    <h2>
+                        All Study Resources
+                    </h2>
+
+                    <p id="resourceTableSummary">
+                        Loading resources...
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="resources-table-wrapper">
+
+                <table class="resources-table">
+
+                    <thead>
+
+                        <tr>
+
+                            <th>
+                                Resource
+                            </th>
+
+                            <th>
+                                Type
+                            </th>
+
+                            <th>
+                                Category
+                            </th>
+
+                            <th>
+                                Source
+                            </th>
+
+                            <th>
+                                Status
+                            </th>
+
+                            <th>
+                                Performance
+                            </th>
+
+                            <th>
+                                Actions
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody id="resourcesTableBody">
+
+                        <tr>
+
+                            <td
+                                colspan="7"
+                                class="table-loading-cell"
+                            >
+
+                                <i class="fa-solid fa-spinner fa-spin"></i>
+
+                                Loading resources...
+
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+
+            <div
+                id="resourcesEmptyState"
+                class="admin-empty-state"
+                hidden
+            >
+
+                <i class="fa-solid fa-folder-open"></i>
+
+                <h3>
+                    No resources found
+                </h3>
+
+                <p>
+                    Add your first resource or change the active filters.
+                </p>
+
+                <button
+                    id="emptyAddResourceBtn"
+                    type="button"
+                    class="add-resource-btn"
+                >
+
+                    <i class="fa-solid fa-plus"></i>
+
+                    Add Resource
+
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             DELETE CONFIRMATION MODAL
+        ================================================== -->
+
+        <div
+            id="deleteResourceModal"
+            class="admin-modal"
+            hidden
+        >
+
+            <div
+                class="admin-modal-backdrop"
+                data-close-delete-modal
+            ></div>
+
+
+            <div
+                class="admin-modal-dialog"
+                role="dialog"
+                aria-modal="true"
+                aria-labelledby="deleteResourceModalTitle"
+            >
+
+                <div class="delete-modal-icon">
+
+                    <i class="fa-solid fa-trash-can"></i>
+
+                </div>
+
+                <h2 id="deleteResourceModalTitle">
+                    Delete Resource?
+                </h2>
+
+                <p>
+                    This resource will be removed from Firestore.
+                    Internal Storage deletion will be connected in the next stage.
+                </p>
+
+
+                <div class="admin-modal-actions">
+
+                    <button
+                        id="cancelDeleteResourceBtn"
+                        type="button"
+                        class="secondary-resource-btn"
+                    >
+
+                        Cancel
+
+                    </button>
+
+
+                    <button
+                        id="confirmDeleteResourceBtn"
+                        type="button"
+                        class="danger-resource-btn"
+                    >
+
+                        <i class="fa-solid fa-trash-can"></i>
+
+                        Delete Resource
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+</div>
+
+
+<script
+    type="module"
+    src="resources.js"
+></script>
+
+</body>
+
+</html>

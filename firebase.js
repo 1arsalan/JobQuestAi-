@@ -42,6 +42,20 @@ import {
 
 from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
+/* ================= FIREBASE STORAGE IMPORTS ================= */
+
+import {
+
+    getStorage,
+    ref,
+    uploadBytesResumable,
+    getDownloadURL,
+    deleteObject
+
+}
+
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-storage.js";
+
 // ================= FIREBASE CONFIG =================
 
 const firebaseConfig = {
@@ -67,6 +81,9 @@ getAuth(app);
 const db =
 getFirestore(app);
 
+const storage =
+getStorage(app);
+
 // ================= GLOBAL =================
 
 window.auth = auth;
@@ -87,6 +104,21 @@ window.onAuthStateChanged =
 onAuthStateChanged;
 
 window.db = db;
+
+window.storage =
+storage;
+
+window.storageRef =
+ref;
+
+window.uploadBytesResumable =
+uploadBytesResumable;
+
+window.getDownloadURL =
+getDownloadURL;
+
+window.deleteObject =
+deleteObject;
 
 window.collection = collection;
 
@@ -114,16 +146,23 @@ console.log(
 
 export {
 
-  db,
-  collection,
-  addDoc,
-  getDocs,
-  where,
-  query,
-  orderBy,
-  limit,
-  setDoc,
-  doc,
-  updateDoc
+    db,
+    storage,
+
+    collection,
+    addDoc,
+    getDocs,
+    where,
+    query,
+    orderBy,
+    limit,
+    setDoc,
+    doc,
+    updateDoc,
+
+    ref,
+    uploadBytesResumable,
+    getDownloadURL,
+    deleteObject
 
 };
