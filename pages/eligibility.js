@@ -514,7 +514,7 @@ if (analyzeCvBtn) {
             document.getElementById("targetRole").value
         );
 
-        const response = await fetch("/analyze-cv", {
+        const response = await fetch("http://localhost:3000/analyze-cv", {
             method: "POST",
             body: formData
         });
@@ -1033,7 +1033,7 @@ async function generateCoverLetter() {
     loadingSection.style.display = "block";
 
     const response = await fetch(
-        "/generate-cover-letter",
+        "http://localhost:3000/generate-cover-letter",
         {
             method: "POST",
             headers: {

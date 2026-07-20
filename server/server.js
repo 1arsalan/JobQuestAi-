@@ -2095,42 +2095,19 @@ app.get("/", (req, res) => {
 
 });
 
-app.get("*", (req, res, next) => {
+/* ================= FRONTEND FALLBACK ROUTE ================= */
 
-    if (
-        req.path.startsWith("/generate") ||
-        req.path.startsWith("/eligibility") ||
-        req.path.startsWith("/jobs") ||
-        req.path.startsWith("/analyze-cv") ||
-        req.path.startsWith("/api/")
-    ) {
+app.use((req, res, next) => {
 
+    if (req.method !== "GET") {
         return next();
-
     }
 
-    const requestedFile =
+    res.sendFile(
         path.join(
             frontendPath,
-            req.path
-        );
-
-    res.sendFile(
-        requestedFile,
-        function (error) {
-
-            if (error) {
-
-                res.sendFile(
-                    path.join(
-                        frontendPath,
-                        "index.html"
-                    )
-                );
-
-            }
-
-        }
+            "index.html"
+        )
     );
 
 });

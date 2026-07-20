@@ -153,7 +153,7 @@ if (analyzeAdBtn) {
 
                 const response =
                     await fetch(
-                        "/analyze-advertisement",
+                        "http://localhost:3000/analyze-advertisement",
                         {
                             method: "POST",
                             body: formData
@@ -410,7 +410,7 @@ if (generateStudyPlanBtn) {
 
                 const response =
                     await fetch(
-                        "/generate-study-plan",
+                        "http://localhost:3000/generate-study-plan",
                         {
                             method: "POST",
 
@@ -773,7 +773,7 @@ if (generateInterviewBtn) {
 
                 const response =
                     await fetch(
-                        "/generate-interview-prep",
+                        "http://localhost:3000/generate-interview-prep",
                         {
                             method: "POST",
 
@@ -1086,7 +1086,7 @@ if (generateCareerRoadmapBtn) {
 
                 const response =
                     await fetch(
-                        "/generate-career-roadmap",
+                        "http://localhost:3000/generate-career-roadmap",
                         {
                             method: "POST",
 
